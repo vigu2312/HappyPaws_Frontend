@@ -1,5 +1,12 @@
 .navbar {
     min-height: 80px;
+    
+  }
+.img{
+  float: left;
+}
+  .navbar_bg{
+    background-color: rgb(96, 176, 226);
   }
   
   .navbar-brand {
@@ -17,6 +24,7 @@
   
   .navbar-dark .navbar-nav .nav-link{
       color: rgba(255, 255, 255, 1);
+      
       font-weight: bold;
       font-size: 20px;
       padding-top: 26.5px;

@@ -7,6 +7,7 @@ import { Row, Col, Container } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
 import './HomePage.css';
 import NavbarComponent from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 
 class HomePage extends Component {
     render() {
@@ -155,8 +156,9 @@ class HomePage extends Component {
                         </Row>
                     </Container>
                 </div>
-
+                <Footer/>
             </div>
+
         );
 
     }

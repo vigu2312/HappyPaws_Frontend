@@ -1,0 +1,29 @@
+.footer{
+    background-color: rgb(96, 176, 226);
+    color: black;
+}
+
+
+.right{
+    float: left;
+    
+}
+
+li a{color:black}
+
+
+.link_title1{
+   
+   flex-direction: column;
+   flex-grow: 1;
+   display: flex;
+    
+}
+
+.title1{
+    float: right;
+    
+}
+
+
+li {list-style-type: none;}

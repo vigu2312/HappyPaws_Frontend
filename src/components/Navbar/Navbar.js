@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import logo from './Logo.png';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link, NavLink } from 'react-router-dom';
+import './Navbar.css';
 import { Form, Button } from 'react-bootstrap';
 import PetsIcon from '@material-ui/icons/Pets';
 
@@ -10,8 +12,15 @@ class NavbarComponent extends Component {
     render() {
         return (
             <div>
-                <Navbar bg="primary" variant="dark" expand="lg" >
-                    <Navbar.Brand as={Link} to="/"><PetsIcon fontSize="large" />HappyPaws</Navbar.Brand>
+                <Navbar  className="navbar_bg" expand="lg" >
+                <Navbar.Brand href="/">
+                        <img
+                            alt=""
+                            src={logo}
+                            width="30"
+                            height="30"
+                        />{' '}
+                        Happy Paws</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
