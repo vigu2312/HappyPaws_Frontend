@@ -1,6 +1,6 @@
 # Assignment 2
 
-The assignment shows the Frontend implementation of four pages of my web application "HappyPaws". These pages are Register, Home Page/Landing Page, Donation page and Share your story page.
+The project shows the Frontend implementation of the web application "HappyPaws". 
 
 * Date Created: 14 Jun 2020
 * Last Modification Date: 14 Jun 2020
@@ -8,6 +8,10 @@ The assignment shows the Frontend implementation of four pages of my web applica
 ## Authors
 
 * [Moni Shah](mn676765@dal.ca) 
+* [Ramya Ramathas](rm291207@dal.ca) 
+* [Moni Shah](mn676765@dal.ca) 
+* [Moni Shah](mn676765@dal.ca) 
+
 
 
 ### Prerequisites
