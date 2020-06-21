@@ -1,0 +1,44 @@
+.donateUs {
+    text-align: center;
+    font-family: serif;
+    font-weight: bold;
+    background-color: rgb(240, 238, 238);
+  }
+
+  .box-style{
+  border: 1px solid #eee;
+  box-shadow: 0 2px 3px #ccc;
+  margin: 10px 10px 10px 10px;
+  }
+
+  .border-right-here {
+    border-right: 1px solid #000000 !important;
+}
+@media(max-width: 768px){
+  .border-right-here {
+    border-right: 1px solid rgb(240, 238, 238) !important;
+  } 
+}
+
+  .vl {
+    margin: 15px;
+    border-left: 2px solid #eee;
+    height: 325px;
+  }
+
+  .fonts-class{ 
+    font-style: italic;
+    font-family: serif;
+    margin: 70px 40px 40px 40px;
+}
+
+.button-css{
+  margin: 20px 20px 20px 20px;
+}
+
+.captcha-css{
+  margin: 10px 10px 10px 10px;
+}
+h4{
+  font-style: italic;
+}
