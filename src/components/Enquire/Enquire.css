@@ -1,0 +1,37 @@
+.group{
+    padding-left: 100px;
+}
+
+.im1{
+    
+    border-radius: 50%;
+    width: 150px;
+    float: left;
+}
+.form{
+    margin-top: 100px;
+}
+.group2{
+    padding-left: 190px;
+}
+
+.row{
+    padding-left: 100px;
+}
+
+textarea{
+    height: 200px;
+    width: 600px;
+}
+
+.bg{
+    background-color: white;
+}
+
+.enquire{
+    float: left;
+}
+
+.btn1{
+    margin-bottom: 20px;
+}

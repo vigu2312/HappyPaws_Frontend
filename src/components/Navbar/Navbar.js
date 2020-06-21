@@ -6,7 +6,6 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link, NavLink } from 'react-router-dom';
 import './Navbar.css';
 import { Form, Button } from 'react-bootstrap';
-import PetsIcon from '@material-ui/icons/Pets';
 
 class NavbarComponent extends Component {
     render() {
@@ -34,6 +33,7 @@ class NavbarComponent extends Component {
                                 <NavDropdown.Item onClick={() => alert("Under Construction")}  href="#action/3.4">See our stories</NavDropdown.Item>
                             </NavDropdown>
                             <Nav.Link href="#contact" onClick={() => alert("Under Construction")} >Contact Us</Nav.Link>
+                            <Nav.Link as ={Link} to="/enquire" >Enquire</Nav.Link>
                         </Nav>
                         <Form inline>
                             <Link to="/register"><Button variant="light">Register</Button></Link>
