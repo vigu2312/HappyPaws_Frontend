@@ -33,7 +33,8 @@ class NavbarComponent extends Component {
                                 <NavDropdown.Item onClick={() => alert("Under Construction")}  href="#action/3.4">See our stories</NavDropdown.Item>
                             </NavDropdown>
                             <Nav.Link href="#contact" onClick={() => alert("Under Construction")} >Contact Us</Nav.Link>
-                            <Nav.Link as ={Link} to="/enquire" >Enquire</Nav.Link>
+                            {/* <Nav.Link as ={Link} to="/enquire" >Enquire</Nav.Link> */}
+                            <Nav.Link as ={Link} to="/profile" >Profile</Nav.Link>
                         </Nav>
                         <Form inline>
                             <Link to="/register"><Button variant="light">Register</Button></Link>
