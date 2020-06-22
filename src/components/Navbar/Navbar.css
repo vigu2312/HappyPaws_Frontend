@@ -6,7 +6,8 @@
   float: left;
 }
   .navbar_bg{
-    background-color: rgb(96, 176, 226);
+    /* background-color: rgb(173, 169, 169); */
+    background-color: rgb(161, 158, 158);
   }
   
   .navbar-brand {
