@@ -104,11 +104,7 @@ class HomePage extends Component {
                 <div>
                 </div>
                 <div className="btn-center">
-<<<<<<< HEAD
                     <button className="btn-css" onClick={this.showLoginModal} > Take a Quiz</button>
-=======
-                    <button className="btn-css" onClick={() => alert("Under Construction")} > Find a Pet</button>
->>>>>>> Initial_Repo
                 </div>
                 <div className = "modal-show">
                             <Login 

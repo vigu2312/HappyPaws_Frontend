@@ -8,8 +8,6 @@ import CreditCardInput from 'react-credit-card-input';
 import './Sponsor.css';
 import NavbarComponent from '../Navbar/Navbar';
 
-
-
 class Sponsor extends Component {
     render() {
 
