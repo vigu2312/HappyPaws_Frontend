@@ -1,0 +1,36 @@
+ .FormVolunteer{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-family: serif;
+} 
+.root{
+  font-family: serif;
+} 
+
+.MainVolunteer{
+  background:white;
+  font-family: serif; 
+}
+
+[alt="Volunteer"]{
+  height: 530px;
+  width:1100px;
+  box-shadow: 0 4px 5px black;
+  border-radius: 8px;
+}
+
+/* .events {
+  list-style-type: circle;
+  margin: 0;
+  padding: 0;
+} */
+
+.rows{
+  padding-left: 100px;
+  padding-bottom: 20px;
+  justify-content: space-between;
+}
+.tab{
+  text-align: center;
+}

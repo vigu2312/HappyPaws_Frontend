@@ -1,0 +1,33 @@
+.FormAdopt{
+  background:white;
+  font-family: serif;
+}
+
+.FormVolunteer{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.row{
+  padding-left: 100px;
+  padding-bottom: 20px;
+  justify-content: space-evenly;
+}
+
+
+.MainVolunteer{
+  background:white;
+  font-family: serif; 
+}
+
+.textarea{
+  height: 200px;
+  width: 400px;
+}
+
+[alt="Volunteer"]{
+  max-width: 100%;
+    height: auto;
+  box-shadow: 0 4px 5px black;
+  border-radius: 8px;
+}
