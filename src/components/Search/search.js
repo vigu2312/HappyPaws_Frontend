@@ -200,7 +200,7 @@ render() {
                   {d.age} Years | {d.breed} | {d.location} miles away
                   
                   </Card.Text>
-                  <Button variant="outline-info" onClick={() => this.props.history.push('/profile')}>View</Button>
+                  <Button  className="button-css" variant="outline-primary"  onClick={() => this.props.history.push('/profile')}>View</Button>
                 </Card.Body>
               </Card>
               </li></ul>
@@ -216,7 +216,7 @@ render() {
       <Row className="search-center m-5"> 
         <Form inline >
           <FormControl  type="text" placeholder="Search" onChange={(e)=>this.handleSearch(e)} />
-          <Button variant="outline-success">Search</Button>
+          <Button className="button-css" variant="outline-primary" size="lg">Search</Button>
         </Form>
       </Row>
 
@@ -292,7 +292,7 @@ render() {
               <option value="S">More than 15</option>
             </Select>
           </FCMaterial>
-          <Button variant="success m-5" className="search-center" onClick={this.clearFilter}>Clear Filters </Button>
+          <Button variant="success m-5" className="button-css" variant="outline-primary"  onClick={this.clearFilter}>Clear Filters </Button>
         </Col>
         <Col sm={10} md={10}>
           <Row>
