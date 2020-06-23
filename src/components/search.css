@@ -1,0 +1,33 @@
+ul{
+    list-style-type : none;
+}
+
+.image{
+        width: 150;
+        height: 150;
+        border-radius: 150 / 2;
+        overflow: "hidden";
+        border-width: 3;
+        border-color: "red";
+      }
+.options{
+    width: 80;
+    height:90;
+    margin-left: 2px;
+    margin-right:0px;
+}
+
+.background{
+    background-image: linear-gradient(-90deg,rgb(22, 18, 75), rgb(6, 1, 24));
+    background-repeat: no-repeat;
+}
+
+.search-center{
+    align-self: center;
+    align-content: center;
+    vertical-align: middle;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}

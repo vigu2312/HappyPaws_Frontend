@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+Happy Paws
+
+HappyPaws allows users find a love in the form of a pet and also save them by giving them care and comfort in their home. The main goal of this platform is to rescue and provide a safe home for pets especially dogs and cats, also bring together the pet lovers for saving their life. This can be accomplished by adopting a pet or sponsoring them by taking care of their entire on-going cost. This application also creates a path for people who are enthusiastic towards contributing but are not ready to adopt an animal by donation 
+
+Team Members
+
+Moni Shah - (Developer)
+Bhagyashree Pandit - (Developer)
+Ramya Ramathas - (Developer)
+Ravichandran Vigneshwari - (Developer)
+Shah Devam - (Developer)
+=======
 # Assignment 2
 
 The project shows the Frontend implementation of the web application "HappyPaws". 
@@ -180,3 +193,4 @@ Pet available near your location Image 2: https://live.staticflickr.com/730/2122
 Pet available near your location Image 3: https://upload.wikimedia.org/wikipedia/commons/6/66/An_up-close_picture_of_a_curious_male_domestic_shorthair_tabby_cat.jpg
 
 Pet available near your location Image 4:https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_960_720.jpg
+>>>>>>> e4907b198a34e43e93b15219b6d2c7ad209249f9
