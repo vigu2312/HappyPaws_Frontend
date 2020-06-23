@@ -1,0 +1,50 @@
+.App {
+    text-align: center;
+    border: 1px solid #000000;
+    box-shadow: 0 2px 3px #ccc;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+body {
+  background-color: rgb(152, 184, 214); 
+  background-image: linear-gradient(to right, rgb(40, 76, 134) , rgb(172, 199, 221)); 
+}
+  .main{
+    padding-top: calc(10% - 83px);
+    padding-left: calc(28%);
+    padding-right: calc(28%);
+    padding-bottom: calc(10% - 100px);
+  }
+
+  .custom-class {
+    margin: 15px;
+  }
+  .mainheader{
+    font-family: "serif"; 
+    font-weight: 300;
+    margin: 12px
+  }
+  
+  .custom-h6{
+    font-family: "serif"; 
+    font-weight: 150;
+    margin: 12px
+  }
+
+  .button-class{
+    margin: 35px;
+  }
+
+  @media(max-width: 850px) {
+    .main{
+      padding-top: 0;
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: 0;
+      height: calc(100%);
+    }
+  }

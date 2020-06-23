@@ -1,0 +1,26 @@
+.modal-header .nav-item {
+    font-size: 1rem;
+    width: 50%;
+}
+
+.modal-header .modal-title {
+    width: 100%;
+}
+
+.login-form .form-label {
+    float: left;
+    padding-left: 15px;
+}
+
+.container .form-label {
+    float: left;
+}
+
+.register-form .form-label {
+    float: left;
+    padding-left: 15px;
+}
+
+.modal-login-title {
+    width: 100%;
+}

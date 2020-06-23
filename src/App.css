@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .jumbo {
   text-align: center;
   color: red;
@@ -11,6 +12,13 @@
 
 .center{
   align-content: center;
+=======
+.App {
+  text-align: center;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 3px #ccc;
+  background-color:	rgb(255, 255, 255);
+>>>>>>> e4907b198a34e43e93b15219b6d2c7ad209249f9
 }
 
 .App-logo {
@@ -23,6 +31,13 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+<<<<<<< HEAD
+=======
+#grad{
+  background-color: rgb(50, 110, 167); 
+  background-image: linear-gradient(to right, rgb(22, 58, 116) , rgb(170, 196, 219)); 
+}
+>>>>>>> e4907b198a34e43e93b15219b6d2c7ad209249f9
 
 .App-header {
   background-color: #282c34;
@@ -38,7 +53,45 @@
 .App-link {
   color: #61dafb;
 }
+<<<<<<< HEAD
 
+=======
+.main{
+  padding-top: calc(15% - 83px);
+  padding-left: calc(18%);
+  padding-right: calc(18%);
+  padding-bottom: calc(15% - 100px);
+}
+.custom-class {
+  margin: 15px;
+}
+.input-class{
+  width: 35ch;
+}
+.mainheader{
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 300;
+  margin: 12px
+}
+
+.custom-h6{
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 150;
+  margin: 12px
+}
+.button-class{
+  margin: 35px;
+}
+
+.vertical-align{
+  padding: 70px 0;
+}
+.vl {
+  margin: 15px;
+  border-left: 2px solid #eee;
+  height: 325px;
+}
+>>>>>>> e4907b198a34e43e93b15219b6d2c7ad209249f9
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

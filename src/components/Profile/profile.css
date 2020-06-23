@@ -1,0 +1,61 @@
+.img{
+    width: 80%;
+    height: 600px;
+    margin-left: 150px;
+    border: 5px solid rgb(1, 4, 24);
+}
+.about-text{
+    float: left;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.font{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 40px 40px 40px 40px;
+}
+.font1{
+    
+    
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.font2{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: left;
+}
+.card{
+    color: rgb(74, 141, 218); 
+}
+ ul li {
+    margin-top: 40px;
+    display: inline-block;
+    padding-left: 30px;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    filter: invert(100%);
+}
+
+.button{
+    margin-top: 20px;
+    width: 200px;
+}
+.col{
+    text-align: left;
+}
+
+.card1{
+    border-radius: 20px !important;
+    margin-top: 20px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+
+
+@media (max-width:500px) {
+    
+.img{
+   
+   
+}
+}

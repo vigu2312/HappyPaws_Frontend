@@ -1,0 +1,51 @@
+.navbar {
+    min-height: 80px;
+    
+  }
+.img{
+  float: left;
+}
+  .navbar_bg{
+
+    background-color: #3f51b5;
+
+  }
+  
+  .navbar-brand {
+    padding: 15px 30px 30px 30px;
+    height: 80px;
+    line-height: 80px;
+    font-weight: bold;
+    font-size: 28px !important;
+  }
+
+  .navbar-light .navbar-nav .nav-link {
+    color: white !important;
+}
+
+  .navbar-light .navbar-brand {
+    color: white !important;
+  }
+  
+  .navbar-toggle {
+    margin-top: 23px;
+    padding: 9px 10px !important;
+  }
+  
+  .navbar-dark .navbar-nav .nav-link{
+      color: rgba(255, 255, 255, 1);
+      
+      font-weight: bold;
+      font-size: 20px;
+      padding-top: 26.5px;
+      padding-bottom: 26.5px;
+      padding-left: 27.5px;
+      padding-right: 27.5px;
+  }
+
+  .nav-link .active{
+background-color: lavender;
+  }
+  .active{
+    font-weight: bold;
+  }
