@@ -12,9 +12,13 @@ import Sponsor from './components/SponsorPet/Sponsor';
 
 function App() {
   return (
+<<<<<<< HEAD
 
     
     <React.Fragment>
+=======
+    <div>
+>>>>>>> Initial_Repo
     
       <Switch>
         <Route path="/" exact component={HomePage} />

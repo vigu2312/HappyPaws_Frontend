@@ -41,7 +41,7 @@ class HomePage extends Component {
 
         return (
             <div className="home-component">
-                 <NavbarComponent />
+                <NavbarComponent />
                 <Carousel>
                     <Carousel.Item>
                         <img
@@ -49,7 +49,7 @@ class HomePage extends Component {
                             src="https://storage.needpix.com/rsynced_images/dogs-4137678_1280.jpg"
                             alt="First slide"
                             width="100%"
-                            height="375px"
+                            height="450px"
                         />
                         <Carousel.Caption>
                             <h3>First slide label</h3>
@@ -62,7 +62,7 @@ class HomePage extends Component {
                             src="https://storage.needpix.com/rsynced_images/cat-4262034_1280.jpg"
                             alt="Third slide"
                             width="100%"
-                            height="375px"
+                            height="450px"
                         />
 
                         <Carousel.Caption>
@@ -76,7 +76,7 @@ class HomePage extends Component {
                             src="https://www.hertsforlearning.co.uk/sites/default/files/images/blog/DOG%20PIC%201.jpg"
                             alt="Third slide"
                             width="100%"
-                            height="375px"
+                            height="450px"
                         />
 
                         <Carousel.Caption>
@@ -86,25 +86,29 @@ class HomePage extends Component {
                     </Carousel.Item>
                 </Carousel>
                 <div>
-                    
+
                 </div>
                 <h4 className="font-style-class">Pet Description</h4>
                 <Container>
                     <Row>
                         <Col xs={12} sm={12} md={6} lg={6}>
-                        Saving a life is always the best gift you could offer. And when it comes to pets, there is not enough shelter for the number of animals that are born every year. This can be assisted by providing them a safe place for life. Adopting them and giving them a little space in our homes and lives would create a great impact in their lives. HappyPaws is intended in helping find a lovely and safe home for animals who don’t have a proper shelter.
+                            Saving a life is always the best gift you could offer. And when it comes to pets, there is not enough shelter for the number of animals that are born every year. This can be assisted by providing them a safe place for life. Adopting them and giving them a little space in our homes and lives would create a great impact in their lives. HappyPaws is intended in helping find a lovely and safe home for animals who don’t have a proper shelter.
                         </Col>
                         <Col xs={12} sm={12} md={6} lg={6}>
                             <div className="font-class">
-                               <h4>"Bring a pet into your family today"</h4> 
-                        </div>
+                                <h4>"Bring a pet into your family today"</h4>
+                            </div>
                         </Col>
                     </Row>
                 </Container>
                 <div>
                 </div>
                 <div className="btn-center">
+<<<<<<< HEAD
                     <button className="btn-css" onClick={this.showLoginModal} > Take a Quiz</button>
+=======
+                    <button className="btn-css" onClick={() => alert("Under Construction")} > Find a Pet</button>
+>>>>>>> Initial_Repo
                 </div>
                 <div className = "modal-show">
                             <Login 
@@ -129,7 +133,7 @@ class HomePage extends Component {
                             </div>
                         </Col>
                         <Col xs={4.5} sm={6} md={6} lg={3}>
-                            <div style={{ cursor: "pointer" }} onClick={() => alert("Under Construction")}  className="img-pets">
+                            <div style={{ cursor: "pointer" }} onClick={() => alert("Under Construction")} className="img-pets">
                                 <img height="250px" width="100%" src="https://upload.wikimedia.org/wikipedia/commons/6/66/An_up-close_picture_of_a_curious_male_domestic_shorthair_tabby_cat.jpg"></img>
                                 <p>Mixy, Spring Garden</p>
                             </div></Col>
@@ -162,35 +166,34 @@ class HomePage extends Component {
                     <h4 className="font-style-class">Get your new friend today</h4>
                     <Container>
                         <Row>
-                            <Col xs={9} sm={6} md ={4} lg={4}>
+                            <Col xs={9} sm={6} md={4} lg={4}>
                                 <div className="connect-style">
                                     Pet Adoption FAQS
-                                   <img src="https://cdn.pixabay.com/photo/2016/10/20/18/36/search-1756278_960_720.jpg" width="100%" height="100px"></img>
+                                   <img src="https://www.isqua.org/images/2018/02/16/faq-img.png" width="100%" height="100px"></img>
                            Have a question? Get answers to questions over here..
                            <div><Button variant="outline-primary" onClick={() => alert("Under Construction")} >FAQs</Button>{' '}</div>
                                 </div>
                             </Col>
-                            <Col xs={9} sm={6} md ={4} lg={4}>
+                            <Col xs={9} sm={6} md={4} lg={4}>
                                 <div className="connect-style">
                                     Contact Us
-                                    <img src="https://live.staticflickr.com/4294/35454264413_a1241fddbd_b.jpg" width="100%" height="100px"></img>
-
-                          Want to contact us? Details for contacting us are mentioned in Contact Us.
+                                    <img src="https://mortgagephonenumber.com/wp-content/uploads/2018/12/contact_insurance.jpg" width="100%" height="100px"></img>
+                                Details for contacting us are mentioned in Contact Us.
                           <div><Button variant="outline-primary" onClick={() => alert("Under Construction")} >Contact Us</Button>{' '}</div>
                                 </div>
                             </Col>
-                            <Col xs={9} sm={6} md ={4} lg={4}>
+                            <Col xs={9} sm={6} md={4} lg={4}>
                                 <div className="connect-style">
                                     About Us
                                     <img src="https://cdn.pixabay.com/photo/2016/03/11/08/02/usa-1249880_960_720.jpg" width="100%" height="100px"></img>
-                                Want to know more about us? Visit your About Us page to know our details.
+                               Visit your About Us page to know our details.
                             <div><Button variant="outline-primary" onClick={() => alert("Under Construction")} >About Us</Button>{' '}</div>
                                 </div>
                             </Col>
                         </Row>
                     </Container>
                 </div>
-                <Footer/>
+                <Footer />
             </div>
 
         );

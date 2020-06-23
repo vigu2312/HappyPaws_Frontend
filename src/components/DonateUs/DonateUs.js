@@ -8,6 +8,10 @@ import Carousel from 'react-bootstrap/Carousel';
 import PetsIcon from '@material-ui/icons/Pets';
 import NavbarComponent from '../Navbar/Navbar';
 import { Link } from 'react-router-dom';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+import InputLabel from '@material-ui/core/InputLabel';
+import Footer from '../Footer/Footer';
 
 class DonateUs extends Component {
     state = {
@@ -27,7 +31,9 @@ class DonateUs extends Component {
         cardNumberError: null,
         captchaError: null,
         disabled: true,
-        amountTextVisisble: false
+        amountTextVisisble: false,
+        reason: '',
+        setReason: ''
     }
 
     monthlyClick = () => {
@@ -215,46 +221,22 @@ class DonateUs extends Component {
                 <NavbarComponent />
                 <div className="donateUs">
                     <form onSubmit={this.onSubmit}>
-                        <h1><PetsIcon style={{ fontSize: 40, marginBottom: 10, marginRight: 5 }} />Donate Us</h1>
+                        <h1>Donate Us</h1>
                         <h4> We need your help because every pet deserves care</h4>
                         <div>
                             <Container>
                                 <Row>
-                                    <Col className="box-style" xs={12} sm={12} md={12} lg={12}>
-                                        <Carousel>
-                                            <Carousel.Item>
-                                                <img
-                                                    className="d-block w-100"
-                                                    src="https://storage.needpix.com/rsynced_images/dogs-4137678_1280.jpg"
-                                                    alt="First slide"
-                                                    width="100%"
-                                                    height="350px"
-                                                />
-                                            </Carousel.Item>
-                                            <Carousel.Item>
-                                                <img
-                                                    className="d-block w-100"
-                                                    src="https://storage.needpix.com/rsynced_images/cat-4262034_1280.jpg"
-                                                    alt="Second slide"
-                                                    width="100%"
-                                                    height="350px"
-                                                />
-                                            </Carousel.Item>
-                                            <Carousel.Item>
-                                                <img
-                                                    className="d-block w-100"
-                                                    src="https://www.hertsforlearning.co.uk/sites/default/files/images/blog/DOG%20PIC%201.jpg"
-                                                    alt="Third slide"
-                                                    width="100%"
-                                                    height="350px"
-                                                />
-                                            </Carousel.Item>
-                                        </Carousel>
+                                    <Col xs={12} sm={12} md={12} lg={12}>
+                                        <img
+                                            src="https://i.pinimg.com/originals/19/58/38/19583866f2c33d855fd2be99b47cddfe.gif"
+                                            alt="First slide"
+                                            height="350px"
+                                            width="70%"
+                                        />
                                     </Col>
                                     <Col xs={12} sm={12} md={12} lg={12}>
                                         <div className="fonts-class">
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                            Lorem Ipsum has been the indused in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                        Your gift changes the lives of pets in need and those who love them. Every dollar you donate to HappyPaws goes directly to support pets in communities just like yours. Help them to grow and nourish their life by donating.Donate to a pet today.
                            </div>
                                     </Col>
                                 </Row>
@@ -307,6 +289,21 @@ class DonateUs extends Component {
                                                 required label="Amount"
                                                 onBlur={this.isSubmitDisabled}
                                                 required label="Amount" />
+                                        </div>
+                                        <div className="custom-class">
+                                            <InputLabel className="label-style">Apply your donation to a specific fund</InputLabel>
+                                            <Select
+                                                className="input-class"
+                                                labelId="demo-simple-select-label"
+                                                id="demo-simple-select"
+                                                value={this.reason}
+                                                onChange={e => this.onValueChange(e, 'reason')}>
+                                                <MenuItem value={10}>A one time gift to animals</MenuItem>
+                                                <MenuItem value={20}>A tribute gift to someone special</MenuItem>
+                                                <MenuItem value={30}>HappyPaws care foster program</MenuItem>
+                                                <MenuItem value={40}>General</MenuItem>
+
+                                            </Select>
                                         </div>
                                     </div>
                                 </Col>
@@ -363,6 +360,7 @@ class DonateUs extends Component {
                                 disabled={this.state.disabled} className="button-css" variant="outline-primary" size="lg">Donate</Button>{' '}</Link></div>
                     </form>
                 </div >
+                <Footer />
             </div>
         );
     }

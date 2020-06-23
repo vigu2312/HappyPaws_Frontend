@@ -1,29 +1,25 @@
 .footer{
-    /* background-color: rgb(196, 191, 191); */
-    background-color: rgb(161, 158, 158);
-    color: black;
-}
 
+    background-color: rgb(40, 76, 134) ; 
+    color: white;
+
+   
+}
 
 .right{
     float: left;
     
 }
 
-li a{color:black}
-
-
+li a{color:white}
 .link_title1{
    
    flex-direction: column;
    flex-grow: 1;
-   display: flex;
-    
+   display: flex; 
 }
-
 .title1{
-    float: right;
-    
+    float: right; 
 }
 
 
