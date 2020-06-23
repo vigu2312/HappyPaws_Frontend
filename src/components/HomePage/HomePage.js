@@ -46,7 +46,7 @@ class HomePage extends Component {
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
-                            src="https://storage.needpix.com/rsynced_images/dogs-4137678_1280.jpg"
+                            src="https://www.sciencemag.org/sites/default/files/styles/article_main_large/public/dogs_1280p_0.jpg?itok=cnRk0HYq"
                             alt="First slide"
                             width="100%"
                             height="450px"
@@ -59,12 +59,11 @@ class HomePage extends Component {
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
-                            src="https://storage.needpix.com/rsynced_images/cat-4262034_1280.jpg"
+                            src="https://www.c-ville.com/wp-content/uploads/2019/09/Cats.jpg"
                             alt="Third slide"
                             width="100%"
                             height="450px"
                         />
-
                         <Carousel.Caption>
                             <h3>Second slide label</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -73,12 +72,11 @@ class HomePage extends Component {
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
-                            src="https://www.hertsforlearning.co.uk/sites/default/files/images/blog/DOG%20PIC%201.jpg"
+                            src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg"
                             alt="Third slide"
                             width="100%"
                             height="450px"
                         />
-
                         <Carousel.Caption>
                             <h3>Third slide label</h3>
                             <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
@@ -180,10 +178,10 @@ class HomePage extends Component {
                             </Col>
                             <Col xs={9} sm={6} md={4} lg={4}>
                                 <div className="connect-style">
-                                    About Us
-                                    <img src="https://cdn.pixabay.com/photo/2016/03/11/08/02/usa-1249880_960_720.jpg" width="100%" height="100px"></img>
-                               Visit your About Us page to know our details.
-                            <div><Button variant="outline-primary" onClick={() => alert("Under Construction")} >About Us</Button>{' '}</div>
+                                    Volunteer
+                                    <img src="https://coaottawa.ca/wp-content/uploads/2019/09/volunteer-hands-COA.jpg" width="100%" height="100px"></img>
+                               Visit our Volunteer page to know our details.
+                            <div><Button variant="outline-primary" onClick={() => alert("Under Construction")} >Volunteer</Button>{' '}</div>
                                 </div>
                             </Col>
                         </Row>

@@ -20,10 +20,10 @@ const FooterPage = () => {
                 <a href="/donation">Donation</a>
               </li>
               <li className="list">
-                <a href="/">Find a Pet</a>
+                <a href="/search">Find a Pet</a>
               </li>
               <li className="list">
-                <a href="/">Pet Care</a>
+                <a href="/petCare">Pet Care</a>
               </li>
               <li className="list">
                 <a href="/share">Share your story</a>
@@ -46,13 +46,13 @@ const FooterPage = () => {
           <MDBCol>
             <ol>
             <li className="list">
-                <a href="/">Contact Us</a>
+                <a href="/contactus">Contact Us</a>
                 <ol>
                   <li className="list">
                     <a href="/">About Us</a>
                   </li>
                   <li className="list">
-                    <a href="/">FAQs</a>
+                    <a href="/">Volunteer</a>
                   </li>
                 </ol>
               </li>

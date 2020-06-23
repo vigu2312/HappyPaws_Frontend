@@ -9,10 +9,10 @@
       animation: App-logo-spin infinite 20s linear;
     }
   }
-body {
+/* body {
   background-color: rgb(152, 184, 214); 
   background-image: linear-gradient(to right, rgb(40, 76, 134) , rgb(172, 199, 221)); 
-}
+} */
   .main{
     padding-top: calc(10% - 83px);
     padding-left: calc(28%);
