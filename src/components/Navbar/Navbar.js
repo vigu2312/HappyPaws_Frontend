@@ -28,7 +28,7 @@ class NavbarComponent extends Component {
                             <Nav.Link as={Link} to="/share" className="my-active">Share your Story</Nav.Link>
                             <NavDropdown title="Find Shelter" id="basic-nav-dropdown">
                                 <NavDropdown.Item onClick={() => alert("Under Construction")}  href="#action/3.1">Sponser a Pet</NavDropdown.Item>
-                                <NavDropdown.Item onClick={() => alert("Under Construction")}  href="#action/3.2">Volunteer</NavDropdown.Item>
+                                <NavDropdown.Item  as ={Link} to="/volunteer">Volunteer</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item onClick={() => alert("Under Construction")}  href="#action/3.4">See our stories</NavDropdown.Item>
                             </NavDropdown>

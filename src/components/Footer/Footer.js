@@ -12,7 +12,7 @@ const FooterPage = () => {
               <br/>
               <ul > <h5>About</h5>
                 <li >
-                  <a href="/aboutus">Adoption</a>
+                  <a href="/adopt">Adoption</a>
                 </li>
                 <li className="list">
                   <a href="/register">Signup</a>
@@ -21,7 +21,7 @@ const FooterPage = () => {
                   <a href="/register">Login</a>
                 </li>
                 <li className="list">
-                  <a href="#!">Volunteer</a>
+                  <a href="/volunteer">Volunteer</a>
                 </li>
               </ul>
             </MDBCol>

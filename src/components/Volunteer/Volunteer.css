@@ -1,0 +1,132 @@
+.FormVolunteer{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+ 
+
+.MainVolunteer{
+  background:white;
+  font-family: serif; 
+}
+
+[alt="Volunteer"]{
+  height: 530px;
+  width:1100px;
+  box-shadow: 0 4px 5px black;
+  border-radius: 8px;
+}
+
+.events {
+  list-style-type: circle;
+  margin: 0;
+  padding: 0;
+}
+
+.row{
+  padding-left: 100px;
+  padding-bottom: 20px;
+  justify-content: space-evenly;
+}
+.textarea{
+  height: 200px;
+  width: 400px;
+}
+
+
+/* a{
+    color:rgb(107, 1, 1);
+    font-size: large;
+    font-style: italic;
+    font:Georgia;
+}
+fieldset {
+    background: rgb(255, 239, 239);
+   
+    border: 15px solid rgb(107, 1, 1);  
+    padding: 30px;
+    margin: 0.01px;
+    border: 15px solid rgb(107, 1, 1);  
+    color: rgb(107, 1, 1);
+   
+  }
+  input[name="subutton"],[type="reset"] {
+    width: 140px;
+    height:40px;
+    margin-top: 2%;
+    margin-left: 20%;
+    display: block;
+    background-color:rgb(107, 1, 1);
+    color:white;
+   
+  }
+
+  [type="text"],[type="password"] {
+    float: right;
+    clear: both;
+  }
+
+  h2 {
+    font-family: Times New Roman;
+    font-size: 20px;
+    color:rgb(107, 1, 1);
+}
+  form {
+  
+    padding: 40px;
+    max-width:600px;
+    margin:10px auto;
+   
+    overflow: hidden;
+  }
+  p{
+	text-align:left;
+}
+@media screen and (max-width: 400px) {
+  a{
+    color:rgb(107, 1, 1);
+    font-size: medium;
+    font-style: italic;
+    font:Georgia;
+}
+  input[name="subutton"],[type="reset"] {
+    width: 100px;
+    height:20px;
+    margin-left: 50%;
+    display: block;
+    background-color:rgb(107, 1, 1);
+    color: rgb(255, 239, 239);
+   
+  }
+  form {
+  
+    padding: 40px;
+    max-width:300px;
+    margin:10px auto;
+    overflow: hidden;
+  }
+  fieldset {
+    background: rgb(255, 239, 239);
+    width: 150px;
+    border: 5px solid rgb(107, 1, 1);  
+    padding: 15px;
+    margin: 0.01px;
+    color: rgb(107, 1, 1);
+   
+  }
+  p{
+    text-align:left;
+  }
+  
+  [type="text"],[type="password"] {
+    float: right;
+    clear: both;
+  }
+
+  h2 {
+    font-family: Times New Roman;
+    font-size: 20px;
+    color:rgb(107, 1, 1);
+}
+
+} */
