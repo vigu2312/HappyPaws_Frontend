@@ -2,7 +2,7 @@
     text-align: center;
     font-family: serif;
     font-weight: bold;
-    background-color: rgb(240, 238, 238);
+    background-color: #FFFFFF;
   }
 
   .box-style{
@@ -14,6 +14,7 @@
   .border-right-here {
     border-right: 1px solid #000000 !important;
 }
+
 @media(max-width: 768px){
   .border-right-here {
     border-right: 1px solid rgb(240, 238, 238) !important;
@@ -41,4 +42,8 @@
 }
 h4{
   font-style: italic;
+}
+
+.label-style{
+  margin: 25px 10px 10px 10px;
 }

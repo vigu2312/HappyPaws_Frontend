@@ -8,6 +8,7 @@ import Jodit from './Jodit';
 import Button from 'react-bootstrap/Button'
 import NavbarComponent from '../Navbar/Navbar';
 import { Link } from 'react-router-dom';
+import Footer from '../Footer/Footer';
 
 class Shareyourstory extends Component {
     constructor(props) {
@@ -75,22 +76,18 @@ class Shareyourstory extends Component {
                 <div className="main-class">
                     <form >
                         <h1 className="header-style">Share Your Story</h1>
-                        <p> Your experience is very precious and would motivate many others.</p>
-                        <Container>
-                            <Row>
-                                <Col>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                </Col>
-                            </Row>
-                        </Container>
+                        <img
+                            src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/a6d30376965389.5c7945b0d02b6.gif"
+                            alt="First slide"
+                            height="350px"
+                            width="70%"
+                        />
+                         <h6> Your experience is very precious and would motivate many others.</h6>
                         <p>Provide us your email ID for subscriptions to read every new story posted!</p>
                         <Container>
                             <Row>
                                 <Col>
-                                    <div style={{ marginBottom: "20px" }}>
+                                    <div style={{ marginBottom: "20px", textAlign:"center"}}>
                                         <TextField className="input-class" id="standard-basic" label="Enter your Email"
                                             floatinglabeltext="Email"
                                             type="email"
@@ -111,6 +108,7 @@ class Shareyourstory extends Component {
                         </div>
                     </form>
                 </div>
+                <Footer />
             </div>
         );
     }
