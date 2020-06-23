@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './login.css';
-import {Form, Button} from 'react-bootstrap';
+import {Form, Button, Jumbotron,Container,Row, Col, Image} from 'react-bootstrap';
 
 class ContactUs extends Component {
     constructor(props){
@@ -26,7 +26,14 @@ class ContactUs extends Component {
             
         }
         else{
-            alert("Entered Values are invalid");
+            if(this.state.nameError!=null)
+                alert("Please enter your name.");
+            else if(this.state.emailError!=null)
+                alert("Please enter valid email id.");
+            else if(this.state.subjectError!=null)
+                alert("Please write appropriate Subject."); 
+            else if(this.state.bodyError!=null)
+                alert("Please write appropriate message so that we can assist you further.");  
         }
     };
 
@@ -100,8 +107,40 @@ class ContactUs extends Component {
         
         return ( 
             <React.Fragment>
+            
+                
+            
+            <Row>
+                <Jumbotron fluid className="class-jumbotron">
+                    <Container>
+                        <Row>
+                            <Col xs={6} md={4}> 
+                                <Image src="images/contactus.jpg" height="280px" width="280px" roundedCircle />
+                            </Col>
+                            <Col xs={12} md={8}>
+                                <h3 style={{paddingTop:'6vh'}}>Contact Information</h3>
+                                <p >Phone: 902-999-9999</p>
+                                <p>Email: support@happypaws.com</p>
+                                <p>Address: 1113 WaterBridge Terminal, 
+                                    B3A A3B, Halifax, NS, Canada
+                                </p>
+                                <Button variant="outline-info" style={{marginLeft:'25px',marginRight:'25px'}}><img src="./images/facebook.jpg" height="30px" width="30px" /></Button>
+                                <Button variant="outline-info" style={{marginLeft:'25px',marginRight:'25px'}}><img src="./images/twitter.png" height="30px" width="30px"/></Button>
+                                <Button variant="outline-info" style={{marginLeft:'25px',marginRight:'25px'}}><img src="./images/insta.png" height="30px" width="30px"/></Button>
+                    
+                            </Col>
+                        </Row>
+                    </Container>
+                </Jumbotron>
+            </Row>
             <div className="contact-background">
             <div className="contact">
+            <Row>
+                <h3 className="heading"> Have Something on your mind?!! Let us know and we will help you out. </h3>
+                <h6 style={{marginLeft:'240px',justifyContent:'center',alignItems: 'center',
+                            alignSelf: 'center'}}> Fill the below form and explain your concern!! </h6><br/><br/>
+            </Row>
+            <Row>
                 <form >
                     <label >Name:</label>
                     <Form.Control input type="text" className="form-control"
@@ -124,6 +163,7 @@ class ContactUs extends Component {
                     <div className="warning"> {this.state.bodyError} </div>
                     <Button variant="primary" style={{margin:10}} onClick={() => {this.validateUser()}}> Submit Query </Button>
                 </form>
+            </Row>
                 </div>
                 </div>
                 </React.Fragment>

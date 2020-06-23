@@ -55,6 +55,29 @@
     border-radius: 10px;
 }
 
+.class-jumbotron{
+  background-image: linear-gradient(-90deg,rgb(22, 18, 75), rgb(6, 1, 24));
+  color: white;
+  border-radius: 10px;
+  width: 200%;
+  height:auto;
+  padding:10px;
+  margin:0px;
+  justify-content: left;
+  align-items: left;
+  vertical-align: middle;
+}
+
+.heading{
+  color:black;
+  font-family:  'Comic Sans MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', sans-serif ;
+  margin:20px;
+  padding:10px;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+
   .contact{
       height: 800px;
       width: 800px;

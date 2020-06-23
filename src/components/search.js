@@ -12,79 +12,180 @@ class Search extends Component {
     super();
 
     this.state={
-      current:3,
       search:null,
       type:null,
       breed:null,
       color:null,
       age:null,
       gender:null,
-      proximity:null
+      proximity:null,
     };
   }
 
+  // functions for setting the values of the state variables
   handleSearch=(e)=>{
-    let searchString = e.target.value;
-    this.setState({search:searchString})
-  }
-  handletypeSearch=(e)=>{
-    console.log("//////////////////////////////////////////////////Handletype search called");
-    let searchString = e.target.value;
-    
-    console.log("type1:"+this.state.type);
-    this.setState({type:searchString})
-    console.log("type2:"+this.state.type);
-  }
+    this.setState({search:e.target.value})
+  };
+  handleType=(e)=>{
+    this.setState({type:e.target.value});
+  };
+  handleColor=(e)=>{
+    this.setState({color:e.target.value})
+  };
+  handleAge=(e)=>{
+    this.setState({age:e.target.value})
+  };
+  handleBreed=(e)=>{
+    this.setState({breed:e.target.value})
+  };
+  handleProximity=(e)=>{
+    this.setState({proximity:e.target.value})
+  };
+  handleGender=(e)=>{
+    this.setState({gender:e.target.value})
+  };
+
+  // functions for comparing user input with the static data/ database
   search=(d)=>{
     if(this.state.search == null )
-      return d
+      return d;
     else if(d.name.toString().toLowerCase().includes(this.state.search.toString().toLowerCase()) || d.breed.toString().toLowerCase().includes(this.state.search.toString().toLowerCase()) || d.type.toString().toLowerCase().includes(this.state.search.toString().toLowerCase())){
-      return d
+      console.log("inside search"+this.state.search);
+      return d;
     }
-  }
+  };
   searchType=(d)=>{
-    if(this.state.type == null )
-      return d
+    if(this.state.type == null ){
+      return d;
+    }
     else if(d.type.toString().toLowerCase().includes(this.state.type.toString().toLowerCase()) ){
       console.log("inside"+this.state.type);
       return d;
     }
-  }
+  };
   searchColor=(d)=>{
     if(this.state.color == null )
       return d
     else if(d.color.toString().toLowerCase().includes(this.state.color.toString().toLowerCase()) ){
       return d
     }
-  }
+  };
   searchBreed=(d)=>{
     if(this.state.breed == null )
       return d
     else if(d.breed.toString().toLowerCase().includes(this.state.breed.toString().toLowerCase()) ){
       return d
     }
-  }
+  };
+  searchGender=(d)=>{
+    if(this.state.gender == null )
+      return d
+    else if(d.gender.toString().toLowerCase()==this.state.gender.toString().toLowerCase() ){
+      return d
+    }
+  };
+  searchAge=(d)=>{
+    let age=d.age;
+    let filtered;
+    console.log("age"+age);
+    console.log("state age"+this.state.age);
+    switch(this.state.age){
+      case null:
+        return d;
+      case "A":
+        if(age<=5)
+          filtered=d;
+          break;
+      case "B":
+        if(age>5 && age<=10)
+          filtered=d;
+        break;
+      case "C":
+        if(age>10 && age<=20)
+          filtered=d;
+        break;
+      case "D":
+        if(age>20 && age<=30)
+          filtered=d;
+        break;
+      case "E":
+        if(age>30)
+          filtered=d;
+        break;
+    }
+    return filtered;
+  };
+    searchProximity=(d)=>{
+      let location=d.location;
+      let filtered;
+      switch(this.state.proximity){
+        case null:
+          filtered=d;
+        break;
+        case "P":
+          if(location<=5)
+            filtered=d;
+          break;
+        case "Q":
+          if(location>5 && location<=10)
+            filtered=d;
+          break;
+        case "R":
+          if(location>10 && location<=15)
+            filtered=d;
+          break;
+        case "S":
+          if(location>15)
+            filtered=d;
+          break;
+      }
+      return filtered;
+    };
 
+    //Clear all the filters
+    clearFilter=(e)=>{
+      this.setState({search:null,
+        type:null,
+        breed:null,
+        color:null,
+        age:null,
+        gender:null,
+        proximity:null,
+      });
+    }
+
+    //Data to be rendered
 render() { 
-  // let images,titles,text;
-  // let data={
-  // images:['images/shareStory.jpg','images/shareStory.jpg'],
-  // titles:['pet1','pet2'],
-  // text:['text1,text2']};
-  const items = data.filter((d)=>{
+  let filteredData;
+  let items = data.filter((d)=>{
     console.log("1");
-    let filteredData=this.search(d);
+    filteredData=this.search(d);
+    return filteredData;
+  }).filter((d)=>{
     console.log("2");
-    filteredData=this.searchType(filteredData);
+    filteredData=this.searchType(d);
+    return filteredData;
+  }).filter((d)=>{
     console.log("3");
-    filteredData=this.searchColor(filteredData);
+    filteredData=this.searchColor(d);
+    return filteredData;
+  }).filter((d)=>{
     console.log("4");
-    filteredData=this.searchBreed(filteredData);
+    filteredData=this.searchBreed(d);
+    return filteredData;
+  }).filter((d)=>{
+    console.log("6");
+    filteredData=this.searchGender(d);
+    return filteredData;
+  }).filter((d)=>{
     console.log("5");
-    console.log("data"+filteredData);
+    filteredData=this.searchAge(d);
+    return filteredData;
+  }).filter((d)=>{
+    console.log("7");
+    filteredData=this.searchProximity(d);
     return filteredData;
   }).map(d=>{
-    let imagesrc=  d.image;
     return(
       
       <Col sm={4} md={4} className="card-center">
@@ -95,7 +196,7 @@ render() {
                 <Card.Body className="nav-background">
                   <Card.Title>{d.name}</Card.Title>
                   <Card.Text>
-                  {d.age} | {d.breed}
+                  {d.age} Years | {d.breed} | {d.location} miles away
                   
                   </Card.Text>
                   <Button variant="outline-info">View</Button>
@@ -120,7 +221,7 @@ render() {
         <Col sm={2} md={2}>
           <FCMaterial className="search-center ml-5" >
             <InputLabel className="search-center options" width="100">Pet Type</InputLabel>
-            <Select className="search-center options ml-5" defaultValue={this.state.selectValue} onchange={this.handletypeSearch}>
+            <Select className="search-center options ml-5" defaultValue={this.state.type} onChange={this.handleType}>
               <option aria-label="None" value="" />
               <option value="Dog">Dog</option>
               <option value="Cat">Cat</option>
@@ -129,18 +230,18 @@ render() {
           </FCMaterial>
           <FCMaterial className="search-center ml-5" >
             <InputLabel className="search-center options" width="100">Age</InputLabel>
-            <Select className="search-center options ml-5" >
+            <Select className="search-center options ml-5" onChange={this.handleAge}>
               <option aria-label="None" value="" />
               <option value="A">1-5</option>
-              <option value="B">5-10</option>
-              <option value="C">10-20</option>
-              <option value="D">20-30</option>
+              <option value="B">6-10</option>
+              <option value="C">11-20</option>
+              <option value="D">21-30</option>
               <option value="E">Above 30</option>
             </Select>
           </FCMaterial>
           <FCMaterial className="search-center ml-5" >
             <InputLabel className="search-center options" width="100">Color</InputLabel>
-            <Select className="search-center options ml-5">
+            <Select className="search-center options ml-5" onChange={this.handleColor}>
               <option aria-label="None" value="" />
               <option value="brown">Brown</option>
               <option value="Golden">Golden</option>
@@ -152,7 +253,7 @@ render() {
           </FCMaterial>
           <FCMaterial className="search-center ml-5" >
             <InputLabel className="search-center options"  width="100">Breed</InputLabel>
-            <Select className="search-center options ml-5">
+            <Select className="search-center options ml-5" onChange={this.handleBreed}>
               <option aria-label="None" value="" />
               <option value="Golden Retriever">Golden Retriever (Dog)</option>
               <option value="Pug">Pug (Dog)</option>
@@ -172,70 +273,27 @@ render() {
           </FCMaterial>
           <FCMaterial className="search-center ml-5" >
             <InputLabel className="search-center options" width="100">Gender</InputLabel>
-            <Select className="search-center options ml-5"
-            >
+            <Select className="search-center options ml-5" onChange={this.handleGender} >
               <option aria-label="None" value="" />
-              <option value="Turtle">Male</option>
+              <option value="Male">Male</option>
               <option value="Female">Female</option>
             </Select>
           </FCMaterial>
           <FCMaterial className="search-center ml-5" >
             <InputLabel className="search-center options"  width="100">Proximity</InputLabel>
-            <Select className="search-center options ml-5">
-              <option aria-label="None" value="" />
+            <Select className="search-center options ml-5" onChange={this.handleProximity}>
+              <option aria-label="No" value="" />
               <option value="P">1-5 km</option>
-              <option value="Q">5-10 km</option>
-              <option value="R">10-15 km</option>
+              <option value="Q">6-10 km</option>
+              <option value="R">11-15 km</option>
               <option value="S">More than 15</option>
             </Select>
           </FCMaterial>
-          <Button variant="success m-5" className="search-center" >Apply </Button>
+          <Button variant="success m-5" className="search-center" onClick={this.clearFilter}>Clear Filters </Button>
         </Col>
         <Col sm={10} md={10}>
           <Row>
               {items}
-            {/* <Col sm={4} md={4} className="card-center">
-            <ul><li>
-              <Card className="m-2" style={{ width: '18rem' }}>
-            
-                <Card.Img variant="top" src={data.images} height="250px" width="250px"  />
-                <Card.Body className="nav-background">
-                  <Card.Title>{data.title}</Card.Title>
-                  <Card.Text>
-                  {data.text}
-                  
-                  </Card.Text>
-                  <Button variant="outline-info">View</Button>
-                </Card.Body>
-              </Card>
-              </li></ul>
-            </Col> */}
-            {/* <Col sm={4} md={4} className="card-center">
-              <Card className="m-2" style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="images/shareStory.jpg" height="250px" width="250px"  />
-                <Card.Body className="nav-background">
-                  <Card.Title>Pet2</Card.Title>
-                  <Card.Text>
-                  Lorem ipsum dolor sit amet
-                  
-                  </Card.Text>
-                  <Button variant="outline-info">View</Button>
-                </Card.Body>
-              </Card> 
-            </Col>
-            <Col sm={4} md={4} className="card-center">
-              <Card className="m-2" style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="images/shareStory.jpg" height="250px" width="250px"  />
-                <Card.Body className="nav-background" >
-                  <Card.Title>Pet3</Card.Title>
-                  <Card.Text>
-                  Lorem ipsum dolor sit amet
-                  
-                  </Card.Text>
-                  <Button variant="outline-info">View</Button>
-                </Card.Body>
-              </Card>
-            </Col> */}
           </Row>
 
       
