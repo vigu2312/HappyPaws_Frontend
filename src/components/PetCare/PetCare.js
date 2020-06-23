@@ -11,6 +11,7 @@ import { Form, Button } from 'react-bootstrap'
 import './PetCare.css'
 import PetCareInfo from './PetCareInfo';
 import NavbarComponent from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 
 class PetCare extends Component {
     render() {
@@ -106,6 +107,7 @@ class PetCare extends Component {
                     </Form>
                 </div>
             </div>
+            <Footer />
             </React.Fragment>
         )
     }

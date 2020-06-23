@@ -7,6 +7,7 @@ import { Row, Col, Container, Dropdown, DropdownButton } from 'react-bootstrap'
 import CreditCardInput from 'react-credit-card-input';
 import './Sponsor.css';
 import NavbarComponent from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 
 class Sponsor extends Component {
     render() {
@@ -202,6 +203,7 @@ class Sponsor extends Component {
 
 
             </div>
+            <Footer/>
             </React.Fragment>
         )
     }

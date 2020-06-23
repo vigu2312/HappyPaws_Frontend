@@ -104,7 +104,7 @@ class HomePage extends Component {
                 <div>
                 </div>
                 <div className="btn-center">
-                    <button className="btn-css" onClick={this.showLoginModal} > Take a Quiz</button>
+                    <button className="btn-css" onClick={() => this.props.history.push('/search')}>Find a pet</button>
                 </div>
                 <div className = "modal-show">
                             <Login 

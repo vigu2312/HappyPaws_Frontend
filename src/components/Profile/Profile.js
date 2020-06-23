@@ -83,7 +83,7 @@ class Register extends Component {
 
                                     </Card.Body>
                                     <ButtonGroup>
-                                        <Button variant="info" onClick={() => this.props.history.push('/enquire')}>Sponsor</Button>
+                                        <Button variant="info" onClick={() => this.props.history.push('/sponsor')}>Sponsor</Button>
                                         <Button variant="secondary">Share</Button>
                                     </ButtonGroup>
                                 </Card>
