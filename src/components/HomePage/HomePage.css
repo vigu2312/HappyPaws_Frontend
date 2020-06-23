@@ -1,6 +1,7 @@
 .navbar {
     min-height: 80px;
   }
+
   .navbar-brand {
     height: 80px;
     padding-top: 17px !important;
@@ -11,8 +12,7 @@
   }
   
   .home-component{
-
-    background-color: rgb(240, 238, 238);
+    background-color: #FFFFFF;
   }
   
   .navbar-toggle {
@@ -63,7 +63,7 @@
     background-color: white;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #000000;
-    padding: 0px 0px 5px 5px;
+    padding: 5px 5px 5px 5px;
     text-align: center;
   }
 
@@ -81,7 +81,7 @@
 
   .img-view:hover{
     transform: scale(1.1);
-    background: #007bff;
+    background:#007bff;
     box-shadow: 2px 2px 2px #000;
     z-index: 2;
   }
@@ -91,6 +91,10 @@
     padding: 5px 5px 5px 5px;
     margin: 0px 25px 25px 25px;
     transition: 1s;
+  }
+
+  .btn-color{
+    background-color: #007bff;
   }
 
   .img-pets:hover{
