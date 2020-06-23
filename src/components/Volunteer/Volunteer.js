@@ -10,6 +10,7 @@ import dogVol from './dogvolunteer.jpg';
 
 import NavbarComponent from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
+import './Volunteer.css';
 
 
 import { Form, Container, Button, Row, Col } from 'react-bootstrap';
@@ -89,41 +90,41 @@ export default function VerticalTabs() {
 
 
 
-   const handlefName=(event,fname)=>{
-        // this.setState({
-        //     fname: event.target.value
-        // })
-        setValue(event.target.fname);
-    };
+//    const handlefName=(event,fname)=>{
+//         // this.setState({
+//         //     fname: event.target.value
+//         // })
+//         setValue(event.target.fname);
+//     };
 
-   const handleLName=(event)=>{
-        // this.setState({
-        //     lname: event.target.value
-        // })
-        setValue(event.target.lname);
-    }
+//    const handleLName=(event)=>{
+//         // this.setState({
+//         //     lname: event.target.value
+//         // })
+//         setValue(event.target.lname);
+//     }
     
-    const handleEmail=(event)=>{
-        // this.setState({
-        //     email: event.target.value
-        // })
-        setValue(event.target.email);
-    }
+//     const handleEmail=(event)=>{
+//         // this.setState({
+//         //     email: event.target.value
+//         // })
+//         setValue(event.target.email);
+//     }
 
-    const handleLocation=(event)=>{
-        // this.setState({
-        //     location: event.target.value
-        // })
+//     const handleLocation=(event)=>{
+//         // this.setState({
+//         //     location: event.target.value
+//         // })
         
-        setValue(event.target.location);
-    }
-    const handleHours=(event)=>{
-        // this.setState({
-        //     hours: event.target.value
-        // })
-        setValue(event.target.hours);
+//         setValue(event.target.location);
+//     }
+//     const handleHours=(event)=>{
+//         // this.setState({
+//         //     hours: event.target.value
+//         // })
+//         setValue(event.target.hours);
         
-    }
+//     }
     const check=()=>{
         let fnameError="";
         let lnameError="";
@@ -167,18 +168,18 @@ export default function VerticalTabs() {
         return true;
     };
     
-    const formSubmit=(event)=>{
-      event.preventDefault()
-      const isRight=check();
-      if(isRight)
-      {
-        // this.setState(primeState)
-        setValue(primeState)
-        alert(`Volunteering request sumitted. We will email you shortly with the confirmation.`)
+    // const formSubmit=(event)=>{
+    //   event.preventDefault()
+    //   const isRight=check();
+    //   if(isRight)
+    //   {
+    //     // this.setState(primeState)
+    //     setValue(primeState)
+    //     alert(`Volunteering request sumitted. We will email you shortly with the confirmation.`)
           
-      }
+    //   }
         
-    }
+    // }
     const state = {
       name: '',
       email: '',
@@ -313,7 +314,7 @@ export default function VerticalTabs() {
         <Tab label="Register to Volunteer" {...a11yProps(2)} />
    
       </Tabs>
-      <TabPanel value={value} index={0}>
+      <TabPanel value={value} index={0} >
               <h5>
                     <br/>
                     Don't have the time to Volunteer ? <br/>
@@ -330,7 +331,7 @@ export default function VerticalTabs() {
                 </h6>
       </TabPanel>
       <TabPanel value={value} index={1}>
-          <center>
+          <center >
           <b><i>List of current Volunteering events for you to participate</i></b>
             <ul className="events">
                 <li>Take a Dog for a Walk</li>
@@ -345,10 +346,11 @@ export default function VerticalTabs() {
      
       <div className="FormVolunteer">
           
-      <form className="form" onSubmit={formSubmit} >
+      <form className="form" onSubmit={onSubmit} action="/" >
+          <h4>Fill up the registration form to Volnteer with us</h4>
                         <div>
                             <Container>
-                                <Row className="row" >
+                                <Row className="rows" >
 
                                     <TextField
                                         required
@@ -364,7 +366,7 @@ export default function VerticalTabs() {
                                         />
                                 </Row>
 
-                                <Row className="row">
+                                <Row className="rows">
                                     <TextField
                                         required
                                        
@@ -379,9 +381,9 @@ export default function VerticalTabs() {
                                         variant="outlined"
                                     />
                                 </Row>
-                                <Row>
+                                <Row className="rows">
                                     <select className="drop">
-                                        <option>Select an Event</option>
+                                        <option>Select an Event that you would like to volunteer</option>
                                         <option>Take a Dog for a Walk</option>
                                         <option>Kitty Corner</option>
                                         <option>Pet Washes</option>
@@ -391,7 +393,7 @@ export default function VerticalTabs() {
                                    
                                 </Row>
                                 
-                                <Row>
+                                <Row className="rows">
                                 <input type="submit" value="Volunteer"></input>
                                        
                                 </Row>            
@@ -399,29 +401,6 @@ export default function VerticalTabs() {
 
                         </div>
                     </form>
-
-
-{/* 
-           <form onSubmit={formSubmit}>
-               
-               <fieldset name="vol">
-               <legend><center><b><h2>Fill out the form to Volunteer</h2></b></center></legend>
-               <p>First Name <input  value={primeState.fname} onChange={handlefName} type="text" name="fname"/> <br/></p>
-               <div><b><i>{primeState.fnameError}</i></b></div>
-               <p>Last Name <input  value={primeState.lname} onChange={handleLName} type="text" name="lname"/> <br/></p>
-               <div><b><i>{primeState.lnameError}</i></b></div>
-               <p>E-mail ID <input  value={primeState.email} onChange={handleEmail} type="text" name="email"/> <br/></p>
-               <div><b><i>{primeState.mailError}</i></b></div>
-               <p>Location <input  value={primeState.location} onChange={handleLocation} type="text" name="location"/> <br/></p>
-               <div><b><i>{primeState.locError}</i></b></div>
-               <p>No of Hours Available <input  value={primeState.hours} onChange={handleHours} type="text" name="hours"/> <br/></p>
-               <div><b><i>{primeState.hoursError}</i></b></div>
-              
-               <p><input type="submit" name="subutton" value="VOLUNTEER"/> 
-               
-               </p> 
-               </fieldset>
-           </form> */}
            </div> 
       </TabPanel>
      
@@ -431,219 +410,3 @@ export default function VerticalTabs() {
     </div>
   );
 }
-
-
-
-// import React,{Component} from 'react';
-// import './Volunteer.css';
-
-// import NavbarComponent from '../Navbar/Navbar';
-// import Footer from '../Footer/Footer';
-
-// import dogVol from './dogvolunteer.jpg';
-
-// import { Row, Col, Nav,Tab } from 'react-bootstrap';
-// import Register from '../Register/Register';
-// import Enquire from '../Enquire/Enquire';
-
-// const primeState={
-//     fname:'',
-//     lname:'',
-//     email:'',
-//     location:'',
-//     hours:'',
-//     fnameError:'',
-//     lnameError:'',
-//     mailError:'',
-//     locError:'',
-//     hoursError:'',
-    
-
-// }
-
-// class Volunteer extends Component{
-//     constructor(props){
-//         super(props)
-//         this.state=primeState;
-//     }
-//     handlefName=(event)=>{
-//         this.setState({
-//             fname: event.target.value
-//         })
-//     }
-//     handleLName=(event)=>{
-//         this.setState({
-//             lname: event.target.value
-//         })
-//     }
-    
-//     handleEmail=(event)=>{
-//         this.setState({
-//             email: event.target.value
-//         })
-//     }
-
-//     handleLocation=(event)=>{
-//         this.setState({
-//             location: event.target.value
-//         })
-//     }
-//     handleHours=(event)=>{
-//         this.setState({
-//             hours: event.target.value
-//         })
-//     }
-//     check=()=>{
-//         let fnameError="";
-//         let lnameError="";
-//         let mailError="";
-//         let hoursError="";
-//         let locError="";
-        
-
-//         if(!this.state.email.includes('@')){
-//             mailError="INVALID EMAIL";
-//         }
-//         if(!this.state.fname){
-//             fnameError="BLANK FIELD"
-//         }
-//         if(!this.state.lname){
-//             lnameError="BLANK FIELD"
-//         }
-        
-//         if(!this.state.email){
-//             mailError="BLANK FIELD"
-//         }
-//         if(!this.state.location){
-//             locError="BLANK FIELD"
-//         }
-//         if(!this.state.hours){
-//             hoursError="BLANK FIELD"
-//         }
-       
-       
-//         if (mailError || hoursError||locError||fnameError||lnameError) {
-//             this.setState({ mailError, hoursError,locError,fnameError,lnameError });
-//             return false;
-//           }
-          
-//         if(mailError){
-//             this.setState({mailError});
-//             return false;
-//         }
-//         return true;
-//     };
-    
-//     formSubmit=(event)=>{
-//       event.preventDefault()
-//       const isRight=this.check();
-//       if(isRight)
-//       {
-//         this.setState(primeState)
-//         alert(`Volunteering request sumitted. We will email you shortly with the confirmation.`)
-          
-//       }
-        
-//     }
-//     render(){
-//         return(  
-    
-//     <div className="MainVolunteer">
-//         <NavbarComponent/> 
-        
-//         <br/>
-//         <h2>Volunteer with us</h2>
-//         <div className="volunteerImg">
-//             <img src={dogVol} alt="Volunteer"></img>
-//         </div>
-//         <div>
-//             <br/>
-// <Tab.Container id="left-tabs-example" defaultActiveKey="first">
-//   <Row>
-//     <Col sm={3}>
-//       <Nav className="flex-column">
-//         <Nav.Item>
-//           <Nav.Link eventKey="first">Volunteer Info</Nav.Link>
-//         </Nav.Item>
-//         <Nav.Item>
-//           <Nav.Link eventKey="second">Volunteer Events</Nav.Link>
-//         </Nav.Item> 
-//         <Nav.Item>
-//           <Nav.Link eventKey="third">Volunteer Sign Up</Nav.Link>
-//         </Nav.Item>
-//       </Nav>
-//     </Col>
-//     <Col sm={9}>
-//       <Tab.Content>
-//         <Tab.Pane eventKey="first">
-//             <h5>
-//                     <br/>
-//                     Don't have the time to Volunteer ? <br/>
-//                     You can join us at various shelters to Volunteer with our dogs and cats.<br/>
-//                     A little care and a lot of fun!
-//                 </h5>
-//         </Tab.Pane>
-//         <Tab.Pane eventKey="second">
-//         <h1>
-//                 <br/>
-//                 Don't have the time to Volunteer ? <br/>
-//                 You can join us at various shelters to Volunteer with our dogs and cats.<br/>
-//                 A little care and a lot of fun!
-//             </h1>
-//         </Tab.Pane>
-//         <Tab.Pane eventKey="third">
-//         <h2>
-//                 <br/>
-//                 Don't have the time to Volunteer ? <br/>
-//                 You can join us at various shelters to Volunteer with our dogs and cats.<br/>
-//                 A little care and a lot of fun!
-//             </h2>
-//         </Tab.Pane>
-//       </Tab.Content>
-//     </Col>
-//   </Row>
-// </Tab.Container>
-//         </div>
-    
-
-//         <div className="FormVolunteer">
-//             <h5>
-//                 <br/>
-//                 Don't have the time to Volunteer ? <br/>
-//                 You can join us at various shelters to Volunteer with our dogs and cats.<br/>
-//                 A little care and a lot of fun!
-//             </h5>
-//            <form onSubmit={this.formSubmit}>
-               
-//                <fieldset name="vol">
-//                <legend><center><b><h2>Fill out the form to Volunteer</h2></b></center></legend>
-//                <p>First Name <input  value={this.state.fname} onChange={this.handlefName} type="text" name="fname"/> <br/></p>
-//                <div><b><i>{this.state.fnameError}</i></b></div>
-//                <p>Last Name <input  value={this.state.lname} onChange={this.handleLName} type="text" name="lname"/> <br/></p>
-//                <div><b><i>{this.state.lnameError}</i></b></div>
-//                <p>E-mail ID <input  value={this.state.email} onChange={this.handleEmail} type="text" name="email"/> <br/></p>
-//                <div><b><i>{this.state.mailError}</i></b></div>
-//                <p>Location <input  value={this.state.location} onChange={this.handleLocation} type="text" name="location"/> <br/></p>
-//                <div><b><i>{this.state.locError}</i></b></div>
-//                <p>No of Hours Available <input  value={this.state.hours} onChange={this.handleHours} type="text" name="hours"/> <br/></p>
-//                <div><b><i>{this.state.hoursError}</i></b></div>
-              
-//                <p><input type="submit" name="subutton" value="VOLUNTEER"/> 
-               
-//                </p> 
-//                </fieldset>
-//            </form>
-//            </div> 
-           
-      
-        
-//         <Footer />
-
-//     </div>
-        
-    
-//     );
-//     }
-
-// }
-// export default Volunteer;

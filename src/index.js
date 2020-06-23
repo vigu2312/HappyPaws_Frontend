@@ -1,3 +1,4 @@
+
 // Added for IE compatibility from https://medium.com/@matwankarmalay/create-react-app-ie11-script1002-syntax-error-how-to-get-rid-of-it-d70000c53ddf 
 import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
@@ -16,6 +17,7 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter><App /></BrowserRouter>
   </React.StrictMode>,
+
   document.getElementById('root')
 );
 

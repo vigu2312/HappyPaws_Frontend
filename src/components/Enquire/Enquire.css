@@ -1,5 +1,5 @@
 .group{
-    padding-left: 100px;
+    margin-left: 100px;
 }
 
 .im1{
@@ -9,7 +9,7 @@
     float: left;
 }
 .form{
-    margin-top: 100px;
+    margin-top: 50px;
 }
 .group2{
     padding-left: 190px;
@@ -17,11 +17,13 @@
 
 .row{
     padding-left: 100px;
+    padding-bottom: 20px;
+    justify-content: space-evenly;
 }
 
-textarea{
+.textarea{
     height: 200px;
-    width: 600px;
+    width: 400px;
 }
 
 .bg{
@@ -34,4 +36,11 @@ textarea{
 
 .btn1{
     margin-bottom: 20px;
+}
+
+.drop{
+    width: 200px;
+}
+.fol{
+    float: left;
 }

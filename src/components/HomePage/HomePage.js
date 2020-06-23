@@ -8,20 +8,48 @@ import Carousel from 'react-bootstrap/Carousel';
 import './HomePage.css';
 import NavbarComponent from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
+import Login from '../Login-Register/Login'
 
 class HomePage extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            addModalShow: false
+        }
+        this.showLoginModal = this.showLoginModal.bind(this);
+    }
+
+    showLoginModal = () => {
+        this.setState({
+            addModalShow : true
+        })
+        console.log("Pet Quiz button" + this.state.addModalShow)
+    }
+
+    LoginModalClose = () => {
+        this.setState({
+            addModalShow:false
+        })
+    }
+
+
+
     render() {
+        const { isFetching } = this.state;
+        const LoginModal = this.state.addModalShow
+
         return (
             <div className="home-component">
-                 <NavbarComponent />
+                <NavbarComponent />
                 <Carousel>
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
-                            src="https://storage.needpix.com/rsynced_images/dogs-4137678_1280.jpg"
+                            src="https://www.sciencemag.org/sites/default/files/styles/article_main_large/public/dogs_1280p_0.jpg?itok=cnRk0HYq"
                             alt="First slide"
                             width="100%"
-                            height="375px"
+                            height="450px"
                         />
                         <Carousel.Caption>
                             <h3>First slide label</h3>
@@ -31,12 +59,11 @@ class HomePage extends Component {
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
-                            src="https://storage.needpix.com/rsynced_images/cat-4262034_1280.jpg"
+                            src="https://www.c-ville.com/wp-content/uploads/2019/09/Cats.jpg"
                             alt="Third slide"
                             width="100%"
-                            height="375px"
+                            height="450px"
                         />
-
                         <Carousel.Caption>
                             <h3>Second slide label</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -45,12 +72,11 @@ class HomePage extends Component {
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
-                            src="https://www.hertsforlearning.co.uk/sites/default/files/images/blog/DOG%20PIC%201.jpg"
+                            src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg"
                             alt="Third slide"
                             width="100%"
-                            height="375px"
+                            height="450px"
                         />
-
                         <Carousel.Caption>
                             <h3>Third slide label</h3>
                             <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
@@ -58,26 +84,32 @@ class HomePage extends Component {
                     </Carousel.Item>
                 </Carousel>
                 <div>
-                    
+
                 </div>
                 <h4 className="font-style-class">Pet Description</h4>
                 <Container>
                     <Row>
                         <Col xs={12} sm={12} md={6} lg={6}>
-                        Saving a life is always the best gift you could offer. And when it comes to pets, there is not enough shelter for the number of animals that are born every year. This can be assisted by providing them a safe place for life. Adopting them and giving them a little space in our homes and lives would create a great impact in their lives. HappyPaws is intended in helping find a lovely and safe home for animals who don’t have a proper shelter.
+                            Saving a life is always the best gift you could offer. And when it comes to pets, there is not enough shelter for the number of animals that are born every year. This can be assisted by providing them a safe place for life. Adopting them and giving them a little space in our homes and lives would create a great impact in their lives. HappyPaws is intended in helping find a lovely and safe home for animals who don’t have a proper shelter.
                         </Col>
                         <Col xs={12} sm={12} md={6} lg={6}>
                             <div className="font-class">
-                               <h4>"Bring a pet into your family today"</h4> 
-                        </div>
+                                <h4>"Bring a pet into your family today"</h4>
+                            </div>
                         </Col>
                     </Row>
                 </Container>
                 <div>
                 </div>
                 <div className="btn-center">
-                    <button className="btn-css" onClick={() => alert("Under Construction")} > Take a Quiz</button>
+                    <button className="btn-css" onClick={() => this.props.history.push('/search')}>Find a pet</button>
                 </div>
+                <div className = "modal-show">
+                            <Login 
+                            show = {LoginModal} 
+                            onHide = {this.LoginModalClose}>                                
+                            </Login>
+                        </div>
                 {/* <Button variant="outline-primary" size="lg"> Take a Quiz </Button>{' '} */}
                 <h4 className="font-style-class">Pets available for adoption near your location</h4>
                 <Container >
@@ -95,7 +127,7 @@ class HomePage extends Component {
                             </div>
                         </Col>
                         <Col xs={4.5} sm={6} md={6} lg={3}>
-                            <div style={{ cursor: "pointer" }} onClick={() => alert("Under Construction")}  className="img-pets">
+                            <div style={{ cursor: "pointer" }} onClick={() => alert("Under Construction")} className="img-pets">
                                 <img height="250px" width="100%" src="https://upload.wikimedia.org/wikipedia/commons/6/66/An_up-close_picture_of_a_curious_male_domestic_shorthair_tabby_cat.jpg"></img>
                                 <p>Mixy, Spring Garden</p>
                             </div></Col>
@@ -128,35 +160,34 @@ class HomePage extends Component {
                     <h4 className="font-style-class">Get your new friend today</h4>
                     <Container>
                         <Row>
-                            <Col xs={9} sm={6} md ={4} lg={4}>
+                            <Col xs={9} sm={6} md={4} lg={4}>
                                 <div className="connect-style">
                                     Pet Adoption FAQS
-                                   <img src="https://cdn.pixabay.com/photo/2016/10/20/18/36/search-1756278_960_720.jpg" width="100%" height="100px"></img>
+                                   <img src="https://www.isqua.org/images/2018/02/16/faq-img.png" width="100%" height="100px"></img>
                            Have a question? Get answers to questions over here..
                            <div><Button variant="outline-primary" onClick={() => alert("Under Construction")} >FAQs</Button>{' '}</div>
                                 </div>
                             </Col>
-                            <Col xs={9} sm={6} md ={4} lg={4}>
+                            <Col xs={9} sm={6} md={4} lg={4}>
                                 <div className="connect-style">
                                     Contact Us
-                                    <img src="https://live.staticflickr.com/4294/35454264413_a1241fddbd_b.jpg" width="100%" height="100px"></img>
-
-                          Want to contact us? Details for contacting us are mentioned in Contact Us.
+                                    <img src="https://mortgagephonenumber.com/wp-content/uploads/2018/12/contact_insurance.jpg" width="100%" height="100px"></img>
+                                Details for contacting us are mentioned in Contact Us.
                           <div><Button variant="outline-primary" onClick={() => alert("Under Construction")} >Contact Us</Button>{' '}</div>
                                 </div>
                             </Col>
-                            <Col xs={9} sm={6} md ={4} lg={4}>
+                            <Col xs={9} sm={6} md={4} lg={4}>
                                 <div className="connect-style">
-                                    About Us
-                                    <img src="https://cdn.pixabay.com/photo/2016/03/11/08/02/usa-1249880_960_720.jpg" width="100%" height="100px"></img>
-                                Want to know more about us? Visit your About Us page to know our details.
-                            <div><Button variant="outline-primary" onClick={() => alert("Under Construction")} >About Us</Button>{' '}</div>
+                                    Volunteer
+                                    <img src="https://coaottawa.ca/wp-content/uploads/2019/09/volunteer-hands-COA.jpg" width="100%" height="100px"></img>
+                               Visit our Volunteer page to know our details.
+                            <div><Button variant="outline-primary" onClick={() => alert("Under Construction")} >Volunteer</Button>{' '}</div>
                                 </div>
                             </Col>
                         </Row>
                     </Container>
                 </div>
-                <Footer/>
+                <Footer />
             </div>
 
         );

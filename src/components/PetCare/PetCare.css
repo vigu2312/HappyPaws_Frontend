@@ -1,0 +1,120 @@
+html {
+    height: fit-content;
+    width: 100%;
+    background-color: #EFEEF1
+}
+body {
+    height: fit-content;
+    width: 100%;
+    background-color: white;
+    overflow: auto;
+}
+
+.row {
+    padding-left: 0px !important;
+}
+
+#root {
+    height: fit-content;
+    width: 100%;
+}
+.pet-care-root {
+    height: fit-content;
+    width: 100%;
+
+}
+
+.pet-care-outline {
+    height: fit-content;
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid lightgray;
+    margin-top: 2rem;
+    box-shadow: 2px 6px 1px lightgrey;
+    background-color: white;
+    padding: 3rem;
+    text-align: left;
+}
+
+.pet-care-carousel {
+    width: 100%;
+    height: 60%;
+    margin-top: 1rem;
+    padding: 1rem
+}
+
+ .pet-care-carousel .carousel {
+     height: 100%;
+     width: 100%;
+ }
+ .pet-care-carousel-info {
+     height: 20%;
+     width: 100%;
+     padding: 1rem;
+     border: 1px solid lightgrey;
+     border-radius: 10px;
+ }
+ .pet-care-info {
+    width: 100%;
+    height: 100%;
+ }
+
+ .pet-care-find-adoption {
+    height: fit-content;
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid lightgray;
+    box-shadow: 2px 6px 1px lightgrey;
+    background-color: white;
+    padding: 3rem;
+    margin-right: 7rem;
+    margin-top: 2rem;
+    text-align: left;
+ }
+ .pet-care-find-adoption .btn-primary {
+    border-radius: 20px;
+    width: 100%;
+    text-align: center;
+ }
+
+ .pet-care-individual {
+    width: 100%;
+    height: 50%;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px lightgrey;
+    padding: 1rem;
+    margin-bottom: 1rem;
+ }
+ .pet-care-individual-image {
+     display: inline-block;
+     float: left;
+    height: 80%;
+    width: 40%;
+    
+ }
+
+ .pet-care-individual-description {
+     display: inline-block;
+     float: right;
+     height: 80%;
+     width: 55%;
+     border: 1px solid grey;
+     overflow: auto;
+     border-radius: 10px;
+     box-shadow: 2px 2px 2px lightgray;
+ }
+ .pet-care-individual-description-header {
+     height: auto;
+     width: 100%;
+     padding: 1rem;
+ }
+ .pet-care-individual-description-body {
+     padding-left: 1rem;
+     padding-right: 1rem;
+     overflow: auto;
+ }
+ .remove-margin {
+     margin-top: 0px;
+     margin-bottom: 0px;
+ }

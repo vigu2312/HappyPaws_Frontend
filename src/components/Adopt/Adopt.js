@@ -74,6 +74,7 @@ formSubmit=(event)=>{
   {
       alert(`Your query has been set to us. We shall get back to you shortly`)
       this.setState(primeState)
+      this.props.history.push('/');
   }
     
 }
@@ -85,7 +86,7 @@ formSubmit=(event)=>{
        <br/>
        
      <h3><i><b>Adopt</b></i></h3>
-     <center><b>Would you like to adopt this pet? Fill out the information below and we shall get back to you.</b>  </center>
+     <center><b>Would you like to adopt this pet? Fill out the information below and we shall schedule an appointment for you to visit.</b>  </center>
        
      <br/> 
      <br/> 
@@ -118,6 +119,8 @@ formSubmit=(event)=>{
           <Row>
           <TextField
               required
+              className="textarea"
+              id="comment"
               label="Why do you like this Pet"
               multiline
               rows={8}

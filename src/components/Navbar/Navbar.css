@@ -6,7 +6,9 @@
   float: left;
 }
   .navbar_bg{
-    background-color: rgb(96, 176, 226);
+
+    background-color: #1a237e;
+
   }
   
   .navbar-brand {
@@ -15,6 +17,14 @@
     line-height: 80px;
     font-weight: bold;
     font-size: 28px !important;
+  }
+
+  .navbar-light .navbar-nav .nav-link {
+    color: white !important;
+}
+
+  .navbar-light .navbar-brand {
+    color: white !important;
   }
   
   .navbar-toggle {
