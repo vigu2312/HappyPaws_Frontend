@@ -7,12 +7,14 @@ import Register from './components/Register/Register';
 import Profile from './components/Profile/Profile';
 import Enquire from './components/Enquire/Enquire';
 import Navbar from './components/Navbar/Navbar';
+import PetCare from './components/PetCare/PetCare';
+import Sponsor from './components/SponsorPet/Sponsor';
 
 function App() {
   return (
 
     
-    <div>
+    <React.Fragment>
     
       <Switch>
         <Route path="/" exact component={HomePage} />
@@ -21,8 +23,10 @@ function App() {
         <Route path="/register" exact component={Register} />
         <Route path="/profile" exact component={Profile}/>
         <Route path="/enquire" exact component={Enquire}/>
+        <Route path="/petCare" exact component={PetCare}/>
+        <Route path="/sponsor" exact component={Sponsor}/>
       </Switch>
-    </div>
+      </React.Fragment>
 
   );
 }
