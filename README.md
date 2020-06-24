@@ -38,7 +38,7 @@ npm install bootstrap
 
 
 ## Installing
-1. Clone the repository from git - "https://git.cs.dal.ca/ramathas/csci5709_group6"
+1. Clone the repository from git - "https://git.cs.dal.ca/ramathas/csci5709_group6/-/tree/Initial_Repo"
 
 2. Import the project in your IDE
 
