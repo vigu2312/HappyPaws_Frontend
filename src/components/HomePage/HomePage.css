@@ -1,0 +1,124 @@
+.navbar {
+    min-height: 80px;
+  }
+
+  .navbar-brand {
+    height: 80px;
+    padding-top: 17px !important;
+    font-weight: bold;
+    line-height: 40px;
+    font-size: 28px !important;
+    font-family: serif;
+  }
+  
+  .home-component{
+    background-color: #FFFFFF;
+  }
+  
+  .navbar-toggle {
+    margin-top: 23px;
+    padding: 9px 10px !important;
+  }
+  
+  .navbar-dark .navbar-nav .nav-link{
+      color: rgba(255, 255, 255, 1);
+      font-weight: bold;
+      font-size: 20px;
+      padding-top: 26.5px;
+      padding-bottom: 26.5px;
+      padding-left: 27.5px;
+      padding-right: 27.5px;
+  }
+
+.btn-center{
+    text-align: center;
+}
+  .btn-css {
+      font-size: 24px;
+      font-weight: bold;
+      padding: 15px 35px 15px 35px;
+      background-color: #007bff;
+      cursor: pointer;
+      font-family: serif;
+      margin-top: 15px;
+      box-shadow: 0 2px 3px #000000;
+  }
+  .font-class{
+      font-style: italic;
+      font-family: serif;
+      margin: 40px 40px 40px 40px;
+  }
+
+  .font-style-class{
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+      font-family: serif;
+      margin: 25px 25px 25px 25px;
+  }
+
+  .connect-style{
+    font-family: serif; 
+    margin: 5px 25px 25px 25px;
+    background-color: white;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #000000;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+  }
+
+  /* .footer-style{
+      background-color: rgb(240, 238, 238);
+  } */
+
+  .img-view{
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    padding: 5px 5px 5px 5px;
+    margin: 0px 25px 25px 25px;
+    transition: 1s;
+  }
+
+  .img-view:hover{
+    transform: scale(1.1);
+    background:#007bff;
+    box-shadow: 2px 2px 2px #000;
+    z-index: 2;
+  }
+  .img-pets{
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    padding: 5px 5px 5px 5px;
+    margin: 0px 25px 25px 25px;
+    transition: 1s;
+  }
+
+  .btn-color{
+    background-color: #007bff;
+  }
+
+  .img-pets:hover{
+   transform: scale(1.1);
+    background: #007bff;
+    box-shadow: 2px 2px 2px #000;
+    z-index: 2;
+  }
+  .col-style{
+    display: flex;
+    flex-direction: column;
+  }
+ 
+  @media(min-width: 992) {
+
+  }
+
+  @media (min-width: 768px) {
+    .navbar-nav > li > a {
+      /* (80px - line-height of 27px) / 2 = 26.5px */
+      padding-top: 26.5px;
+      padding-bottom: 26.5px;
+      padding-left: 27.5px;
+      padding-right: 27.5px;
+      line-height: 27px;
+    }
+  }
