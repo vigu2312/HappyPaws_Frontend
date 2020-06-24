@@ -92,7 +92,7 @@ Following components were used from [react-bootstrap](https://create-react-app.d
 Two examples of how these components were used is given below. Rest of the listed components were used in the same manner.
 ### Navbar.js
 
-Lines 20 - 38
+Lines 40 - 82
 ---------------
 
 ```
@@ -166,9 +166,9 @@ The code above was created by adapting the code in [react-bootstrap-documentatio
 - The code renders a navigation bar at the top of the browser window. It is responsive and better to you use then div components, which will reneder different on different screens
 - Code was modified to cater the necessity. The extra part of the code such as drop down menu was removed, because it wasnt needed.
 
-### home.js
+### contact.js
 
-Lines 50 - 65
+Lines 119 - 139
 ---------------
 
 ```
@@ -255,7 +255,7 @@ handleChange(field, e){
 
 ### search.js
 
-Lines 32 - 45
+Lines 161 - 190
 ---------------
 
 ```
