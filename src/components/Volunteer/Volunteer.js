@@ -84,43 +84,6 @@ export default function VerticalTabs() {
     setValue(newValue);
   };
 
-
-
-//    const handlefName=(event,fname)=>{
-//         // this.setState({
-//         //     fname: event.target.value
-//         // })
-//         setValue(event.target.fname);
-//     };
-
-//    const handleLName=(event)=>{
-//         // this.setState({
-//         //     lname: event.target.value
-//         // })
-//         setValue(event.target.lname);
-//     }
-    
-//     const handleEmail=(event)=>{
-//         // this.setState({
-//         //     email: event.target.value
-//         // })
-//         setValue(event.target.email);
-//     }
-
-//     const handleLocation=(event)=>{
-//         // this.setState({
-//         //     location: event.target.value
-//         // })
-        
-//         setValue(event.target.location);
-//     }
-//     const handleHours=(event)=>{
-//         // this.setState({
-//         //     hours: event.target.value
-//         // })
-//         setValue(event.target.hours);
-        
-//     }
     const check=()=>{
         let fnameError="";
         let lnameError="";
@@ -164,18 +127,7 @@ export default function VerticalTabs() {
         return true;
     };
     
-    // const formSubmit=(event)=>{
-    //   event.preventDefault()
-    //   const isRight=check();
-    //   if(isRight)
-    //   {
-    //     // this.setState(primeState)
-    //     setValue(primeState)
-    //     alert(`Volunteering request sumitted. We will email you shortly with the confirmation.`)
-          
-    //   }
-        
-    // }
+  
     const state = {
       name: '',
       email: '',

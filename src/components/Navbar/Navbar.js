@@ -59,7 +59,7 @@ class NavbarComponent extends Component {
                                 <NavDropdown.Item onClick={() => alert("Under Construction")} href="#action/3.4">See our stories</NavDropdown.Item>
                             </NavDropdown>
                             <Nav.Link as={Link} to="/contactus">Contact Us</Nav.Link>
-                            {/* <Nav.Link as ={Link} to="/enquire" >Enquire</Nav.Link> */}
+
                           
                         </Nav>
                         <Form >

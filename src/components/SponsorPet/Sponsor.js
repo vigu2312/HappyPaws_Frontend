@@ -68,38 +68,9 @@ class Sponsor extends Component {
                                                 fieldClassName="input"
                                             />
 
-                                            {/* <i class="fab fa-cc-visa" style={{ position: 'relative', marginLeft: '95%' }}></i>
-                                            <TextField
-                                                className="sample"
-                                                required
-                                                id="outlined-required"
-                                                size="small"
-                                                variant="outlined"
-                                                type="text"
-                                                placeholder="1234 1234 1234 1234"
-                                            ></TextField> */}
+                                          
                                         </Form.Row>
-                                        {/* <Form.Row>
-                                            <Col style={{ paddingLeft: '0px', paddingRight: '0px' }}>
-                                                <TextField
-                                                    required
-                                                    id="outlined-required"
-                                                    size="small"
-                                                    variant="outlined"
-                                                    placeholder="MM/YY"
-                                                />
-                                            </Col> */}
-                                        {/* <Col style={{ paddingLeft: '0px', paddingRight: '0px' }}>
-                                                <TextField
-
-                                                    required
-                                                    id="outlined-required"
-                                                    size="small"
-                                                    variant="outlined"
-                                                    placeholder="CVC"
-                                                />
-                                            </Col> */}
-                                        {/* </Form.Row> */}
+                                     
 
                                     </Form.Group>
                                     <Form.Group>
