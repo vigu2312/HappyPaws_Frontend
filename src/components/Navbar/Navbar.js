@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import logo from './Logo.png';
+import logo from './LogoWhite.png';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link, NavLink } from 'react-router-dom';
 import './Navbar.css';
@@ -54,11 +54,11 @@ class NavbarComponent extends Component {
                             <Nav.Link as={Link} to="/petCare">Pet Care</Nav.Link>
                             <Nav.Link as={Link} to="/share" className="my-active">Share your Story</Nav.Link>
                             <NavDropdown title="Support Us" id="basic-nav-dropdown">
-                                <NavDropdown.Item onClick={() => alert("Under Construction")} href="#action/3.2">Volunteer</NavDropdown.Item>
+                                <NavDropdown.Item onClick={() => alert("Under Construction")}>Volunteer</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item onClick={() => alert("Under Construction")} href="#action/3.4">See our stories</NavDropdown.Item>
                             </NavDropdown>
-                            <Nav.Link as={Link} to="/contactus"  >Contact Us</Nav.Link>
+                            <Nav.Link as={Link} to="/contactus">Contact Us</Nav.Link>
                             {/* <Nav.Link as ={Link} to="/enquire" >Enquire</Nav.Link> */}
                           
                         </Nav>

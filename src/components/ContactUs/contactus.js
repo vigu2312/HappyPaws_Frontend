@@ -113,9 +113,9 @@ class ContactUs extends Component {
         return ( 
             <React.Fragment>
             <NavbarComponent/>
-                
+            <div className="search_css">
             
-            <Row>
+            <Row >
                 <Jumbotron fluid className="class-jumbotron">
                     <Container>
                         <Row>
@@ -140,11 +140,13 @@ class ContactUs extends Component {
             </Row>
             <div className="contact-background">
             <div className="contact">
-            <Row>
-                <h3 className="heading"> Have Something on your mind?!! Let us know and we will help you out. </h3>
-                <h6 style={{marginLeft:'240px',justifyContent:'center',alignItems: 'center',
-                            alignSelf: 'center'}}> Fill the below form and explain your concern!! </h6><br/><br/>
-            </Row>
+           
+
+                        <div><h3 className="heading"> Have Something on your mind?!! Let us know and we will help you out. </h3></div>
+                        <div><h6 style={{
+                            alignItems: 'center',
+                        }}> Fill the below form and explain your concern!! </h6></div>
+                        
             <Row>
                 <form >
                     <label >Name:</label>
@@ -169,6 +171,7 @@ class ContactUs extends Component {
                     <Button variant="primary" style={{margin:10}} onClick={() => {this.validateUser()}}> Submit Query </Button>
                 </form>
             </Row>
+                </div>
                 </div>
                 </div>
                 <Footer/>

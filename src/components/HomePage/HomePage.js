@@ -6,8 +6,10 @@ import { Form, Button } from 'react-bootstrap';
 import { Row, Col, Container } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
 import './HomePage.css';
+import dog1 from './golden1.jpeg';
 import NavbarComponent from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
+import { Link, NavLink } from 'react-router-dom';
 import Login from '../Login-Register/Login'
 
 class HomePage extends Component {
@@ -49,7 +51,7 @@ class HomePage extends Component {
                             src="https://www.sciencemag.org/sites/default/files/styles/article_main_large/public/dogs_1280p_0.jpg?itok=cnRk0HYq"
                             alt="First slide"
                             width="100%"
-                            height="450px"
+                            height="600px"
                         />
                         <Carousel.Caption>
                             <h3>First slide label</h3>
@@ -62,7 +64,7 @@ class HomePage extends Component {
                             src="https://www.c-ville.com/wp-content/uploads/2019/09/Cats.jpg"
                             alt="Third slide"
                             width="100%"
-                            height="450px"
+                            height="600px"
                         />
                         <Carousel.Caption>
                             <h3>Second slide label</h3>
@@ -75,7 +77,7 @@ class HomePage extends Component {
                             src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg"
                             alt="Third slide"
                             width="100%"
-                            height="450px"
+                            height="600px"
                         />
                         <Carousel.Caption>
                             <h3>Third slide label</h3>
@@ -94,7 +96,7 @@ class HomePage extends Component {
                         </Col>
                         <Col xs={12} sm={12} md={6} lg={6}>
                             <div className="font-class">
-                                <h4>"Bring a pet into your family today"</h4>
+                                <h4>"Bring a love into your family today"</h4>
                             </div>
                         </Col>
                     </Row>
@@ -102,7 +104,9 @@ class HomePage extends Component {
                 <div>
                 </div>
                 <div className="btn-center">
-                    <button className="btn-css" onClick={() => this.props.history.push('/search')}>Find a pet</button>
+                    {/* <button className="btn-css" onClick={() => this.props.history.push('/search')}>Find a pet</button> */}
+                    <Link to="/search"> <Button type="submit" size="lg" variant="outline-primary">Find a pet</Button>{' '}</Link>
+                                   
                 </div>
                 <div className = "modal-show">
                             <Login 
@@ -115,25 +119,25 @@ class HomePage extends Component {
                 <Container >
                     <Row>
                         <Col xs={4.5} sm={6} md={6} lg={3}>
-                            <div style={{ cursor: "pointer" }} onClick={() => alert("Under Construction")} className="img-pets">
-                                <img height="250px" width="100%" src="https://www.insidermedia.com/uploads/news/images/puppy-1207816_960_720.jpg"></img>
+                            <div style={{ cursor: "pointer" }} className="img-pets">
+                                <Link to="/profile"><img height="250px" width="100%" src={dog1}></img></Link>
                                 <p>Polo, Darmouth</p>
                             </div>
                         </Col>
                         <Col xs={4.5} sm={6} md={6} lg={3}>
-                            <div style={{ cursor: "pointer" }} onClick={() => alert("Under Construction")} className="img-pets">
-                                <img height="250px" width="100%" src="https://live.staticflickr.com/730/21225816748_c41918293d_b.jpg"></img>
+                            <div style={{ cursor: "pointer" }} className="img-pets">
+                            <Link to="/profile"> <img height="250px" width="100%" src="https://live.staticflickr.com/730/21225816748_c41918293d_b.jpg"></img></Link>
                                 <p>Cashew, Clayton Park</p>
                             </div>
                         </Col>
                         <Col xs={4.5} sm={6} md={6} lg={3}>
-                            <div style={{ cursor: "pointer" }} onClick={() => alert("Under Construction")} className="img-pets">
-                                <img height="250px" width="100%" src="https://upload.wikimedia.org/wikipedia/commons/6/66/An_up-close_picture_of_a_curious_male_domestic_shorthair_tabby_cat.jpg"></img>
+                            <div style={{ cursor: "pointer" }} className="img-pets">
+                            <Link to="/profile"> <img height="250px" width="100%" src="https://upload.wikimedia.org/wikipedia/commons/6/66/An_up-close_picture_of_a_curious_male_domestic_shorthair_tabby_cat.jpg"></img></Link>
                                 <p>Mixy, Spring Garden</p>
                             </div></Col>
                         <Col xs={4.5} sm={6} md={6} lg={3}>
                             <div style={{ cursor: "pointer" }} onClick={() => alert("Under Construction")} className="img-pets">
-                                <img height="250px" width="100%" src="https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_960_720.jpg"></img>
+                            <Link to="/profile"><img height="250px" width="100%" src="https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_960_720.jpg"></img></Link>
                                 <p>Trixy, Lower Sackville</p>
                             </div>
                         </Col>
@@ -173,7 +177,7 @@ class HomePage extends Component {
                                     Contact Us
                                     <img src="https://mortgagephonenumber.com/wp-content/uploads/2018/12/contact_insurance.jpg" width="100%" height="100px"></img>
                                 Details for contacting us are mentioned in Contact Us.
-                          <div><Button variant="outline-primary" onClick={() => alert("Under Construction")} >Contact Us</Button>{' '}</div>
+                          <div>    <Link to="/contactus"> <Button variant="outline-primary">Contact Us</Button>{' '}</Link></div>
                                 </div>
                             </Col>
                             <Col xs={9} sm={6} md={4} lg={4}>
@@ -181,7 +185,7 @@ class HomePage extends Component {
                                     Volunteer
                                     <img src="https://coaottawa.ca/wp-content/uploads/2019/09/volunteer-hands-COA.jpg" width="100%" height="100px"></img>
                                Visit our Volunteer page to know our details.
-                            <div><Button variant="outline-primary" onClick={() => alert("Under Construction")} >Volunteer</Button>{' '}</div>
+                            <div>    <Link to="/volunteer"> <Button variant="outline-primary"  >Volunteer</Button>{' '}</Link></div>
                                 </div>
                             </Col>
                         </Row>

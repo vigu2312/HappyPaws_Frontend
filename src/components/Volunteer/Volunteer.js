@@ -7,7 +7,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import dogVol from './dogvolunteer.jpg';
-
+import { Link, NavLink } from 'react-router-dom';
 import NavbarComponent from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import './Volunteer.css';
@@ -15,10 +15,6 @@ import './Volunteer.css';
 
 import { Form, Container, Button, Row, Col } from 'react-bootstrap';
 import TextField from '@material-ui/core/TextField';
-
-
-
-
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -394,8 +390,7 @@ export default function VerticalTabs() {
                                 </Row>
                                 
                                 <Row className="rows">
-                                <input type="submit" value="Volunteer"></input>
-                                       
+                               
                                 </Row>            
                                 </Container>
 

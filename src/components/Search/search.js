@@ -212,6 +212,7 @@ render() {
   return (  
   
     <React.Fragment>
+      <div className="search_css">
         <NavbarComponent />
       <Row className="search-center m-5"> 
         <Form inline >
@@ -219,7 +220,6 @@ render() {
           <Button className="button-css" variant="outline-primary" size="lg">Search</Button>
         </Form>
       </Row>
-
     <Row>
         <Col sm={2} md={2}>
           <FCMaterial className="search-center ml-5" >
@@ -302,6 +302,8 @@ render() {
       
         </Col>
       </Row>
+      
+      </div>
       <Footer />
     </React.Fragment>
   );

@@ -1,12 +1,12 @@
 import React ,{Component} from 'react';
 import './Adopt.css';
-
+import Button from 'react-bootstrap/Button'
 import Dog from './dog.jpg';
 import NavbarComponent from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
-
+import { Link, NavLink } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
-import { Form, Container, Button, Row, Col } from 'react-bootstrap';
+import { Form, Container, Row, Col } from 'react-bootstrap';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 
@@ -132,8 +132,9 @@ formSubmit=(event)=>{
           </Row>
 
           <Row>
-              <input type="submit" value="Submit Adoption Request"></input>
-                                       
+              <input type="submit" className="btn" value="Submit Adoption Request" ></input>
+              {/* <Link to="/profile"> <Button disabled={this.state.disabled} type="submit" size="lg" variant="outline-primary">Submit Adoption Request</Button>{' '}</Link>
+                                        */}
           </Row> 
 
        </Container>

@@ -62,7 +62,7 @@ class Register extends Component {
                             
                             <h4 className="font2">About</h4>
                             <div className="about-text">
-                                Meet Cookie! A 3 year old male Golden Retriver. Cookie is 85 lbs of pure love! This boy is very affectionate and snuggly indoors (he is practically your shadow), while being extremely athletic outdoors!
+                                Meet Cookie! A 3 year old male Golden Retriever. Cookie is 85 lbs of pure love! This boy is very affectionate and snuggly indoors (he is practically your shadow), while being extremely athletic outdoors!
     He is exuberant and barks while wagging his tail when meeting new people, and once settled loves everyone he meets.
     He has been good with big dogs, but was too worked up around a small dog, and not recommended with cats.
     He has separation anxiety, although this has been improving, and would do well in a home with another dog or with children 12+. Cookie is house trained, crate trained, and knows his basic commands.

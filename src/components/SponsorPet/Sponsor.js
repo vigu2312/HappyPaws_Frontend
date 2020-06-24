@@ -55,7 +55,7 @@ class Sponsor extends Component {
                                                 type = "email"
                                                 size="small"
                                                 variant="outlined"
-                                                placeholder="John.Doe@gmail.com"
+                                                label="email"
                                             />
                                         </Form.Row>
                                     </Form.Group>
@@ -111,10 +111,10 @@ class Sponsor extends Component {
                                                 className="sample"
                                                 required
                                                 id="outlined-required"
-
+                                                label="name"
                                                 size="small"
                                                 variant="outlined"
-                                                placeholder="John Doe"
+                                                
                                             />
                                         </Form.Row>
                                     </Form.Group>
@@ -134,10 +134,12 @@ class Sponsor extends Component {
                                                 className="sample"
                                                 required
                                                 id="outlined-required"
-
+                                                label="address line 1"
                                                 size="small"
                                                 variant="outlined"
-                                                placeholder="Address Line 1"
+                                                
+                                                
+                                      
                                             />
                                         </Form.Row>
                                         <Form.Row>
@@ -147,7 +149,7 @@ class Sponsor extends Component {
 
                                                 size="small"
                                                 variant="outlined"
-                                                placeholder="Address Line 2"
+                                                label="address line 2"
                                             />
                                         </Form.Row>
 
@@ -159,7 +161,7 @@ class Sponsor extends Component {
                                                     required
                                                     size="small"
                                                     variant="outlined"
-                                                    placeholder="City"
+                                                    label="city"
                                                 />
                                             </Col>
                                             <Col style={{ paddingLeft: '0px', paddingRight: '0px' }}>
@@ -169,7 +171,7 @@ class Sponsor extends Component {
                                                     required
                                                     size="small"
                                                     variant="outlined"
-                                                    placeholder="Postal Code"
+                                                    label="postal code"
                                                 />
                                             </Col>
                                         </Form.Row>
@@ -181,7 +183,7 @@ class Sponsor extends Component {
                                                 required
                                                 size="small"
                                                 variant="outlined"
-                                                placeholder="State"
+                                                label="state"
                                             />
                                         </Form.Row>
                                     </Form.Group>
