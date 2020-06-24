@@ -1,7 +1,8 @@
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 import React, { Component } from 'react';
 import './Footer.css';
-import logo from '../Navbar/Logo.png';
+// import logo from '../Navbar/Logo.png';
+import logo from './LogoWhite.png';
 
 const FooterPage = () => {
   return (
@@ -13,7 +14,7 @@ const FooterPage = () => {
                             src={logo}
                             width="35"
                             height="35"
-                        />{' '}Happy Paws</h5>
+                        />{' '}HappyPaws</h5>
           <MDBCol>
             <ol>
               <li>

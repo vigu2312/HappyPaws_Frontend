@@ -63,13 +63,8 @@ class NavbarComponent extends Component {
                           
                         </Nav>
                         <Form inline>
-                            <button variant="light" onClick={this.showLoginModal}>Register</button>
-                            <div className = "modal-show">
-                            <Login 
-                            show = {LoginModal} 
-                            onHide = {this.LoginModalClose}>                                
-                            </Login>
-                        </div>
+                        <Link to="/register"> <Button type="submit" size="lg" variant="outline-primary">Register</Button>{' '}</Link>
+                           
 
                         </Form>
                     </Navbar.Collapse>

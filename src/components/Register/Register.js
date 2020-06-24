@@ -152,14 +152,16 @@ class Register extends Component {
                                                 Sign Up
                     </Button>{' '}</Link>
                                         </div>
-                                        <div className="btn-width">
+                                        <Link to="/login"> Already a member? Login here</Link>
+                          
+                                        {/* <div className="btn-width">
                                             <div className="button-class">
                                                 <FacebookLoginButton onClick={() => alert("Under Construction")} />
                                             </div>
                                             <div className="button-class">
                                                 <GoogleLoginButton onClick={() => alert("Under Construction")} />
                                             </div>
-                                        </div>
+                                        </div> */}
                                     </Col>
                                 </Row>
                             </Container>

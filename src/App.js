@@ -7,6 +7,7 @@ import Search from './components/Search/search';
 // import NavBar from './components/navBar';
 import ContactUs from './components/ContactUs/contactus';
 import DonateUs from './components/DonateUs/DonateUs';
+import Login from './components/Login/Login';
 import Shareyourstory from './components/Shareyourstory/Shareyourstory';
 import HomePage from './components/HomePage/HomePage';
 import Register from './components/Register/Register';
@@ -34,12 +35,10 @@ function App() {
         <Route path="/enquire" exact component={Enquire}/>
         <Route path="/adopt" exact component={Adopt}/>
         <Route path="/volunteer" exact component={Volunteer}/>
-
+        <Route path="/login" exact component={Login}/>
         <Route path="/petCare" exact component={PetCare}/>
         <Route path="/sponsor" exact component={Sponsor}/>
         <Route path='/register' component={Register}/> 
-        {/* <Route path='/login' component={Login}/>   */}
-        {/* <Route path='/login-successful' component={LoginSuccess}/>     */}
         <Route path='/search' component={Search}/>
         <Route path='/contactus' component={ContactUs}/>
      
