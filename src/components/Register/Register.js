@@ -108,9 +108,9 @@ class Register extends Component {
                 <div className="App">
                     <form onSubmit={this.onSubmit} >
                         <div>
-                            <Link to="/"><CloseIcon style={{ float: "right", marginRight: "20px" }} fontSize="large"></CloseIcon></Link>
-                            <h2 className="mainheader"><PetsIcon fontSize="large" />HappyPaws</h2>
-                            <h6 className="custom-h6">Already have an HappyPaws account? <a href="#login">Log in</a></h6>
+                            <a href="/"><CloseIcon style={{ float: "right", marginRight: "20px" }} fontSize="large"></CloseIcon></a>
+                            <h2 className="mainheader">HappyPaws</h2>
+                            <h6 className="custom-h6">Already have an HappyPaws account? <a href="/login">Log in</a></h6>
 
                             <Container>
                                 <Row>
@@ -124,8 +124,9 @@ class Register extends Component {
                                                     error={this.state.nameError !== null}
                                                     helperText={this.state.nameError}
                                                     onChange={e => this.onValueChange(e, 'name')}
-                                                    id="standard-basic" required label="Email"
+                                                    id="standard-basic" 
                                                     onBlur={this.isSubmitDisabled}
+                                                    variant="outlined"
                                                     required label="Name" /></div>
                                             <div className="custom-class">
                                                 <TextField className="input-class"
@@ -135,6 +136,7 @@ class Register extends Component {
                                                     helperText={this.state.emailError}
                                                     onChange={e => this.onValueChange(e, 'email')}
                                                     id="standard-basic" required label="Email"
+                                                    variant="outlined"
                                                     onBlur={this.isSubmitDisabled} />
                                             </div>
                                             <div className="custom-class">
@@ -145,6 +147,7 @@ class Register extends Component {
                                                     helperText={this.state.passwordError}
                                                     onChange={e => this.onValueChange(e, 'password')}
                                                     id="standard-basic" required label="Password"
+                                                    variant="outlined"
                                                     onBlur={this.isSubmitDisabled} /></div>
                                         </div>
                                         <div className="button-class">

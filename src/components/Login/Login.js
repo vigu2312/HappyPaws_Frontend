@@ -93,14 +93,14 @@ class Login extends Component {
                 <div className="App">
                     <form onSubmit={this.onSubmit} >
                         <div>
-                            <Link to="/"><CloseIcon style={{ float: "right", marginRight: "20px" }} fontSize="large"></CloseIcon></Link>
+                            <a href="/"><CloseIcon style={{ float: "right", marginRight: "20px" }} fontSize="large"></CloseIcon></a>
                             {/* <img
                             alt=""
                             src={logo}
                             width="35"
                             height="35"
                         />{' '} */}
-                        <h2 className="mainheader"><PetsIcon fontSize="large" />HappyPaws</h2>
+                        <h2 className="mainheader">HappyPaws</h2>
                         
                             <Container>
                                 <Row>
@@ -115,7 +115,7 @@ class Login extends Component {
                                                     helperText={this.state.emailError}
                                                     onChange={e => this.onValueChange(e, 'email')}
                                                     id="standard-basic" required label="Email"
-                                                    variant="email"
+                                                    variant="outlined"
                                                     onBlur={this.isSubmitDisabled} />
                                             </div>
                                             <div className="custom-class">
@@ -126,7 +126,8 @@ class Login extends Component {
                                                     helperText={this.state.passwordError}
                                                     onChange={e => this.onValueChange(e, 'password')}
                                                     id="standard-basic" required label="Password"
-                                                    variant="password"
+                                                    variant="outlined"
+
                                                     onBlur={this.isSubmitDisabled} /></div>
                                         </div>
                                         <div className="button-class">
@@ -134,7 +135,7 @@ class Login extends Component {
                                                 Login
                     </Button>{' '}</Link>
                                         </div>
-                                        <Link to="/register">Not a member of HappyPaws? Register here</Link>
+                                        <a href="/register">Not a member of HappyPaws? Register here</a>
                                       
                                     </Col>
                                 </Row>

@@ -63,9 +63,15 @@ class NavbarComponent extends Component {
                           
                         </Nav>
                         <Form inline>
-                        <Link to="/register"> <Button type="submit" size="lg" variant="outline-primary">Register</Button>{' '}</Link>
-                           
-
+                        {/* <Link to="/register"> <Button type="submit" size="lg" variant="outline-primary">Register</Button>{' '}</Link>
+                            */}
+                              <Nav className="mr-auto">
+                    <NavDropdown title="Profile" id="basic-nav-dropdown">
+                    <NavDropdown.Item  as={Link} to="/Register" >Register</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item as={Link} to="/Login">Login</NavDropdown.Item>
+                                </NavDropdown>
+                                </Nav>
                         </Form>
                     </Navbar.Collapse>
                 </Navbar>
