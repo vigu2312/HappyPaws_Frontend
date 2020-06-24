@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button'
 import { Row, Col, Container } from 'react-bootstrap';
-import { FacebookLoginButton, GoogleLoginButton } from "react-social-login-buttons";
 import TextField from '@material-ui/core/TextField';
 import './Register.css';
-import { useHistory } from "react-router-dom";
-import PetsIcon from '@material-ui/icons/Pets';
 import CloseIcon from '@material-ui/icons/Close';
 import { Link } from 'react-router-dom';
 
@@ -155,16 +152,9 @@ class Register extends Component {
                                                 Sign Up
                     </Button>{' '}</Link>
                                         </div>
-                                        <Link to="/login"> Already a member? Login here</Link>
+                                        <Link to="/login"> Already a HappyPaws member? Login here</Link>
                           
-                                        {/* <div className="btn-width">
-                                            <div className="button-class">
-                                                <FacebookLoginButton onClick={() => alert("Under Construction")} />
-                                            </div>
-                                            <div className="button-class">
-                                                <GoogleLoginButton onClick={() => alert("Under Construction")} />
-                                            </div>
-                                        </div> */}
+                                       
                                     </Col>
                                 </Row>
                             </Container>

@@ -229,8 +229,7 @@ class Adopt extends Component {
 
             <Row>
               <Button type="submit" className="btn" value="Submit Adoption Request" size="lg" variant="outline-primary">Submit Adoption Request</Button>
-              {/* <Link to="/profile"> <Button disabled={this.state.disabled} type="submit" size="lg" variant="outline-primary">Submit Adoption Request</Button>{' '}</Link>
-                                        */}
+             
             </Row>
 
           </Container>

@@ -94,12 +94,7 @@ class Login extends Component {
                     <form onSubmit={this.onSubmit} >
                         <div>
                             <a href="/"><CloseIcon style={{ float: "right", marginRight: "20px" }} fontSize="large"></CloseIcon></a>
-                            {/* <img
-                            alt=""
-                            src={logo}
-                            width="35"
-                            height="35"
-                        />{' '} */}
+                           
                         <h2 className="mainheader">HappyPaws</h2>
                         
                             <Container>
@@ -131,7 +126,7 @@ class Login extends Component {
                                                     onBlur={this.isSubmitDisabled} /></div>
                                         </div>
                                         <div className="button-class">
-                                            <Link to="/"> <Button variant="primary" size="lg" active>
+                                            <Link to="/"> <Button disabled={this.state.disabled} variant="primary" size="lg" active>
                                                 Login
                     </Button>{' '}</Link>
                                         </div>
