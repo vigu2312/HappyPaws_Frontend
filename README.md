@@ -7,7 +7,7 @@ new pet owners to take care of their pets. Users can also share the stories of t
 community.
 
 Application URL: [https://happypaws-a2.herokuapp.com](https://happypaws-a2.herokuapp.com) <br>
-GitLab URL: [https://git.cs.dal.ca/ramathas/csci5709_group6](https://git.cs.dal.ca/ramathas/csci5709_group6) <br>
+GitLab URL: [https://git.cs.dal.ca/ramathas/csci5709_group6/-/tree/Initial_Repo](https://git.cs.dal.ca/ramathas/csci5709_group6/-/tree/Initial_Repo) <br>
 
 * *Date Created*: 20 June 2020
 * *Last Modification Date*: 23 June 2020
