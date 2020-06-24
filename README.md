@@ -6,7 +6,7 @@ a pet of their own at home, but wants to contribute something for the animals, t
 new pet owners to take care of their pets. Users can also share the stories of their adoption on the web application to encourage other users to adopt or contribute to the pet
 community.
 
-Application URL: [https://happypaws-a2.herokuapp.com/share](https://happypaws-a2.herokuapp.com/share) <br>
+Application URL: [https://happypaws-a2.herokuapp.com](https://happypaws-a2.herokuapp.com) <br>
 GitLab URL: [https://git.cs.dal.ca/ramathas/csci5709_group6](https://git.cs.dal.ca/ramathas/csci5709_group6) <br>
 
 * *Date Created*: 20 June 2020
@@ -38,12 +38,14 @@ npm install bootstrap
 
 
 ## Installing
-1. Clone the repository from git - "https://github.com/bhagya97/Web_Assignment2.git"
+1. Clone the repository from git - "https://git.cs.dal.ca/ramathas/csci5709_group6"
 
 2. Import the project in your IDE
 
 3. After installing the prerequisites, run the following command in terminal
 In the project directory <br>
+## `npm install`
+## `npm run build`
 ## `npm start`
 
 4. The application will run on 'https://localhost:3000'.
