@@ -38,7 +38,7 @@ class NavbarComponent extends Component {
         return (
             <div>
                 <Navbar className="navbar_bg" expand="lg" >
-                    <Navbar.Brand href="/">
+                    <Navbar.Brand as={Link} to="/">
                         <img
                             alt=""
                             src={logo}
@@ -54,7 +54,7 @@ class NavbarComponent extends Component {
                             <Nav.Link as={Link} to="/petCare">Pet Care</Nav.Link>
                             <Nav.Link as={Link} to="/share" className="my-active">Share your Story</Nav.Link>
                             <NavDropdown title="Support Us" id="basic-nav-dropdown">
-                                <NavDropdown.Item onClick={() => alert("Under Construction")}>Volunteer</NavDropdown.Item>
+                                <NavDropdown.Item  as={Link} to="/volunteer" >Volunteer</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item onClick={() => alert("Under Construction")} href="#action/3.4">See our stories</NavDropdown.Item>
                             </NavDropdown>

@@ -21,7 +21,8 @@ const primeState={
   email:'',
   comment:'',
   mailError:'',
-  commentError:''
+  commentError:'',
+  
 }
 
 class Adopt extends Component {
@@ -132,7 +133,7 @@ formSubmit=(event)=>{
           </Row>
 
           <Row>
-              <input type="submit" className="btn" value="Submit Adoption Request" ></input>
+              <Button type="submit" className="btn" value="Submit Adoption Request" size="lg" variant="outline-primary">Submit Adoption Request</Button>
               {/* <Link to="/profile"> <Button disabled={this.state.disabled} type="submit" size="lg" variant="outline-primary">Submit Adoption Request</Button>{' '}</Link>
                                         */}
           </Row> 
