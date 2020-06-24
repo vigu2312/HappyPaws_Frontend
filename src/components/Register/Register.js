@@ -110,7 +110,7 @@ class Register extends Component {
                         <div>
                             <a href="/"><CloseIcon style={{ float: "right", marginRight: "20px" }} fontSize="large"></CloseIcon></a>
                             <h2 className="mainheader">HappyPaws</h2>
-                            <h6 className="custom-h6">Already have an HappyPaws account? <a href="/login">Log in</a></h6>
+                         
 
                             <Container>
                                 <Row>
