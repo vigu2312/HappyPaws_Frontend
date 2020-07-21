@@ -7,7 +7,7 @@ import Search from './components/Search/search';
 // import NavBar from './components/navBar';
 import ContactUs from './components/ContactUs/contactus';
 import DonateUs from './components/DonateUs/DonateUs';
-import Login from './components/Login/Login';
+import Login from './components/Login-Register/Login';
 import Shareyourstory from './components/Shareyourstory/Shareyourstory';
 import HomePage from './components/HomePage/HomePage';
 import Register from './components/Register/Register';
@@ -19,6 +19,7 @@ import Navbar from './components/Navbar/Navbar';
 // import Navbar from './components/Navbar/Navbar';
 import PetCare from './components/PetCare/PetCare';
 import Sponsor from './components/SponsorPet/Sponsor';
+import UserProfile from './components/UserProfile/UserProfile';
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         <Route path='/register' component={Register}/> 
         <Route path='/search' component={Search}/>
         <Route path='/contactus' component={ContactUs}/>
+        <Route path = '/userprofile' component={UserProfile}></Route>
      
       </Switch>
       </React.Fragment>
