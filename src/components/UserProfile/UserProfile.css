@@ -1,0 +1,106 @@
+.image-border {
+    height: 100%;
+    width: 50%;
+    border: 1px solid gray;
+    border-radius: 50%;
+    /* border-radius: 10px; */
+    border: 2px solid lightgray;
+    box-shadow: 2px 6px 1px lightgrey;
+}
+
+body {
+    background-color: white;
+    height: auto;
+}
+
+.outer-color {
+    background-color: #EBF6F9;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.success-div {
+    width: 100%;
+    /* float: left; */
+}
+
+.no-padding-margin {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+
+.image-sizing {
+    height: 100%;
+    width: 100%;
+}
+
+.image-outline {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    height: 20rem;
+    width: 100%;
+    
+}
+
+.full-width-padding {
+    width: 100%;
+    margin-right: 2rem;
+    margin-top: 2rem;
+}
+
+
+.desc-outline {
+    margin-top: 2rem;
+    padding-top: 4rem;
+    padding-bottom: 1rem;
+    height: 20rem;
+    
+    text-align: left;
+    /* border-radius: 10px; */
+    /* background-color: white; */
+    /* border: 2px solid lightgray;
+    box-shadow: 2px 6px 1px lightgrey; */
+    
+}
+.custom-padding {
+    padding-left: 115px;
+}
+
+.custom-padding-bottom {
+    padding-left: 115px;
+    padding-bottom: 0px;
+}
+
+.no-left-padding {
+    padding-left: 0px !important;
+}
+
+.content-left {
+    justify-content: left;
+}
+
+.tab-part .row {
+    padding-left: 1rem;
+}
+
+.margin-bottom {
+    margin-bottom: 0.5rem;
+}
+
+.your-pet-root {
+    padding: 2rem;
+    height: auto;
+    width: 50rem;
+    border-radius: 10px; 
+    background-color: white;
+    border: 2px solid lightgray;
+    box-shadow: 2px 6px 1px lightgrey;
+}
+
+.padding-zero-bot {
+    padding-bottom: 0px;
+}

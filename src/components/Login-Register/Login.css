@@ -1,6 +1,7 @@
 .modal-header .nav-item {
     font-size: 1rem;
     width: 50%;
+    display: inline-block;
 }
 
 .modal-header .modal-title {
@@ -23,4 +24,12 @@
 
 .modal-login-title {
     width: 100%;
+}
+
+.card .navbar-nav {
+    display: inherit;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
 }

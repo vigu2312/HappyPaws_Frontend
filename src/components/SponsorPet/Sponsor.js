@@ -1,182 +1,223 @@
 import React, { Component } from 'react';
-import { Form, Button } from 'react-bootstrap'
 import SponsorDog from '../../DogSponsor.jpg';
 import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
-import { Row, Col, Container, Dropdown, DropdownButton } from 'react-bootstrap'
+import { Form, Button, Row, Col, Container, Dropdown, DropdownButton } from 'react-bootstrap'
 import CreditCardInput from 'react-credit-card-input';
-import './Sponsor.css';
 import NavbarComponent from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
+import './Sponsor.css';
+
+
 
 class Sponsor extends Component {
-    render() {
 
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            email: '',
+            cardNumber: '',
+            name: '',
+            address1: '',
+            city: '',
+            postalCode: '',
+            state: '',
+            disabled: true,
+            emailError: null
+        }
+    }
+
+    isSubmitDisabled = () => {
+
+        let validEmail = false;
+
+
+        if (this.state.email === "") {
+            this.setState({
+                emailError: null
+            });
+        } else {
+            if (this.emailValidation(this.state.email)) {
+                validEmail = true
+                this.setState({
+                    emailError: null
+                });
+            } else {
+                this.setState({
+                    emailError: "Please enter valid email!"
+                });
+            }
+        }
+
+        if (validEmail && this.state.name !== "" &&  this.state.address1 !== "" && this.state.city !== "") {
+            this.setState({
+                disabled: false
+            })
+        }
+        else {
+            this.setState({
+                disabled: true
+            })
+        }
+
+    }
+
+
+    emailValidation = (email) => {
+        return new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email);
+    }
+
+    onValueChange = (e, label) => {
+        const nextState = {};
+        nextState[label] = e.target.value;;
+        this.setState(nextState);
+    }
+
+    render() {
+        console.log(this.state.city)
+        console.log(this.state.address1)
+        console.log(this.state.cardNumber)
         return (
             <React.Fragment>
-            <NavbarComponent />
-            <div className="sponsor-root">
-                <div className="pet-info">
-                    <div className="pet-image-info">
-                        <img className="pet-image" src={SponsorDog}></img>
-                    </div>
-
-                    <div className="pet-description-info">
-                        <div className="pet-description-title">
-                            <p style={{ fontSize: '1.3rem', fontWeight: '500' }}>Something About Me!</p>
-                            <hr></hr>
-                        </div>
-                        <p>Esse reprehenderit ullamco ipsum irure elit sunt velit non anim sit nisi labore non. Sint ea Lorem minim ex enim adipisicing mollit duis eiusmod consectetur aute. Eu ex Lorem commodo non.</p>
-                    </div>
-                </div>
-                <div className="vertical-line">
-                    <hr className="vertical-line-item"></hr>
-                </div>
-                <div className="payment-info">
-
-                    <div className="payment-outline">
-                        <div className="payment-main">
-                            <div className="payment-google-button">
-                                <Button variant="dark" block>
-                                    <i class="fab fa-google-pay fa-2x"></i></Button>
-                            </div>
-                            <hr></hr>
-                            <div className="payment-details">
-                                <Form>
-                                    <Form.Group>
-                                        <Form.Row>
+                <NavbarComponent />
+                <Container fluid>
+                    <div className="main-root">
+                        <Row noGutters="true" className="justify-left" style={{ paddingLeft: '50px' }}>
+                            <Col lg={5} md={5} sm={12} xs={12}>
+                                <Row className="justify-left" style={{ paddingLeft: '25px' }}>
+                                    <div className="img-outline">
+                                        <img src={SponsorDog} style={{ height: '100%', width: '75%' }}></img>
+                                    </div>
+                                </Row>
+                                <Row className="justify-left" style={{ paddingLeft: '25px' }}>
+                                    <div className="description-outline">
+                                        <Row className="justify-left" style={{ paddingLeft: '2rem', paddingBottom: '0rem' }}>
+                                            <p style={{ fontSize: '1.3rem', fontWeight: '500' }}>Something About Me!</p>
+                                        </Row>
+                                        <hr></hr>
+                                        <Row className="justify-left" style={{ paddingLeft: '2rem', textAlign: 'left' }}>
+                                            <p>Esse reprehenderit ullamco ipsum irure elit sunt velit non anim sit nisi labore non. Sint ea Lorem minim ex enim adipisicing mollit duis eiusmod consectetur aute. Eu ex Lorem commodo non. Esse reprehenderit ullamco ipsum irure elit sunt velit non anim sit nisi labore non</p>
+                                        </Row>
+                                    </div>
+                                </Row>
+                            </Col>
+                            <Col lg={5} md={5} sm={12} xs={12}>
+                                <div className="pay-outline">
+                                    <Form>
+                                        <Row className="justify-left padding-bot">
                                             <Form.Label className="labelClass">Email</Form.Label>
-                                        </Form.Row>
-                                        <Form.Row>
+                                        </Row>
+                                        <Row className="justify-left">
                                             <TextField
-                                                className="sample"
+                                                className="full-width"
                                                 required
+                                                onChange={e => this.onValueChange(e, 'email')}
                                                 id="outlined-required"
-                                                type = "email"
+                                                type="email"
+                                                onBlur={this.isSubmitDisabled}
                                                 size="small"
+                                                error={this.state.emailError !== null}
+                                                helperText={this.state.emailError}
                                                 variant="outlined"
-                                                label="email"
+                                                placeholder="John.Doe@gmail.com"
                                             />
-                                        </Form.Row>
-                                    </Form.Group>
-                                    <Form.Group>
-                                        <Form.Row>
+                                        </Row>
+                                        <Row className="justify-left padding-bot">
                                             <Form.Label className="labelClass">Card Information</Form.Label>
-                                        </Form.Row>
-                                        <Form.Row>
-                                            <CreditCardInput
+                                        </Row>
+                                        <Row className="justify-left">
+                                            <CreditCardInput style={{ width: '100%' }}
                                                 fieldClassName="input"
+                                                className="full-width"
+                                                onChange={e => this.onValueChange(e, 'cardNumber')}
                                             />
-
-                                          
-                                        </Form.Row>
-                                     
-
-                                    </Form.Group>
-                                    <Form.Group>
-                                        <Form.Row>
-                                            <Form.Label className="labelClass">Name On Card</Form.Label>
-                                        </Form.Row>
-                                        <Form.Row>
+                                        </Row>
+                                        <Row className="justify-left padding-bot">
+                                            <Form.Label className="labelClass ">Name On Card</Form.Label>
+                                        </Row>
+                                        <Row className="justify-left">
                                             <TextField
-                                                className="sample"
+                                                className="sample full-width"
                                                 required
                                                 id="outlined-required"
-                                                label="name"
+                                                onBlur={this.isSubmitDisabled}
+                                                onChange={e => this.onValueChange(e, 'name')}
                                                 size="small"
                                                 variant="outlined"
-                                                
+                                                placeholder="John Doe"
                                             />
-                                        </Form.Row>
-                                    </Form.Group>
-                                    <Form.Group>
-                                        <Form.Row>
+                                        </Row>
+                                        <Row className="justify-left padding-bot">
                                             <Form.Label className="labelClass">Billing Address</Form.Label>
-                                        </Form.Row>
-                                        <Form.Row>
-                                            <DropdownButton id="dropdown-item-button" title="Country" variant="secondary">
-                                                <Dropdown.Item as="button">Canada</Dropdown.Item>
-                                                <Dropdown.Item as="button">USA</Dropdown.Item>
-                                                <Dropdown.Item as="button">Something else</Dropdown.Item>
-                                            </DropdownButton>
-                                        </Form.Row>
-                                        <Form.Row>
+                                        </Row>
+                                        <Row className="justify-left padding-bot">
                                             <TextField
-                                                className="sample"
+                                                className="sample full-width"
+                                                id="outlined-required"
+                                                onChange={e => this.onValueChange(e, 'address1')}
                                                 required
-                                                id="outlined-required"
-                                                label="address line 1"
                                                 size="small"
+                                                onBlur={this.isSubmitDisabled}
                                                 variant="outlined"
-                                                
-                                                
-                                      
+                                                placeholder="Address Line 1"
                                             />
-                                        </Form.Row>
-                                        <Form.Row>
+                                        </Row>
+                                        <Row className="justify-left padding-bot">
                                             <TextField
-                                                className="sample"
+                                                className="sample full-width"
                                                 id="outlined-required"
-
                                                 size="small"
                                                 variant="outlined"
-                                                label="address line 2"
+                                                placeholder="Address Line 2"
                                             />
-                                        </Form.Row>
-
-                                        <Form.Row>
-                                            <Col style={{ paddingLeft: '0px', paddingRight: '0px' }} >
+                                        </Row>
+                                        <Row className="justify-left padding-bot">
+                                            <Col xs={12} sm={12} lg={6} md={6} style={{ paddingLeft: '0px', paddingRight: '0px' }}>
                                                 <TextField
-                                                    className="sample"
+                                                    className="sample full-width"
                                                     id="outlined-required"
-                                                    required
                                                     size="small"
                                                     variant="outlined"
-                                                    label="city"
+                                                    onBlur={this.isSubmitDisabled}
+                                                    placeholder="City"
+                                                    onChange={e => this.onValueChange(e, 'city')}
                                                 />
                                             </Col>
-                                            <Col style={{ paddingLeft: '0px', paddingRight: '0px' }}>
+                                            <Col xs={12} sm={12} lg={6} md={6} style={{ paddingLeft: '0px', paddingRight: '0px' }}>
                                                 <TextField
-                                                    className="sample"
+                                                    className="sample full-width"
                                                     id="outlined-required"
-                                                    required
+                                                    onChange={e => this.onValueChange(e, 'postalCode')}
                                                     size="small"
                                                     variant="outlined"
-                                                    label="postal code"
+                                                    onBlur={this.isSubmitDisabled}
+                                                    placeholder="Postal Code"
                                                 />
                                             </Col>
-                                        </Form.Row>
-                                        <Form.Row>
+                                        </Row>
+                                        <Row className="justify-left padding-bot">
                                             <TextField
-                                                className="sample"
-                                                required
+                                                className="sample full-width"
                                                 id="outlined-required"
-                                                required
                                                 size="small"
+                                                onBlur={this.isSubmitDisabled}
+                                                onChange={e => this.onValueChange(e, 'state')}
                                                 variant="outlined"
-                                                label="state"
+                                                placeholder="State"
                                             />
-                                        </Form.Row>
-                                    </Form.Group>
-                                    <Form.Group>
-                                        <Form.Row>
-                                        </Form.Row>
-                                    </Form.Group>
-                                    <Form.Group>
-                                        <Form.Row>
-                                            <Button style={{ width: '100%' }} variant="primary">Support Me!</Button>
-                                        </Form.Row>
-                                    </Form.Group>
-                                </Form>
-                            </div>
-                        </div>
+                                        </Row>
+                                        <hr>
+                                        </hr>
+                                        <Row className="justify-left padding-bot" style={{ width: '100%' }}>
+                                            <Button disabled={this.state.disabled} className="full-width" variant="primary" block>Support Me!</Button>
+                                        </Row>
+                                    </Form>
+                                </div>
+                            </Col>
+                        </Row>
                     </div>
-
-                </div>
-
-
-            </div>
-            <Footer/>
+                </Container>
+                <Footer />
             </React.Fragment>
         )
     }

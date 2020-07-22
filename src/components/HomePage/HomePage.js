@@ -10,36 +10,36 @@ import dog1 from './golden1.jpeg';
 import NavbarComponent from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import { Link, NavLink } from 'react-router-dom';
-import Login from '../Login-Register/Login'
+// import Login from '../Login-Register/Login'
 
 class HomePage extends Component {
-    constructor(props) {
-        super(props)
+    // constructor(props) {
+    //     super(props)
 
-        this.state = {
-            addModalShow: false
-        }
-        this.showLoginModal = this.showLoginModal.bind(this);
-    }
+    //     this.state = {
+    //         addModalShow: false
+    //     }
+    //     this.showLoginModal = this.showLoginModal.bind(this);
+    // }
 
-    showLoginModal = () => {
-        this.setState({
-            addModalShow : true
-        })
-        console.log("Pet Quiz button" + this.state.addModalShow)
-    }
+    // showLoginModal = () => {
+    //     this.setState({
+    //         addModalShow : true
+    //     })
+    //     console.log("Pet Quiz button" + this.state.addModalShow)
+    // }
 
-    LoginModalClose = () => {
-        this.setState({
-            addModalShow:false
-        })
-    }
+    // LoginModalClose = () => {
+    //     this.setState({
+    //         addModalShow:false
+    //     })
+    // }
 
 
 
     render() {
-        const { isFetching } = this.state;
-        const LoginModal = this.state.addModalShow
+        // const { isFetching } = this.state;
+        // const LoginModal = this.state.addModalShow
 
         return (
             <div className="home-component">
@@ -108,12 +108,12 @@ class HomePage extends Component {
                     <Link to="/search"> <Button type="submit" size="lg" variant="outline-primary">Find a pet</Button>{' '}</Link>
                                    
                 </div>
-                <div className = "modal-show">
+                {/* <div className = "modal-show">
                             <Login 
                             show = {LoginModal} 
                             onHide = {this.LoginModalClose}>                                
                             </Login>
-                        </div>
+                        </div> */}
                 {/* <Button variant="outline-primary" size="lg"> Take a Quiz </Button>{' '} */}
                 <h4 className="font-style-class">Pets available for adoption near your location</h4>
                 <Container >

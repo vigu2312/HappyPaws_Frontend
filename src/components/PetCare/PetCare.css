@@ -1,32 +1,42 @@
 html {
-    height: fit-content;
+    height: 100%;
     width: 100%;
-    /* background-color: #EFEEF1 */
+    background-color: #EFEEF1
 }
 body {
-    height: fit-content;
+    height: 100%;
     width: 100%;
     background-color: white;
     overflow: auto;
 }
 
-.row {
-    padding-left: 0px !important;
-}
-
 #root {
-    height: fit-content;
+    height: auto;
     width: 100%;
 }
 .pet-care-root {
-    height: fit-content;
+    height: auto;
     width: 100%;
+    padding-bottom: 1rem;
+    display: inline-block;
+    background-color: #EFEEF1
 
 }
 
+.justify-left {
+    justify-content: start;
+}
+
+.no-padding {
+    padding-left: 0px;
+    padding-bottom: 0px;
+}
 .pet-care-outline {
-    height: fit-content;
+    height: auto;
+    float: left;
+    display: inline-block;
     width: 100%;
+    /* margin-left: 13rem; */
     border-radius: 10px;
     border: 2px solid lightgray;
     margin-top: 2rem;
@@ -34,13 +44,14 @@ body {
     background-color: white;
     padding: 3rem;
     text-align: left;
+    overflow: auto;
 }
 
 .pet-care-carousel {
     width: 100%;
-    height: 60%;
+    height: auto;
     margin-top: 1rem;
-    padding: 1rem
+    /* padding: 1rem */
 }
 
  .pet-care-carousel .carousel {
@@ -48,20 +59,24 @@ body {
      width: 100%;
  }
  .pet-care-carousel-info {
-     height: 20%;
+     height: 10rem;
      width: 100%;
      padding: 1rem;
      border: 1px solid lightgrey;
      border-radius: 10px;
+     overflow: auto;
+     margin-top: 0.5rem;
  }
  .pet-care-info {
     width: 100%;
-    height: 100%;
+    height: auto;
+    overflow: auto;
  }
 
  .pet-care-find-adoption {
-    height: fit-content;
+    height: 50%;
     width: 100%;
+    display: inline-block;
     border-radius: 10px;
     border: 2px solid lightgray;
     box-shadow: 2px 6px 1px lightgrey;
@@ -79,7 +94,8 @@ body {
 
  .pet-care-individual {
     width: 100%;
-    height: 50%;
+    height: auto;
+    overflow: auto;
     border: 1px solid lightgray;
     border-radius: 10px;
     box-shadow: 2px 2px 2px lightgrey;
@@ -97,7 +113,7 @@ body {
  .pet-care-individual-description {
      display: inline-block;
      float: right;
-     height: 80%;
+     height: 15rem;
      width: 55%;
      border: 1px solid grey;
      overflow: auto;

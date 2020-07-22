@@ -20,7 +20,7 @@ class NavbarComponent extends Component {
 
     showLoginModal = () => {
         this.setState({
-            addModalShow : true
+            addModalShow:true
         })
         console.log("Register" + this.state.addModalShow)
     }
@@ -32,9 +32,9 @@ class NavbarComponent extends Component {
     }
 
     render() {
-        const { isFetching } = this.state;
+        // const { isFetching } = this.state;
         const LoginModal = this.state.addModalShow
-
+        console.log("Render" + LoginModal)
         return (
             <div>
                 <Navbar className="navbar_bg" expand="lg" >
@@ -64,12 +64,18 @@ class NavbarComponent extends Component {
                         </Nav>
                         <Form >
                         <NavDropdown title="Profile" className="marginProfile" id="basic-nav-dropdown">
-                                <NavDropdown.Item as={Link} to="/register" >Register</NavDropdown.Item>
+                                {/* <NavDropdown.Item as={Link} to="/register" >Register</NavDropdown.Item> */}
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item as={Link} to="/login">Login</NavDropdown.Item>
+                                <NavDropdown.Item onClick = {this.showLoginModal}>Login</NavDropdown.Item>
                             </NavDropdown>
                             
                         </Form>
+                        <div className = "modal-show">
+                            <Login 
+                            show = {LoginModal} 
+                            onHide = {this.LoginModalClose}>                                
+                            </Login>
+                        </div>
                     </Navbar.Collapse>
                 </Navbar>
             </div>

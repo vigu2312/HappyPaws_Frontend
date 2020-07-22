@@ -122,7 +122,6 @@ class Login extends Component {
                                                     onChange={e => this.onValueChange(e, 'password')}
                                                     id="standard-basic" required label="Password"
                                                     variant="outlined"
-
                                                     onBlur={this.isSubmitDisabled} /></div>
                                         </div>
                                         <div className="button-class">
