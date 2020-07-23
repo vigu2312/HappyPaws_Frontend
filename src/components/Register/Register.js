@@ -5,6 +5,9 @@ import TextField from '@material-ui/core/TextField';
 import './Register.css';
 import CloseIcon from '@material-ui/icons/Close';
 import { Link } from 'react-router-dom';
+import logo from '../Navbar/Logo.png';
+import axios from 'axios';
+
 
 class Register extends Component {
     state = {
@@ -96,20 +99,34 @@ class Register extends Component {
         this.setState(nextState);
     }
 
-    onSubmit = () => {
+    onClick = () => {
+        axios.post('http://localhost:5000/users/register', { name: this.state.name, email: this.state.email, password: this.state.password })
+            .then(function (res) {
+                if( res.status === 200 && res.statusText === 'OK') {
+                }
+
+            })
+            .catch(function (e) {
+                console.log("ERROR ", e);
+            })
     }
 
     render() {
         return (
             <div className="main">
                 <div className="App">
-                    <form onSubmit={this.onSubmit} >
+                    <form  >
                         <div>
                             <a href="/"><CloseIcon style={{ float: "right", marginRight: "20px" }} fontSize="large"></CloseIcon></a>
-                            <h2 className="mainheader">HappyPaws</h2>
-                         
-
-                            <Container>
+                            <h2 className="mainheader">
+                            <img
+                            alt=""
+                            src={logo}
+                            width="35"
+                            height="35"
+                        />{' '}HappyPaws</h2>
+                        <h4>Register</h4>
+                            <Container className="centered">
                                 <Row>
                                     <Col>
                                         <div>
@@ -148,7 +165,8 @@ class Register extends Component {
                                                     onBlur={this.isSubmitDisabled} /></div>
                                         </div>
                                         <div className="button-class">
-                                            <Link to="/"> <Button disabled={this.state.disabled} variant="primary" size="lg" active>
+                                            <Link to="/login"> <Button onClick={this.onClick} disabled={this.state.disabled} 
+                                            type="button" variant="primary" size="lg" active>
                                                 Sign Up
                     </Button>{' '}</Link>
                                         </div>

@@ -1,28 +1,31 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button'
 import { Row, Col, Container } from 'react-bootstrap';
-import { FacebookLoginButton, GoogleLoginButton } from "react-social-login-buttons";
 import TextField from '@material-ui/core/TextField';
 import './login.css';
-import { useHistory } from "react-router-dom";
 import PetsIcon from '@material-ui/icons/Pets';
 import CloseIcon from '@material-ui/icons/Close';
 import { Link } from 'react-router-dom';
-import logo from './LogoWhite.png';
+import logo from '../Navbar/Logo.png';
+import axios from 'axios';
 
 class Login extends Component {
-    state = {
-        email: '',
-        password: '',
-        nameError: null,
-        emailError: null,
-        passwordError: null,
-        disabled: true,
-
-    }
+    constructor(props) {
+        super(props)
+        this.state = {
+            email: '',
+            password: '',
+            nameError: null,
+            emailError: null,
+            passwordError: null,
+            disabled: true,
+            setOpen: false,
+            open: false,
+        };
+      }
 
     isSubmitDisabled = () => {
-      
+
         let validEmail = false;
         let passwordIsValid = false;
 
@@ -42,7 +45,6 @@ class Login extends Component {
                 });
             }
         }
-
         if (this.state.password === "" || !this.state.password) {
             this.setState({
                 passwordError: null
@@ -84,24 +86,54 @@ class Login extends Component {
         this.setState(nextState);
     }
 
-    onSubmit = () => {
+    onClick = () => {
+        axios.post('http://localhost:5000/users/login', { email: this.state.email, password: this.state.password })
+            .then(function (res) {
+                debugger;
+                if (res.status === 200 && res.statusText === 'OK') {
+                    localStorage.setItem('login', JSON.stringify({
+                        login: true,
+                        token: res.data.token,
+                        userId: res.data.user.id,
+                        name: res.data.user.name,
+                        email: res.data.user.email,
+                    }))
+                } else {
+                }
+            })
+            .catch(function (e) {
+                console.log("ERROR ", e);
+            })
     }
+    handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
 
+        this.setState({ setOpen: false })
+    };
     render() {
         return (
             <div className="main">
                 <div className="App">
-                    <form onSubmit={this.onSubmit} >
+                    <form  >
                         <div>
                             <a href="/"><CloseIcon style={{ float: "right", marginRight: "20px" }} fontSize="large"></CloseIcon></a>
-                           
-                        <h2 className="mainheader">HappyPaws</h2>
-                        
-                            <Container>
+                            <h2 className="mainheader">
+                                <img
+                                    alt=""
+                                    src={logo}
+                                    width="35"
+                                    height="35"
+                                />{' '}HappyPaws</h2>
+                                <br/>
+                                <h4>Login</h4>
+                                <a href="/register">Not a member of HappyPaws? Register here</a>
+                                <br/>
+                            <Container className="centered">
                                 <Row>
                                     <Col>
                                         <div>
-                                            
                                             <div className="custom-class">
                                                 <TextField className="input-class"
                                                     floatinglabeltext="Email"
@@ -125,12 +157,15 @@ class Login extends Component {
                                                     onBlur={this.isSubmitDisabled} /></div>
                                         </div>
                                         <div className="button-class">
-                                            <Link to="/"> <Button disabled={this.state.disabled} variant="primary" size="lg" active>
-                                                Login
+                                          
+                                        <Link to="/">   <Button disabled={this.state.disabled} variant="primary" type="button" onClick={this.onClick} size="lg" active>
+                                                    Login
                     </Button>{' '}</Link>
                                         </div>
-                                        <a href="/register">Not a member of HappyPaws? Register here</a>
-                                      
+                                        
+                                        <div style={{textAlign: 'center'}}>
+                                        <a href="/forgetPassword">Forgot Password? Click here</a>
+                                        </div>
                                     </Col>
                                 </Row>
                             </Container>
