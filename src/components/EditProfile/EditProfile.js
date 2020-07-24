@@ -83,9 +83,7 @@ class EditProfile extends Component {
         const store = JSON.parse(localStorage.getItem('login'));
         axios.put("http://localhost:5000/users/editProfile",{name: this.state.name, email: this.state.email},{ headers: { "Content-Type": "application/json", "x-auth-token": store.token }})
             .then(function (res) {
-                debugger;
                 if( res.status === 200 && res.statusText === 'OK') {
-                   debugger;
                 }
 
             })

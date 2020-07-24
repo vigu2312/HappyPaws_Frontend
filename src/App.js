@@ -21,6 +21,8 @@ import Sponsor from './components/SponsorPet/Sponsor';
 import UserProfile from './components/UserProfile/UserProfile';
 import EditProfile from './components/EditProfile/EditProfile';
 import ForgetPassword from './components/ForgetPassword/ForgetPassword';
+import ForgetPasswordEmail from './components/ForgetPassword/ForgetPasswordEmail';
+
 
 function App() {
   return (
@@ -42,6 +44,7 @@ function App() {
         <Route path ='/userprofile' component={UserProfile} />
         <Route path ='/editProfile' component={EditProfile} />
         <Route path ='/forgetPassword' component={ForgetPassword} /> 
+        <Route path ='/forgetPasswordEmail' component={ForgetPasswordEmail} /> 
         <Route path = '/logout' component={HomePage}/>
       </Switch>
       </React.Fragment>

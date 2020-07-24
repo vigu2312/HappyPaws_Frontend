@@ -3,11 +3,14 @@ import Button from 'react-bootstrap/Button'
 import { Row, Col, Container } from 'react-bootstrap';
 import TextField from '@material-ui/core/TextField';
 import './login.css';
+import PropTypes from 'prop-types';
 import PetsIcon from '@material-ui/icons/Pets';
 import CloseIcon from '@material-ui/icons/Close';
 import { Link } from 'react-router-dom';
 import logo from '../Navbar/Logo.png';
 import axios from 'axios';
+import { withRouter } from 'react-router';
+import Snackbar from '@material-ui/core/Snackbar';
 
 class Login extends Component {
     constructor(props) {
@@ -19,13 +22,16 @@ class Login extends Component {
             emailError: null,
             passwordError: null,
             disabled: true,
-            setOpen: false,
             open: false,
+            vertical: 'bottom',
+            horizontal: 'center',
         };
-      }
+    }
+    static propTypes = {
+        history: PropTypes.object.isRequired
+    }
 
     isSubmitDisabled = () => {
-
         let validEmail = false;
         let passwordIsValid = false;
 
@@ -85,12 +91,20 @@ class Login extends Component {
         nextState[label] = e.target.value;;
         this.setState(nextState);
     }
+    
+    handleClose = () => {
+        this.setState({ open: false });
+       
+      };
+
 
     onClick = () => {
         axios.post('http://localhost:5000/users/login', { email: this.state.email, password: this.state.password })
-            .then(function (res) {
-                debugger;
+            .then(res => {
                 if (res.status === 200 && res.statusText === 'OK') {
+                    this.setState({
+                        open: true
+                    })
                     localStorage.setItem('login', JSON.stringify({
                         login: true,
                         token: res.data.token,
@@ -98,21 +112,19 @@ class Login extends Component {
                         name: res.data.user.name,
                         email: res.data.user.email,
                     }))
+                    this.props.history.push("/")
+                    
                 } else {
+
                 }
             })
             .catch(function (e) {
                 console.log("ERROR ", e);
             })
     }
-    handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
 
-        this.setState({ setOpen: false })
-    };
     render() {
+        const { vertical, horizontal } = this.state
         return (
             <div className="main">
                 <div className="App">
@@ -126,10 +138,10 @@ class Login extends Component {
                                     width="35"
                                     height="35"
                                 />{' '}HappyPaws</h2>
-                                <br/>
-                                <h4>Login</h4>
-                                <a href="/register">Not a member of HappyPaws? Register here</a>
-                                <br/>
+                            <br />
+                            <h4>Login</h4>
+                            <a href="/register">Not a member of HappyPaws? Register here</a>
+                            <br />
                             <Container className="centered">
                                 <Row>
                                     <Col>
@@ -157,14 +169,13 @@ class Login extends Component {
                                                     onBlur={this.isSubmitDisabled} /></div>
                                         </div>
                                         <div className="button-class">
-                                          
-                                        <Link to="/">   <Button disabled={this.state.disabled} variant="primary" type="button" onClick={this.onClick} size="lg" active>
-                                                    Login
-                    </Button>{' '}</Link>
+
+                                            <Button disabled={this.state.disabled} variant="primary" type="button" onClick={this.onClick} size="lg" active>
+                                                Login
+                    </Button>{' '}
                                         </div>
-                                        
-                                        <div style={{textAlign: 'center'}}>
-                                        <a href="/forgetPassword">Forgot Password? Click here</a>
+                                        <div style={{ textAlign: 'center' }}>
+                                            <a href="/forgetPasswordEmail">Forgot Password? Click here</a>
                                         </div>
                                     </Col>
                                 </Row>
@@ -172,9 +183,17 @@ class Login extends Component {
                         </div>
                     </form>
                 </div>
+                <Snackbar
+                    anchorOrigin={{ vertical, horizontal }}
+                    open={this.state.open}
+                    onClose={this.handleClose}
+                    message="Logged out successfully !!"
+                    autoHideDuration={1000}
+                    key={vertical + horizontal}></Snackbar>
             </div>
         );
     }
 }
-
+Login = withRouter(Login);
 export default Login;
+// export default withRouter(Login);

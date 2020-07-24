@@ -79,7 +79,6 @@ class ForgetPassword extends Component {
         axios.put("http://localhost:5000/users/forgetPassword",{password: this.state.password},{ headers: { "Content-Type": "application/json", "x-auth-token": store.token }})
             .then(function (res) {
                 if( res.status === 200 && res.statusText === 'OK') {
-                   debugger;
                 }
 
             })
