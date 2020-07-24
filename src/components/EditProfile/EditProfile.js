@@ -1,0 +1,162 @@
+import React, { Component } from 'react';
+import Button from 'react-bootstrap/Button'
+import { Row, Col, Container } from 'react-bootstrap';
+import TextField from '@material-ui/core/TextField';
+// import './login.css';
+import CloseIcon from '@material-ui/icons/Close';
+import { Link } from 'react-router-dom';
+import logo from '../Navbar/Logo.png';
+import axios from 'axios';
+
+class EditProfile extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            email: '',
+            // password: '',
+            nameError: null,
+            emailError: null,
+            // passwordError: null,
+            disabled: true,
+            setOpen: false,
+            open: false,
+        };
+    }
+
+    isSubmitDisabled = () => {
+        let validEmail = false;
+        let nameIsValid = false;
+
+        if (this.state.email === "") {
+            this.setState({
+                emailError: null
+            });
+        } else {
+            if (this.emailValidation(this.state.email)) {
+                validEmail = true
+                this.setState({
+                    emailError: null
+                });
+            } else {
+                this.setState({
+                    emailError: "Please enter valid email!"
+                });
+            }
+        }
+        if (this.state.name === "" || !this.state.name) {
+            this.setState({
+                nameError: null
+            });
+        } else {
+            if (this.state.name.length > 0) {
+                nameIsValid = true;
+                this.setState({
+                    nameError: null
+                });
+            } else {
+                this.setState({
+                    nameError: "Please enter valid email!"
+                });
+            }
+        }
+
+        if (validEmail && nameIsValid) {
+            this.setState({
+                disabled: false
+            });
+        }
+
+    }
+
+
+    emailValidation = (email) => {
+        return new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email);
+    }
+
+    onValueChange = (e, label) => {
+        const nextState = {};
+        nextState[label] = e.target.value;;
+        this.setState(nextState);
+    }
+
+    onClick = () => {
+        const store = JSON.parse(localStorage.getItem('login'));
+        axios.put("http://localhost:5000/users/editProfile",{name: this.state.name, email: this.state.email},{ headers: { "Content-Type": "application/json", "x-auth-token": store.token }})
+            .then(function (res) {
+                if( res.status === 200 && res.statusText === 'OK') {
+                }
+
+            })
+            .catch(function (e) {
+                console.log("ERROR ", e);
+            })
+    };
+    handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        this.setState({ setOpen: false })
+    };
+    render() {
+        return (
+            <div className="main">
+                <div className="App">
+                    <form  >
+                        <div>
+                            <a href="/"><CloseIcon style={{ float: "right", marginRight: "20px" }} fontSize="large"></CloseIcon></a>
+                            <h2 className="mainheader">
+                                <img
+                                    alt=""
+                                    src={logo}
+                                    width="35"
+                                    height="35"
+                                />{' '}HappyPaws</h2>
+
+                            <h4 >Edit Profile</h4>
+                            <Container className="centered">
+                                <Row>
+                                    <Col>
+                                        <div>
+                                            <div className="custom-class">
+                                                <div className="custom-class">
+                                                    <TextField className="input-class"
+                                                        floatinglabeltext="Name"
+                                                        type="text"
+                                                        error={this.state.nameError !== null}
+                                                        helperText={this.state.nameError}
+                                                        onChange={e => this.onValueChange(e, 'name')}
+                                                        id="standard-basic" required label="Name"
+                                                        variant="outlined"
+                                                        onBlur={this.isSubmitDisabled} /></div>
+                                                <div className="custom-class">
+                                                    <TextField className="input-class"
+                                                        floatinglabeltext="Email"
+                                                        type="email"
+                                                        error={this.state.emailError !== null}
+                                                        helperText={this.state.emailError}
+                                                        onChange={e => this.onValueChange(e, 'email')}
+                                                        id="standard-basic" required label="Email"
+                                                        variant="outlined"
+                                                        onBlur={this.isSubmitDisabled} /></div>
+                                            </div>
+
+                                        </div>
+                                        <div className="button-class">
+
+                                            <Link to="/login">   <Button disabled={this.state.disabled} variant="primary" type="button" onClick={this.onClick} size="lg" active>
+                                                Submit
+                    </Button>{' '}</Link>
+                                        </div>
+                                    </Col>
+                                </Row>
+                            </Container>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        );
+    }
+}
+
+export default EditProfile;
