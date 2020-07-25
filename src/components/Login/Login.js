@@ -25,11 +25,27 @@ class Login extends Component {
             open: false,
             vertical: 'bottom',
             horizontal: 'center',
+            snackbarMssg: '',
+            registerStatus: JSON.parse(localStorage.getItem('Register')) && JSON.parse(localStorage.getItem('Register')),
+            editProfile: JSON.parse(localStorage.getItem('EditProfile')) && JSON.parse(localStorage.getItem('EditProfile')),
         };
     }
     static propTypes = {
         history: PropTypes.object.isRequired
     }
+    componentWillMount = () =>{ 
+        if(JSON.parse(localStorage.getItem('Register')) !== null) {
+            this.setState({
+                registerStatus: JSON.parse(localStorage.getItem('Register')) && JSON.parse(localStorage.getItem('Register')),
+                snackbarMssg: "Registered successfully. Now Login!",
+                open: this.state.registerStatus && (this.state.registerStatus.register === true? true : false),
+    
+            })
+        }
+
+        
+    }
+    
 
     isSubmitDisabled = () => {
         let validEmail = false;
@@ -93,18 +109,20 @@ class Login extends Component {
     }
     
     handleClose = () => {
-        this.setState({ open: false });
-       
-      };
-
+        this.setState({ open: false,
+            registerStatus: false });
+            localStorage.setItem('Register', JSON.stringify({
+                register: false
+            }));
+}
 
     onClick = () => {
         axios.post('http://localhost:5000/users/login', { email: this.state.email, password: this.state.password })
             .then(res => {
                 if (res.status === 200 && res.statusText === 'OK') {
-                    this.setState({
-                        open: true
-                    })
+                    localStorage.setItem('loggedInStatus', JSON.stringify({
+                        login: true
+                    }));
                     localStorage.setItem('login', JSON.stringify({
                         login: true,
                         token: res.data.token,
@@ -114,12 +132,15 @@ class Login extends Component {
                     }))
                     this.props.history.push("/")
                     
-                } else {
-
                 }
             })
-            .catch(function (e) {
-                console.log("ERROR ", e);
+            .catch((err, res) => {
+                    this.setState({
+                        snackbarMssg: "Invalid Credentials",
+                        open: true,
+                        email: '',
+                        password: '',
+                    })
             })
     }
 
@@ -152,6 +173,7 @@ class Login extends Component {
                                                     type="email"
                                                     error={this.state.emailError !== null}
                                                     helperText={this.state.emailError}
+                                                    value={this.state.email}
                                                     onChange={e => this.onValueChange(e, 'email')}
                                                     id="standard-basic" required label="Email"
                                                     variant="outlined"
@@ -161,6 +183,7 @@ class Login extends Component {
                                                 <TextField className="input-class"
                                                     floatinglabeltext="Password"
                                                     type="password"
+                                                    value={this.state.password}
                                                     error={this.state.passwordError !== null}
                                                     helperText={this.state.passwordError}
                                                     onChange={e => this.onValueChange(e, 'password')}
@@ -187,8 +210,8 @@ class Login extends Component {
                     anchorOrigin={{ vertical, horizontal }}
                     open={this.state.open}
                     onClose={this.handleClose}
-                    message="Logged out successfully !!"
-                    autoHideDuration={1000}
+                    message={this.state.snackbarMssg}
+                    autoHideDuration={3000}
                     key={vertical + horizontal}></Snackbar>
             </div>
         );

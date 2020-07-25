@@ -9,7 +9,8 @@ import CloseIcon from '@material-ui/icons/Close';
 import { Link } from 'react-router-dom';
 import logo from '../Navbar/Logo.png';
 import axios from 'axios';
-import { withRouter } from 'react-router'
+import { withRouter } from 'react-router';
+import Snackbar from '@material-ui/core/Snackbar';
 
 
 class ForgetPasswordEmail extends Component {
@@ -19,6 +20,10 @@ class ForgetPasswordEmail extends Component {
             email: '',
             emailError: null,
             disabled: true,
+            open: false,
+            vertical: 'bottom',
+            horizontal: 'center',
+            snackbarMssg: ''
         };  
     }
     static propTypes = {
@@ -55,6 +60,10 @@ class ForgetPasswordEmail extends Component {
     emailValidation = (email) => {
         return new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email);
     }
+    handleClose = () => {
+        this.setState({ open: false });
+    };
+
 
     onValueChange = (e, label) => {
         const nextState = {};
@@ -63,32 +72,22 @@ class ForgetPasswordEmail extends Component {
     }
 
     onClick = () => {
-       
         axios.post('http://localhost:5000/users/forgetPasswordMail', { email: this.state.email})
             .then(res => {
                 if (res.status === 200 && res.statusText === 'OK') {
-                    // localStorage.setItem('login', JSON.stringify({
-                    //     login: true,
-                    //     token: res.data.token,
-                    //     userId: res.data.user.id,
-                    //     name: res.data.user.name,
-                    //     email: res.data.user.email,
-                    // }))
-                } else {
-
-                }
+                    this.props.history.push("/")
+                } 
             })
-            .catch(function (e) {
-                console.log("ERROR ", e);
+            .catch(e => {
+                this.setState({
+                    snackbarMssg: "Email is not registered. Please Register!",
+                    open: true,
+                    email: '',
+                })
             })
     }
-    handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-
-    };
     render() {
+        const { vertical, horizontal } = this.state
         return (
             <div className="main">
                 <div className="App">
@@ -104,6 +103,8 @@ class ForgetPasswordEmail extends Component {
                                 />{' '}HappyPaws</h2>
                             <br />
                             <h4>Forget Password</h4>
+                            <h6><i>An e-mail would be sent to you on your registered e-mail Id</i></h6>
+
                             <Container className="centered">
                                 <Row>
                                     <Col>
@@ -114,6 +115,7 @@ class ForgetPasswordEmail extends Component {
                                                     type="email"
                                                     error={this.state.emailError !== null}
                                                     helperText={this.state.emailError}
+                                                    value={this.state.email}
                                                     onChange={e => this.onValueChange(e, 'email')}
                                                     id="standard-basic" required label="Registered Email"
                                                     variant="outlined"
@@ -132,8 +134,16 @@ class ForgetPasswordEmail extends Component {
                         </div>
                     </form>
                 </div>
+                <Snackbar
+                    anchorOrigin={{ vertical, horizontal }}
+                    open={this.state.open}
+                    onClose={this.handleClose}
+                    message={this.state.snackbarMssg}
+                    autoHideDuration={2000}
+                    key={vertical + horizontal}></Snackbar>
             </div>
         );
     }
 }
+ForgetPasswordEmail = withRouter(ForgetPasswordEmail);
 export default ForgetPasswordEmail;

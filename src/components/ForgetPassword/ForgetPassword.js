@@ -9,22 +9,51 @@ import CloseIcon from '@material-ui/icons/Close';
 import { Link } from 'react-router-dom';
 import logo from '../Navbar/Logo.png';
 import axios from 'axios';
+import Snackbar from '@material-ui/core/Snackbar';
 
 class ForgetPassword extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            email: '',
+            emailError: null,
             password: '',
             confirmPassword: '',
             passwordError: null,
             confirmPasswordError: null,
-            disabled: true
+            disabled: true,
+            open: false,
+            vertical: 'bottom',
+            horizontal: 'center',
+            snackbarMssg: ''
         };
     }
+    handleClose = () => {
+        this.setState({ open: false });
+    };
+
 
     isSubmitDisabled = () => {
         let passwordIsValid = false;
         let confirmValid = false;
+        let validEmail = false;
+
+        if (this.state.email === "") {
+            this.setState({
+                emailError: null
+            });
+        } else {
+            if (this.emailValidation(this.state.email)) {
+                validEmail = true
+                this.setState({
+                    emailError: null
+                });
+            } else {
+                this.setState({
+                    emailError: "Please enter valid email!"
+                });
+            }
+        }
 
         if (this.state.password === "" || !this.state.password) {
             this.setState({
@@ -61,12 +90,15 @@ class ForgetPassword extends Component {
                 })
             }
         }
-        if (passwordIsValid && confirmValid) {
+        if (passwordIsValid && confirmValid && validEmail) {
             this.setState({
                 disabled: false
             })
         }
 
+    }
+    emailValidation = (email) => {
+        return new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email);
     }
     onValueChange = (e, label) => {
         const nextState = {};
@@ -76,26 +108,32 @@ class ForgetPassword extends Component {
 
     onClick = () => {
         const store = JSON.parse(localStorage.getItem('login'));
-        axios.put("http://localhost:5000/users/forgetPassword",{password: this.state.password},{ headers: { "Content-Type": "application/json", "x-auth-token": store.token }})
-            .then(function (res) {
-                if( res.status === 200 && res.statusText === 'OK') {
+        axios.put("http://localhost:5000/users/forgetPassword", { email: this.state.email, password: this.state.password })
+            .then(res => {
+                if (res.status === 200 && res.statusText === 'OK') {
+                    this.setState({
+                        email: '',
+                        password: '',
+                        confirmPassword: '',
+                        snackbarMssg: 'Password Updated successfully. Please login!',
+                        open: true,
+                    })
+                    localStorage.clear();
                 }
 
             })
-            .catch(function (e) {
-                console.log("ERROR ", e);
+            .catch(e => {
+                this.setState({
+                    snackbarMssg: "Something went wrong!",
+                    open: true,
+                    password: '',
+                    confirmPassword: ''
+                })
             })
     };
 
-    handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-
-        this.setState({ setOpen: false })
-    };
-
     render() {
+        const { vertical, horizontal } = this.state
         return (
             <div className="main">
                 <div className="App">
@@ -116,6 +154,18 @@ class ForgetPassword extends Component {
                                     <Col>
                                         <div>
                                             <div className="custom-class">
+                                            <div className="custom-class">
+                                                <TextField className="input-class"
+                                                    floatinglabeltext="Registered Email"
+                                                    type="email"
+                                                    error={this.state.emailError !== null}
+                                                    helperText={this.state.emailError}
+                                                    value={this.state.email}
+                                                    onChange={e => this.onValueChange(e, 'email')}
+                                                    id="standard-basic" required label="Registered Email"
+                                                    variant="outlined"
+                                                    onBlur={this.isSubmitDisabled} />
+                                            </div>
                                                 <div className="custom-class">
                                                     <TextField className="input-class"
                                                         floatinglabeltext="Password"
@@ -125,6 +175,7 @@ class ForgetPassword extends Component {
                                                         onChange={e => this.onValueChange(e, 'password')}
                                                         id="standard-basic" required label="Password"
                                                         variant="outlined"
+                                                        value={this.state.password}
                                                         onBlur={this.isSubmitDisabled} /></div>
                                                 <div className="custom-class">
                                                     <TextField className="input-class"
@@ -135,14 +186,18 @@ class ForgetPassword extends Component {
                                                         onChange={e => this.onValueChange(e, 'confirmPassword')}
                                                         id="standard-basic" required label="Confirm Password"
                                                         variant="outlined"
+                                                        value={this.state.confirmPassword}
                                                         onBlur={this.isSubmitDisabled} /></div>
                                             </div>
 
                                         </div>
                                         <div className="button-class">
-                                            <Link to="/login">   <Button disabled={this.state.disabled} variant="primary" type="button" onClick={this.onClick} size="lg" active>
+                                              <Button disabled={this.state.disabled} variant="primary" type="button" onClick={this.onClick} size="lg" active>
                                                 Submit
-                    </Button>{' '}</Link>
+                    </Button>{' '}
+                                        </div>
+                                        <div style={{ textAlign: 'center' }}>
+                                            <a href="/">Navigate to HappyPaws? Click here</a>
                                         </div>
                                     </Col>
                                 </Row>
@@ -150,6 +205,13 @@ class ForgetPassword extends Component {
                         </div>
                     </form>
                 </div>
+                <Snackbar
+                    anchorOrigin={{ vertical, horizontal }}
+                    open={this.state.open}
+                    onClose={this.handleClose}
+                    message={this.state.snackbarMssg}
+                    autoHideDuration={2000}
+                    key={vertical + horizontal}></Snackbar>
             </div>
         );
     }
