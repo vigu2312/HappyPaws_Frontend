@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import SponsorDog from '../../DogSponsor.jpg';
 import TextField from '@material-ui/core/TextField';
-import { Form, Button, Row, Col, Container, Dropdown, DropdownButton } from 'react-bootstrap'
+import { Form, Button, Row, Col, Container, Dropdown, DropdownButton, Alert } from 'react-bootstrap'
 import CreditCardInput from 'react-credit-card-input';
 import NavbarComponent from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
+import axios from 'axios';
 import './Sponsor.css';
 
 
@@ -17,14 +18,80 @@ class Sponsor extends Component {
         this.state = {
             email: '',
             cardNumber: '',
+            cvc: '',
+            expiry: '',
             name: '',
             address1: '',
             city: '',
             postalCode: '',
             state: '',
             disabled: true,
-            emailError: null
+            emailError: null,
+            failureMsg: false,
+            message: null,
+            id1: this.props.location.id,
+            pets: []
         }
+        this.onSubmit = this.onSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        let id2 = this.state.id1
+        Object.values(id2).map(i => {
+            axios.get('http://localhost:5000/sponsor/' + i)
+                .then(res => {
+                    console.log(res.data)
+                    this.setState({
+                        pets: res.data
+                    })
+                })
+            console.log(i)
+        })
+    }
+
+    onSubmit = () => {
+        this.setState({
+            message: true
+        })
+
+        const data = {
+            email: this.state.email,
+            cardNumber: this.state.cardNumber,
+            cvc: this.state.cvc,
+            expiry: this.state.expiry,
+            name: this.state.name,
+            address1: this.state.address1,
+            city: this.state.city,
+            postalCode: this.state.postalCode,
+            state: this.state.state
+
+        }
+        console.log(data)
+        axios.post('http://localhost:5000/sponsor', data)
+            .then(function (res) {
+                if (res.status === 200 && res.statusText === 'OK') {
+
+                    // console.log("value of flag inside is", flag)
+                    // console.log("Inside Status 200")
+
+                } else {
+                    // flag = false
+                    console.log("Inside Status FALSE")
+                    this.setState({
+                        message: false
+                    })
+                }
+            }).then(() => {
+                this.setState({
+                    message: "Thank you for sponsoring "
+                })
+            })
+            .catch(function (e) {
+                console.log("ERROR ", e);
+            })
+
+
+
     }
 
     isSubmitDisabled = () => {
@@ -49,7 +116,7 @@ class Sponsor extends Component {
             }
         }
 
-        if (validEmail && this.state.name !== "" &&  this.state.address1 !== "" && this.state.city !== "") {
+        if (validEmail && this.state.name !== "" && this.state.address1 !== "" && this.state.city !== "") {
             this.setState({
                 disabled: false
             })
@@ -59,9 +126,7 @@ class Sponsor extends Component {
                 disabled: true
             })
         }
-
     }
-
 
     emailValidation = (email) => {
         return new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email);
@@ -74,19 +139,26 @@ class Sponsor extends Component {
     }
 
     render() {
-        console.log(this.state.city)
-        console.log(this.state.address1)
-        console.log(this.state.cardNumber)
+        console.log("ID is " , this.state.id1)
+        let pet = this.state.pets;
         return (
             <React.Fragment>
                 <NavbarComponent />
                 <Container fluid>
+                    {this.state.message ? (
+                        <Alert variant="success">
+                            <Alert.Heading>Payment Success</Alert.Heading>
+                            <p>
+                                You have successfully sponsored {pet.name}
+                            </p>
+
+                        </Alert>) : (<div></div>)}
                     <div className="main-root">
                         <Row noGutters="true" className="justify-left" style={{ paddingLeft: '50px' }}>
                             <Col lg={5} md={5} sm={12} xs={12}>
                                 <Row className="justify-left" style={{ paddingLeft: '25px' }}>
                                     <div className="img-outline">
-                                        <img src={SponsorDog} style={{ height: '100%', width: '75%' }}></img>
+                                        <img src={pet.image} style={{ height: '100%', width: '75%' }}></img>
                                     </div>
                                 </Row>
                                 <Row className="justify-left" style={{ paddingLeft: '25px' }}>
@@ -96,7 +168,7 @@ class Sponsor extends Component {
                                         </Row>
                                         <hr></hr>
                                         <Row className="justify-left" style={{ paddingLeft: '2rem', textAlign: 'left' }}>
-                                            <p>Esse reprehenderit ullamco ipsum irure elit sunt velit non anim sit nisi labore non. Sint ea Lorem minim ex enim adipisicing mollit duis eiusmod consectetur aute. Eu ex Lorem commodo non. Esse reprehenderit ullamco ipsum irure elit sunt velit non anim sit nisi labore non</p>
+                                            <p>{pet.description}</p>
                                         </Row>
                                     </div>
                                 </Row>
@@ -127,6 +199,9 @@ class Sponsor extends Component {
                                         </Row>
                                         <Row className="justify-left">
                                             <CreditCardInput style={{ width: '100%' }}
+                                                cardNumberInputProps={{ value: this.state.cardNumber, onChange: e => { this.onValueChange(e, 'cardNumber') } }}
+                                                cardExpiryInputProps={{ value: this.state.expiry, onChange: e => { this.onValueChange(e, 'expiry') } }}
+                                                cardCVCInputProps={{ value: this.state.cvc, onChange: e => { this.onValueChange(e, 'cvc') } }}
                                                 fieldClassName="input"
                                                 className="full-width"
                                                 onChange={e => this.onValueChange(e, 'cardNumber')}
@@ -209,7 +284,7 @@ class Sponsor extends Component {
                                         <hr>
                                         </hr>
                                         <Row className="justify-left padding-bot" style={{ width: '100%' }}>
-                                            <Button disabled={this.state.disabled} className="full-width" variant="primary" block>Support Me!</Button>
+                                            <Button disabled={this.state.disabled} className="full-width" variant="primary" onClick={this.onSubmit} block>Support Me!</Button>
                                         </Row>
                                     </Form>
                                 </div>
