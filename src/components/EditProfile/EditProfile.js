@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button'
 import { Row, Col, Container } from 'react-bootstrap';
 import TextField from '@material-ui/core/TextField';
-// import './login.css';
 import CloseIcon from '@material-ui/icons/Close';
 import { Link } from 'react-router-dom';
 import logo from '../Navbar/Logo.png';
 import axios from 'axios';
+import { withRouter } from 'react-router';
+import Snackbar from '@material-ui/core/Snackbar';
+import PropTypes from 'prop-types';
 
 class EditProfile extends Component {
     constructor(props) {
@@ -18,9 +20,14 @@ class EditProfile extends Component {
             emailError: null,
             // passwordError: null,
             disabled: true,
-            setOpen: false,
             open: false,
+            vertical: 'bottom',
+            horizontal: 'center',
+            snackbarMssg: ''
         };
+    }
+    static propTypes = {
+        history: PropTypes.object.isRequired
     }
 
     isSubmitDisabled = () => {
@@ -78,27 +85,41 @@ class EditProfile extends Component {
         nextState[label] = e.target.value;;
         this.setState(nextState);
     }
+    handleClose = () => {
+        this.setState({ open: false });
+    };
+
 
     onClick = () => {
         const store = JSON.parse(localStorage.getItem('login'));
-        axios.put("http://localhost:5000/users/editProfile",{name: this.state.name, email: this.state.email},{ headers: { "Content-Type": "application/json", "x-auth-token": store.token }})
-            .then(function (res) {
-                if( res.status === 200 && res.statusText === 'OK') {
+        axios.put("http://localhost:5000/users/editProfile", { name: this.state.name, email: this.state.email }, { headers: { "Content-Type": "application/json", "x-auth-token": store.token } })
+            .then(res => {
+                if (res.status === 200 && res.statusText === 'OK') {
+                    localStorage.setItem('EditProfile', JSON.stringify({
+                        editProfile: true
+                    }));
+                    localStorage.setItem('login', JSON.stringify({
+                        userId: store.userId,
+                        token: store.token,
+                        login: store.login,
+                        name: res.data.user.name,
+                        email: res.data.user.email,
+                    }))
+                    this.props.history.push("/")
                 }
 
             })
-            .catch(function (e) {
-                console.log("ERROR ", e);
+            .catch(e => {
+                this.setState({
+                    snackbarMssg: "User already exists. Try Again!",
+                    open: true,
+                    name: '',
+                    email: '',
+                })
             })
     };
-    handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-
-        this.setState({ setOpen: false })
-    };
     render() {
+        const { vertical, horizontal } = this.state
         return (
             <div className="main">
                 <div className="App">
@@ -128,11 +149,13 @@ class EditProfile extends Component {
                                                         onChange={e => this.onValueChange(e, 'name')}
                                                         id="standard-basic" required label="Name"
                                                         variant="outlined"
+                                                        value={this.state.name}
                                                         onBlur={this.isSubmitDisabled} /></div>
                                                 <div className="custom-class">
                                                     <TextField className="input-class"
                                                         floatinglabeltext="Email"
                                                         type="email"
+                                                        value={this.state.email}
                                                         error={this.state.emailError !== null}
                                                         helperText={this.state.emailError}
                                                         onChange={e => this.onValueChange(e, 'email')}
@@ -144,9 +167,9 @@ class EditProfile extends Component {
                                         </div>
                                         <div className="button-class">
 
-                                            <Link to="/login">   <Button disabled={this.state.disabled} variant="primary" type="button" onClick={this.onClick} size="lg" active>
+                                              <Button disabled={this.state.disabled} variant="primary" type="button" onClick={this.onClick} size="lg" active>
                                                 Submit
-                    </Button>{' '}</Link>
+                    </Button>{' '}
                                         </div>
                                     </Col>
                                 </Row>
@@ -154,9 +177,17 @@ class EditProfile extends Component {
                         </div>
                     </form>
                 </div>
+                <Snackbar
+                    anchorOrigin={{ vertical, horizontal }}
+                    open={this.state.open}
+                    onClose={this.handleClose}
+                    message={this.state.snackbarMssg}
+                    autoHideDuration={2000}
+                    key={vertical + horizontal}></Snackbar>
             </div>
         );
     }
 }
 
+EditProfile = withRouter(EditProfile);
 export default EditProfile;
