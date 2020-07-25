@@ -1,3 +1,6 @@
+/**
+ * @author: Bhagyashree
+ */ 
 import React, { Component } from 'react';
 import contactus from '../../assets/contactus1.jpg';
 import facebook from '../../assets/facebook.jpg';
