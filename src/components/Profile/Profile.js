@@ -14,37 +14,43 @@ import { id } from 'date-fns/locale';
 class Register extends Component {
     constructor(props) {
         super(props);
-        this.state={
-                pets: [],
-                id1: this.props.location.id
-          
+        this.state = {
+            pets: [],
+            id1: this.props.location.id
+
         }
         // const id = this.props.location.id
 
-      }
-    
+    }
+
     componentDidMount() {
         let id2 = this.state.id1
-        Object.values(id2).map(i =>{
-            axios.get('http://localhost:5000/profile/'+i)
-          .then(res => {
-            this.setState({pets: res.data});
-          })
+        Object.values(id2).map(i => {
+            axios.get('http://localhost:5000/profile/' + i)
+                .then(res => {
+                    this.setState({ pets: res.data });
+                })
             console.log(i)
         })
-        
-        
-      }
 
-      enquire = (e,id) =>{
+
+    }
+
+    enquire = (e, id) => {
         this.props.history.push({
-                  pathname: '/enquire',
-                  id: id,
+            pathname: '/enquire',
+            id: id,
+        });
+    };
+    sponsor = (e, id) => {
+        this.props.history.push({
+            pathname: '/sponsor',
+            id: id,
         });
     };
 
     render() {
-        let pet= this.state.pets;
+        let pet = this.state.pets;
         const id = pet._id
         return (
             <div className="home-component">
@@ -79,55 +85,55 @@ class Register extends Component {
                 </Carousel>
 
                 <Container>
-                <Card className="card1">
-                   
-                    <Row>
-                        <Col>
-                        <h2 className="font1">{pet.name}</h2>
-                        
-                    <ul className="a">
-                        <li className="font1"> &#128062; {pet.type}</li>
-                        <li className="font1"> &#128062; {pet.gender}</li>
-                        <li className="font1"> &#128062; {pet.color}</li></ul>
-                        </Col>
-                    </Row>
-                    <Row >
-                  
-                        <Col xs={12} sm={12} md={6} lg={6} fluid={true}>
-                            
-                            <h4 className="font2">About</h4>
-                            <div className="about-text">
-                            {pet.description}
-</div>
-                        </Col>
-                  
+                    <Card className="card1">
 
-                        <Col xs={12} sm={12} md={6} lg={6}>
-                            <div className="font">
+                        <Row>
+                            <Col>
+                                <h2 className="font1">{pet.name}</h2>
 
-                                <Card style={{ width: '25rem' }} className="card">
-                                    <Card.Body>
-                                        <Card.Title>Help {pet.name} find a home</Card.Title>
-                                        <Button variant="outline-info" className="button" onClick={() => this.props.history.push('/adopt')}>Adopt</Button>{' '}
-                                        <br />
-                                        <Button variant="outline-secondary" className="button" onClick={(e,f={id}) => this.enquire(e,f={id})}>Enquire</Button>{' '}
-                                        <br />
+                                <ul className="a">
+                                    <li className="font1"> &#128062; {pet.type}</li>
+                                    <li className="font1"> &#128062; {pet.gender}</li>
+                                    <li className="font1"> &#128062; {pet.color}</li></ul>
+                            </Col>
+                        </Row>
+                        <Row >
 
-                                    </Card.Body>
-                                    <ButtonGroup>
-                                        <Button variant="info" onClick={() => this.props.history.push('/sponsor')}>Sponsor</Button>
-                                        <Button variant="secondary">Share</Button>
-                                    </ButtonGroup>
-                                </Card>
-                            </div>
-                        </Col>
-                    </Row>
+                            <Col xs={12} sm={12} md={6} lg={6} fluid={true}>
+
+                                <h4 className="font2">About</h4>
+                                <div className="about-text">
+                                    {pet.description}
+                                </div>
+                            </Col>
+
+
+                            <Col xs={12} sm={12} md={6} lg={6}>
+                                <div className="font">
+
+                                    <Card style={{ width: '25rem' }} className="card">
+                                        <Card.Body>
+                                            <Card.Title>Help {pet.name} find a home</Card.Title>
+                                            <Button variant="outline-info" className="button" onClick={() => this.props.history.push('/adopt')}>Adopt</Button>{' '}
+                                            <br />
+                                            <Button variant="outline-secondary" className="button" onClick={(e, f = { id }) => this.enquire(e, f = { id })}>Enquire</Button>{' '}
+                                            <br />
+
+                                        </Card.Body>
+                                        <ButtonGroup>
+                                            <Button variant="info" onClick={(e, f = { id }) => this.sponsor(e, f = { id })}>Sponsor</Button>
+                                            <Button variant="secondary">Share</Button>
+                                        </ButtonGroup>
+                                    </Card>
+                                </div>
+                            </Col>
+                        </Row>
                     </Card>
                 </Container>
                 <center>
-               
+
                 </center>
-               
+
                 <Footer />
             </div>
 
