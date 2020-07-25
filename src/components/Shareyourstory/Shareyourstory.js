@@ -1,4 +1,7 @@
-// Dummy content is referred from https://www.lipsum.com/
+/************
+ * Author: Moni Shah 
+ **********/
+
 import React, { Component, useRef } from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
 import '../../App.css';
@@ -7,11 +10,13 @@ import TextField from '@material-ui/core/TextField';
 import Jodit from './Jodit';
 import Button from 'react-bootstrap/Button'
 import NavbarComponent from '../Navbar/Navbar';
-import { Link } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import axios from 'axios';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
+import share_gif from '../../assets/share_gif.gif';
+import Snackbar from '@material-ui/core/Snackbar';
+import * as utils from '../../baseUrl';
 
 class Shareyourstory extends Component {
     constructor(props) {
@@ -21,18 +26,23 @@ class Shareyourstory extends Component {
             emailError: null,
             disabled: true,
             counter: 'Your Story',
-            store: JSON.parse(localStorage.getItem('login'))
+            store: JSON.parse(localStorage.getItem('login')),
+            open: false,
+            vertical: 'bottom',
+            horizontal: 'center',
+            snackbarMssg: ''
         }
     }
     static propTypes = {
         history: PropTypes.object.isRequired
       }
 
-
+// regex for email validation
     emailValidation = (email) => {
         return new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email);
     }
 
+    // check for validations of all inputs
     isSubmitDisabled = () => {
         let validEmail = false;
         let jodit = this.state.counter !== '';
@@ -60,18 +70,22 @@ class Shareyourstory extends Component {
         }
     }
 
+    // for fetching values of email
     componentDidMount() {
-        let store = JSON.parse(localStorage.getItem('login'));
         if(this.state.store && this.state.store.login === true) {
            this.setState({email: this.state.store.email});
         }
     }
-    
+   // on change method for all inputs 
     onValueChange = (e, label) => {
         const nextState = {};
         nextState[label] = e.target.value;;
         this.setState(nextState);
     }
+     // function call for alert close
+     handleClose = () => {
+        this.setState({ open: false });
+    };
 
     update = (value) => {
         return () => {
@@ -80,23 +94,31 @@ class Shareyourstory extends Component {
             });
         }
     }
-
+// api call for sharing story: POST Api call
     onClickSubmit = () => {
-        axios.post('http://localhost:5000/sharestory/', { email: this.state.email, story: this.state.counter },{ headers: { "Content-Type": "application/json", "x-auth-token": this.state.store.token }})
+        axios.post(utils.baseUrl + "sharestory/", { email: this.state.email, story: this.state.counter },{ headers: { "Content-Type": "application/json", "x-auth-token": this.state.store.token }})
             .then(res => {
                 if (res.status === 200 && res.statusText === 'OK') {
+                    localStorage.setItem('shareStory', JSON.stringify({
+                        shareStory: true
+                    }));
                     this.props.history.push("/")
-                } else {
-
-                }
+                } 
             })
-            .catch(function (e) {
+            .catch(e=> {
                 console.log("ERROR ", e);
+                this.setState({
+                    snackbarMssg: "Something went wrong. Please login if not and try again",
+                    open: true,
+                    email: '',
+                    counter: '',
+                })
             })
     }
 
 
     render() {
+        const { vertical, horizontal } = this.state
         return (
             <div>
                 <NavbarComponent />
@@ -104,7 +126,7 @@ class Shareyourstory extends Component {
                     <form >
                         <h1 className="header-style">Share Your Story</h1>
                         <img
-                            src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/a6d30376965389.5c7945b0d02b6.gif"
+                            src={share_gif}
                             alt="First slide"
                             height="350px"
                             width="70%"
@@ -132,10 +154,17 @@ class Shareyourstory extends Component {
                             <Jodit data={this.update.bind(this)} />
                         </div>
                         <div className="button-style">
-                             <Button disabled={this.state.disabled} type="submit" size="lg" onClick={this.onClickSubmit} variant="outline-primary">Submit</Button>{' '}
+                             <Button disabled={this.state.disabled} type="button" size="lg" onClick={this.onClickSubmit} variant="outline-primary">Submit</Button>{' '}
                         </div>
                     </form>
                 </div>
+                <Snackbar
+                    anchorOrigin={{ vertical, horizontal }}
+                    open={this.state.open}
+                    onClose={this.handleClose}
+                    message={this.state.snackbarMssg}
+                    autoHideDuration={2000}
+                    key={vertical + horizontal}></Snackbar>
                 <Footer />
             </div>
         );

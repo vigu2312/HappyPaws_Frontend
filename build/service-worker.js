@@ -14,7 +14,11 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
+<<<<<<< HEAD
   "/precache-manifest.4663f05fc4641204945789e2241df0a4.js"
+=======
+  "/precache-manifest.87bf6d476f6158a1f59a79c5597d09a2.js"
+>>>>>>> moni_profile_management
 );
 
 self.addEventListener('message', (event) => {
