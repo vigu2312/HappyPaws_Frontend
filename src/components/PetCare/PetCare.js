@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { Carousel, Container, Row, Col } from 'react-bootstrap'
-import DogCare from '../../DogCare.jpg'
-import CatCare from '../../CatCare.jpg'
+import DogCare from '../../assets/DogCare.jpg'
+import CatCare from '../../assets/CatCare.jpg'
 import TextField from '@material-ui/core/TextField';
-import DogAdoption from '../../DogAdoption.jpg'
-import DogsCare2 from '../../DogsCare2.jpg'
-import CatAdoption from '../../CatAdoption.jpg'
-// import HorseAdoption from '../../HorseAdoption.jpg'
+import DogAdoption from '../../assets/DogAdoption.jpg'
+import DogsCare2 from '../../assets/DogsCare2.jpg'
+import CatAdoption from '../../assets/CatAdoption.jpg'
+// import HorseAdoption from '../../assets/HorseAdoption.jpg'
 import { Form, Button } from 'react-bootstrap'
 import './PetCare.css'
 import PetCareInfo from './PetCareInfo';

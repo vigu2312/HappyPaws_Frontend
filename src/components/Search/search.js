@@ -8,8 +8,10 @@ import './search.css';
 import Profile from '../Profile/Profile.js'
 import NavbarComponent from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
+import * as utils from '../../baseUrl';
 const axios = require('axios');
 const formData= require('form-data');
+
 
 
 class Search extends Component {
@@ -32,7 +34,7 @@ class Search extends Component {
   //Fetch pet data from backend 
   componentWillMount = () => {
     console.log("firstttt");
-    axios.get('http://localhost:5000/search/'
+    axios.get(utils.baseUrl +'search/'
       )
       .then((response) => {
           this.setState({data:response.data});
@@ -55,7 +57,7 @@ class Search extends Component {
     // console.log("heyyyyyyyyyyyyy"+id);
     // axios({
     //   method: 'post',
-    //   url: 'http://localhost:5000/search/viewpet',
+    //   url: utils.baseUrl +'search/viewpet',
     //   body: {"id": id}
     //   })
     //   .then(function (response) {

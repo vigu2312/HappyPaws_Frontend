@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SponsorDog from '../../DogSponsor.jpg';
+import SponsorDog from '../../assets/DogSponsor.jpg';
 import TextField from '@material-ui/core/TextField';
 import { Form, Button, Row, Col, Container, Dropdown, DropdownButton, Alert } from 'react-bootstrap'
 import CreditCardInput from 'react-credit-card-input';
@@ -7,6 +7,7 @@ import NavbarComponent from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import axios from 'axios';
 import './Sponsor.css';
+import * as utils from '../../baseUrl';
 
 
 
@@ -38,7 +39,7 @@ class Sponsor extends Component {
     componentDidMount() {
         let id2 = this.state.id1
         Object.values(id2).map(i => {
-            axios.get('http://localhost:5000/sponsor/' + i)
+            axios.get(utils.baseUrl + 'sponsor/' + i)
                 .then(res => {
                     console.log(res.data)
                     this.setState({
@@ -67,7 +68,7 @@ class Sponsor extends Component {
 
         }
         console.log(data)
-        axios.post('http://localhost:5000/sponsor', data)
+        axios.post(utils.baseUrl + 'sponsor', data)
             .then(function (res) {
                 if (res.status === 200 && res.statusText === 'OK') {
 
