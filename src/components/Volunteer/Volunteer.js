@@ -1,3 +1,6 @@
+/************
+ * Author: Vigneshwari Ravichandran
+ **********/
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -14,10 +17,11 @@ import TextField from '@material-ui/core/TextField';
 
 import NavbarComponent from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
-import dogVol from './dogvolunteer.jpg';
+import dogVol from '../../assets/dogvolunteer.jpg';
 import './Volunteer.css';
+import * as utils from '../../baseUrl';
 
-
+//function to implement vertical tab menu
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
   return ( 
@@ -50,6 +54,7 @@ function a11yProps(index) {
   };
 }
 
+//setting css for tabs
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -62,6 +67,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+//functional component for volunteer feature
 export default function Volunteer() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
@@ -79,10 +85,12 @@ export default function Volunteer() {
 
   const[eventList,setEventList]=React.useState([]);
 
+  //handle change in tabs
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
+  //handle invalid email entries
   const handleEmailError = (event) => {
     if(!email.includes("@"))
     {
@@ -94,6 +102,7 @@ export default function Volunteer() {
     }
   };
 
+  //handle invalid contact number entries
   const handleContactError = (event) => {
     if(contact.length<10)
     {
@@ -109,6 +118,7 @@ export default function Volunteer() {
     }
   };
 
+  //handle incorrect event selection entries
   const handleEventError = (event) => {
     if(event==="Select an Event that you would like to volunteer")
     {
@@ -120,24 +130,20 @@ export default function Volunteer() {
     }
   };
 
+  //react hooks to hit get apis
     React.useEffect(()=>{
-    axios.get('http://localhost:5000/volunteer')
+    axios.get(utils.baseUrl + 'volunteer')
       .then(res => {
-          //console.log(res.data)
-        // const pets = res.data;
-        // this.setState({ pets });
+       
         setEventList(res.data)
-        //this.setState({pets: res.data});
         
-        // let d = this.state.pets;
-        // let items = Object.values(d)
-        // console.log(items.length)
       },[])
   });
 
  const onSubmit = () => {
    
-      axios.post('http://localhost:5000/volunteer/volunteer',{firstName:fname,lastName:lname,email:email,contactNo:contact,eventName:event})
+    //react hooks to hit post apis
+      axios.post(utils.baseUrl+'volunteer/volunteer',{firstName:fname,lastName:lname,email:email,contactNo:contact,eventName:event})
       .then(function(res){
           if(res.status===200&&res.statusText==='OK'){
 
@@ -148,8 +154,10 @@ export default function Volunteer() {
       console.log("Error"+e);
 
       })
+      alert("Volunteered! An email will be sent to you with the ticket")
   }
 
+  //volunteer webpage displayed
   return (
     <div className="MainVolunteer">
     <NavbarComponent/> 

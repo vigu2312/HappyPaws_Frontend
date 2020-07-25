@@ -1,3 +1,7 @@
+/************
+ * Author: Ramya Ramathas
+ **********/
+
 import React, { Component } from 'react';
 import { Form, Container, Button, Row, Col } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
@@ -8,6 +12,7 @@ import NavbarComponent from '../Navbar/Navbar';
 import Icon from '@material-ui/core/Icon';
 import axios from 'axios';
 import { id } from 'date-fns/locale';
+import * as utils from '../../baseUrl';
 
 
 class Enquire extends Component {
@@ -36,7 +41,7 @@ class Enquire extends Component {
     componentDidMount() {
         let id2 = this.state.id1
         Object.values(id2).map(i =>{
-            axios.get('http://localhost:5000/enquiry/'+i)
+            axios.get(utils.baseUrl +'enquiry/'+i)
           .then(res => {
             this.setState({pets: res.data});
           })
@@ -135,7 +140,7 @@ class Enquire extends Component {
     }
 
     onClick = () => {
-        axios.post('http://localhost:5000/enquiry', { fname: this.state.fname, lname: this.state.lname, email: this.state.email, number: this.state.number, country:this.state.country, postal: this.state.postal, enquiry: this.state.enquiry })
+        axios.post(utils.baseUrl + 'enquiry', { fname: this.state.fname, lname: this.state.lname, email: this.state.email, number: this.state.number, country:this.state.country, postal: this.state.postal, enquiry: this.state.enquiry })
             .then(function (res) {
                 if( res.status === 200 && res.statusText === 'OK') {
                 }

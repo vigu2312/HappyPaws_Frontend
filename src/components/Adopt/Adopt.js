@@ -1,7 +1,11 @@
+/************
+ * Author: Vigneshwari Ravichandran
+ **********/
+
 import React, { Component } from 'react';
 import './Adopt.css';
 import Button from 'react-bootstrap/Button'
-import Dog from './dog.jpg';
+import Dog from '../../assets/dog.jpg';
 import NavbarComponent from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import { Link, NavLink } from 'react-router-dom';

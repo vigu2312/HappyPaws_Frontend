@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.a0390a4f.chunk.css",
-    "main.js": "/static/js/main.33ec1ee0.chunk.js",
-    "main.js.map": "/static/js/main.33ec1ee0.chunk.js.map",
+    "main.css": "/static/css/main.9f52beed.chunk.css",
+    "main.js": "/static/js/main.95a1587f.chunk.js",
+    "main.js.map": "/static/js/main.95a1587f.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.f30a65bc.js",
     "runtime-main.js.map": "/static/js/runtime-main.f30a65bc.js.map",
     "static/css/2.b20cd67d.chunk.css": "/static/css/2.b20cd67d.chunk.css",
-    "static/js/2.7799577c.chunk.js": "/static/js/2.7799577c.chunk.js",
-    "static/js/2.7799577c.chunk.js.map": "/static/js/2.7799577c.chunk.js.map",
+    "static/js/2.e1831934.chunk.js": "/static/js/2.e1831934.chunk.js",
+    "static/js/2.e1831934.chunk.js.map": "/static/js/2.e1831934.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.d19e92cfec461216b34277f9e525cd02.js": "/precache-manifest.d19e92cfec461216b34277f9e525cd02.js",
+    "precache-manifest.9cc0b5db3b548535514cee16ae095803.js": "/precache-manifest.9cc0b5db3b548535514cee16ae095803.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.b20cd67d.chunk.css.map": "/static/css/2.b20cd67d.chunk.css.map",
-    "static/css/main.a0390a4f.chunk.css.map": "/static/css/main.a0390a4f.chunk.css.map",
-    "static/js/2.7799577c.chunk.js.LICENSE.txt": "/static/js/2.7799577c.chunk.js.LICENSE.txt",
+    "static/css/main.9f52beed.chunk.css.map": "/static/css/main.9f52beed.chunk.css.map",
+    "static/js/2.e1831934.chunk.js.LICENSE.txt": "/static/js/2.e1831934.chunk.js.LICENSE.txt",
     "static/media/CatAdoption.jpg": "/static/media/CatAdoption.ca8685ca.jpg",
     "static/media/CatCare.jpg": "/static/media/CatCare.8bc05a17.jpg",
     "static/media/DogAdoption.jpg": "/static/media/DogAdoption.be2e784a.jpg",
@@ -27,6 +27,7 @@
     "static/media/cat_img.jpg": "/static/media/cat_img.45c0bad5.jpg",
     "static/media/cat_img2.png": "/static/media/cat_img2.2c2fc572.png",
     "static/media/contactus.jpg": "/static/media/contactus.fc36ed7d.jpg",
+    "static/media/contactus1.jpg": "/static/media/contactus1.6d3740f6.jpg",
     "static/media/dog.jpg": "/static/media/dog.7750bc62.jpg",
     "static/media/dog_img.jpg": "/static/media/dog_img.aa4c6815.jpg",
     "static/media/dogvolunteer.jpg": "/static/media/dogvolunteer.9b11de63.jpg",
@@ -50,8 +51,8 @@
   "entrypoints": [
     "static/js/runtime-main.f30a65bc.js",
     "static/css/2.b20cd67d.chunk.css",
-    "static/js/2.7799577c.chunk.js",
-    "static/css/main.a0390a4f.chunk.css",
-    "static/js/main.33ec1ee0.chunk.js"
+    "static/js/2.e1831934.chunk.js",
+    "static/css/main.9f52beed.chunk.css",
+    "static/js/main.95a1587f.chunk.js"
   ]
 }

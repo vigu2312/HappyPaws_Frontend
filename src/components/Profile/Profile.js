@@ -4,12 +4,13 @@ import { Row, Col, Container, Card } from 'react-bootstrap';
 import './profile.css';
 import NavbarComponent from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
-import dog from './golden.jpeg';
-import dog1 from './golden1.jpeg';
-import dog2 from './golden2.jpeg';
+import dog from '../../assets/golden.jpeg';
+import dog1 from '../../assets/golden1.jpeg';
+import dog2 from '../../assets/golden2.jpeg';
 import Carousel from 'react-bootstrap/Carousel';
 import axios from 'axios';
 import { id } from 'date-fns/locale';
+import * as utils from '../../baseUrl';
 
 class Register extends Component {
     constructor(props) {
@@ -26,7 +27,7 @@ class Register extends Component {
     componentDidMount() {
         let id2 = this.state.id1
         Object.values(id2).map(i => {
-            axios.get('http://localhost:5000/profile/' + i)
+            axios.get(utils.baseUrl + 'profile/' + i)
                 .then(res => {
                     this.setState({ pets: res.data });
                 })

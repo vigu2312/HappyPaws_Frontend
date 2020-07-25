@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import contactus from './contactus.jpg';
-import facebook from './facebook.jpg';
-import insat from './insta.png';
-import twitter from './twitter.png';
+import contactus from '../../assets/contactus1.jpg';
+import facebook from '../../assets/facebook.jpg';
+import insat from '../../assets/insta.png';
+import twitter from '../../assets/twitter.png';
 import {Form, Button, Jumbotron,Container,Row, Col, Image} from 'react-bootstrap';
 import NavbarComponent from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
