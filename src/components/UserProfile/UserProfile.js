@@ -1,3 +1,7 @@
+/************
+ * Author: Devam Shah 
+ **********/
+
 import React, { Component } from 'react'
 import NavbarComponent from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';

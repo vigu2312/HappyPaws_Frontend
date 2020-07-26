@@ -1,3 +1,8 @@
+/************
+ * Author: Devam Shah 
+ **********/
+
+
 import React, { Component } from 'react'
 import { Carousel, Container, Row, Col } from 'react-bootstrap'
 import DogCare from '../../assets/DogCare.jpg'

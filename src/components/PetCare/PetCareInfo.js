@@ -1,3 +1,6 @@
+/************
+ * Author: Devam Shah 
+ **********/
 import React, { Component } from 'react'
 import DogAdoption from '../../assets/DogAdoption.jpg'
 import './PetCare.css'
