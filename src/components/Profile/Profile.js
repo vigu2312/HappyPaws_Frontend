@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+/************
+ * Author: Ramya Ramathas
+ **********/
+
+ import React, { Component } from 'react';
 import { Form, Button, ButtonGroup } from 'react-bootstrap';
 import { Row, Col, Container, Card } from 'react-bootstrap';
 import './profile.css';
 import NavbarComponent from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
-import dog from '../../assets/golden.jpeg';
-import dog1 from '../../assets/golden1.jpeg';
-import dog2 from '../../assets/golden2.jpeg';
 import Carousel from 'react-bootstrap/Carousel';
 import axios from 'axios';
-import { id } from 'date-fns/locale';
 import * as utils from '../../baseUrl';
 
 class Register extends Component {
@@ -17,44 +17,48 @@ class Register extends Component {
         super(props);
         this.state = {
             pets: [],
-            id1: this.props.location.id
+            id: this.props.match.params.id,
+            doneLoading: false
 
         }
-        // const id = this.props.location.id
-
     }
 
+    //get api is called after collecting the id from search page to access the specific pet details based on ID
     componentDidMount() {
-        let id2 = this.state.id1
-        Object.values(id2).map(i => {
-            axios.get(utils.baseUrl + 'profile/' + i)
+        const id1 = this.state.id
+            axios.get(utils.baseUrl + 'profile/' + id1)
                 .then(res => {
                     this.setState({ pets: res.data });
+                }).then(()=>{
+                    this.setState({
+                        doneLoading: true
+                    })
                 })
-            console.log(i)
-        })
-
-
     }
 
+    //onclick function to redirect to enquire page 
     enquire = (e, id) => {
         this.props.history.push({
-            pathname: '/enquire',
-            id: id,
+            pathname: '/enquire/'+this.state.id
+
         });
     };
+
+    //onclick function to redirect to sponsor page
     sponsor = (e, id) => {
         this.props.history.push({
-            pathname: '/sponsor',
-            id: id,
+            pathname: '/sponsor/'+this.state.id
         });
     };
 
     render() {
         let pet = this.state.pets;
         const id = pet._id
+        //profile web page displayed
         return (
             <div className="home-component">
+            {this.state.doneLoading? (
+                <div>
                 <NavbarComponent />
                 <h4 className="font1">Pet Profile</h4>
                 <Carousel>
@@ -70,7 +74,7 @@ class Register extends Component {
                     <Carousel.Item>
                         <img
                             className="img"
-                            src={pet.image}
+                            src={pet.image1}
                             alt="Third slide"
 
                         />
@@ -79,7 +83,7 @@ class Register extends Component {
                     <Carousel.Item>
                         <img
                             className="img"
-                            src={dog}
+                            src={pet.image2}
                             alt="Third slide"
                         />
                     </Carousel.Item>
@@ -136,6 +140,8 @@ class Register extends Component {
                 </center>
 
                 <Footer />
+                </div>
+            ) : (<div/>)}
             </div>
 
         );

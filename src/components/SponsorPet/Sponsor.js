@@ -31,23 +31,22 @@ class Sponsor extends Component {
             failureMsg: false,
             message: null,
             id1: this.props.location.id,
-            pets: []
+            pets: [],
+            doneLoading: false
         }
         this.onSubmit = this.onSubmit.bind(this);
     }
 
     componentDidMount() {
-        let id2 = this.state.id1
-        Object.values(id2).map(i => {
-            axios.get(utils.baseUrl + 'sponsor/' + i)
+        const id = this.props.match.params.id
+        axios.get(utils.baseUrl + 'sponsor/' + id)
                 .then(res => {
-                    console.log(res.data)
+                    this.setState({ pets: res.data });
+                }).then(()=>{
                     this.setState({
-                        pets: res.data
+                        doneLoading: true
                     })
                 })
-            console.log(i)
-        })
     }
 
     onSubmit = () => {
@@ -144,6 +143,8 @@ class Sponsor extends Component {
         let pet = this.state.pets;
         return (
             <React.Fragment>
+                {this.state.doneLoading? (
+                <div>
                 <NavbarComponent />
                 <Container fluid>
                     {this.state.message ? (
@@ -294,6 +295,8 @@ class Sponsor extends Component {
                     </div>
                 </Container>
                 <Footer />
+                </div>
+            ) : (<div/>)}
             </React.Fragment>
         )
     }
