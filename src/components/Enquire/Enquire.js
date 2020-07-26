@@ -9,9 +9,7 @@ import './Enquire.css';
 import Footer from '../Footer/Footer';
 import TextField from '@material-ui/core/TextField';
 import NavbarComponent from '../Navbar/Navbar';
-import Icon from '@material-ui/core/Icon';
 import axios from 'axios';
-import { id } from 'date-fns/locale';
 import * as utils from '../../baseUrl';
 
 
@@ -35,20 +33,25 @@ class Enquire extends Component {
         disabled: true,
         pets: [],
         image: null,
-        id1:this.props.location.id
+        doneLoading: false
 
     }
+
+    // get api to fetch the details of the pet with the help of id from the previous page
     componentDidMount() {
-        let id2 = this.state.id1
-        Object.values(id2).map(i =>{
-            axios.get(utils.baseUrl +'enquiry/'+i)
-          .then(res => {
-            this.setState({pets: res.data});
-          })
-            console.log(i)
-        })
+        const id = this.props.match.params.id
+        axios.get(utils.baseUrl + 'enquiry/' + id)
+                .then(res => {
+                    this.setState({ pets: res.data });
+                }).then(()=>{
+                    this.setState({
+                        doneLoading: true
+                    })
+                })
+    
       }
 
+    //validation of all inputs
     isSubmitDisabled = () => {
         let nameIsRequired = false;
         let validEmail = false;
@@ -123,26 +126,31 @@ class Enquire extends Component {
         }
     }
 
+    //email validation
     emailValidation = (email) => {
         return new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email);
        
     }
 
+    //postal validation
     postalValidation = (postal) => {
         return new RegExp(/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/).test(postal);
        
     }
 
+    //on change method for accessing the values
     onValueChange = (e, label) => {
         const nextState = {};
         nextState[label] = e.target.value;;
         this.setState(nextState);
     }
 
+    //post api call after filling enquiry form
     onClick = () => {
         axios.post(utils.baseUrl + 'enquiry', { fname: this.state.fname, lname: this.state.lname, email: this.state.email, number: this.state.number, country:this.state.country, postal: this.state.postal, enquiry: this.state.enquiry })
             .then(function (res) {
                 if( res.status === 200 && res.statusText === 'OK') {
+
                 }
 
             })
@@ -154,7 +162,10 @@ class Enquire extends Component {
     render() {
         let pet= this.state.pets;
         return (
-            <div >
+            //enquriy web page displayed
+            <div>
+                 {this.state.doneLoading? (
+                <div>
                 <NavbarComponent />
                 <div className="bg">
                     <h3 className="font1">Enquire</h3>
@@ -168,7 +179,7 @@ class Enquire extends Component {
                     <Link className="enquire" to="/register">Login to Continue </Link>
                     <p className="enquire"> &nbsp; Or Enquire as a Guest</p>
 
-                    <form className="form" onSubmit={this.onSubmit} >
+                    <form className="form" onSubmit={this.onSubmit} action="/" >
                         <div>
                             <Container>
                                 <Row className="row" >
@@ -239,7 +250,7 @@ class Enquire extends Component {
                                     />
                                 </Row>
                                 <Row>
-                                <Link to="/profile"> <Button onClick={this.onClick} type="submit" size="lg" variant="outline-primary">Enquire</Button>{' '}</Link>
+                               <Button onClick={this.onClick} type="submit" size="lg" variant="outline-primary">Enquire</Button>{' '}
                                        
                                 </Row>            
                                 </Container>
@@ -248,6 +259,8 @@ class Enquire extends Component {
                     </form>
                     <Footer />
                 </div>
+                </div>
+            ) : (<div/>)}
             </div>
 
         );

@@ -48,24 +48,13 @@ class Search extends Component {
       });
   }
 
+
   //fetch the value for the given pet from backend
   viewPet = (e,id) =>{
-    var formData = new FormData();
-    formData.set('id',id);
-    console.log("heyyyyyyyyyyyyy"+id);
-    axios({
-      method: 'post',
-      url: 'http://localhost:5000/search/viewpet',
-      body: {"id": id}
-      })
-      .then(function (response) {
-          //handle success
-          console.log("success"+response.data.msg+"comple");
-      })
-      .catch(function (response) {
-          //handle error
-          console.log("fail"+response);
-      });
+    this.props.history.push({
+      pathname: '/profile/' + id.id
+    });
+
   };
 
   // functions for setting the values of the state variables

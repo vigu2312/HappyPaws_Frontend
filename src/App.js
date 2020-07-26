@@ -37,13 +37,13 @@ function App() {
         <Route path="/" exact component={HomePage} />
         <Route path="/donation" exact component={DonateUs} />
         <Route path="/share" exact component={Shareyourstory} />
-        <Route path="/profile" exact component={Profile}/>
-        <Route path="/enquire" exact component={Enquire}/>
+        <Route path="/profile/:id" exact component={Profile}/>
+        <Route path="/enquire/:id" exact component={Enquire}/>
         <Route path="/adopt" exact component={Adopt}/>
         <Route path="/volunteer" exact component={Volunteer}/>
         <Route path="/login" exact component={Login}/>
         <Route path="/petCare" exact component={PetCare}/>
-        <Route path="/sponsor" exact component={Sponsor}/>
+        <Route path="/sponsor/:id" exact component={Sponsor}/>
         <Route path='/register' component={Register}/> 
         <Route path='/search' component={Search}/>
         <Route path='/contactus' component={ContactUs}/>
