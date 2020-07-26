@@ -1,41 +1,70 @@
+/************
+ * Author: Ramya Ramathas
+ **********/
+
 import React, { Component } from 'react';
 import { Form, Container, Button, Row, Col } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
 import './Enquire.css';
 import Footer from '../Footer/Footer';
-import logo from './dog1.jpeg';
 import TextField from '@material-ui/core/TextField';
 import NavbarComponent from '../Navbar/Navbar';
-import Icon from '@material-ui/core/Icon';
+import axios from 'axios';
+import * as utils from '../../baseUrl';
+
 
 class Enquire extends Component {
+    constructor(props) {
+        super(props);
+       
+      }
     state = {
-        name: '',
+        fname: '',
+        lname:'',
         email: '',
         password: '',
         number: '',
+        country:'',
         postal: '',
         nameError: null,
         emailError: null,
         numberError:null,
         postalError: null,
         disabled: true,
+        pets: [],
+        image: null,
+        doneLoading: false
 
     }
 
+    // get api to fetch the details of the pet with the help of id from the previous page
+    componentDidMount() {
+        const id = this.props.match.params.id
+        axios.get(utils.baseUrl + 'enquiry/' + id)
+                .then(res => {
+                    this.setState({ pets: res.data });
+                }).then(()=>{
+                    this.setState({
+                        doneLoading: true
+                    })
+                })
+    
+      }
+
+    //validation of all inputs
     isSubmitDisabled = () => {
         let nameIsRequired = false;
         let validEmail = false;
         let validNumber = false;
         let validPostal = false;
 
-        if (this.state.name === '' || !this.state.name) {
+        if (this.state.fname === '' || !this.state.fname) {
             nameIsRequired = false;
             this.setState({
                 nameError: null
             });
         } else {
-            if (this.state.name !== '') {
+            if (this.state.fname !== '') {
                 nameIsRequired = true
                 this.setState({
                     nameError: null
@@ -43,6 +72,7 @@ class Enquire extends Component {
             }
 
         }
+
 
         if (this.state.email === "") {
             this.setState({
@@ -96,36 +126,51 @@ class Enquire extends Component {
         }
     }
 
+    //email validation
     emailValidation = (email) => {
         return new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email);
        
     }
 
+    //postal validation
     postalValidation = (postal) => {
         return new RegExp(/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/).test(postal);
        
     }
 
+    //on change method for accessing the values
     onValueChange = (e, label) => {
         const nextState = {};
         nextState[label] = e.target.value;;
         this.setState(nextState);
     }
 
-    onSubmit = () => {
-        alert("Message sent");
-        console.log(this.state);
-        this.props.history.push('/profile');
+    //post api call after filling enquiry form
+    onClick = () => {
+        axios.post(utils.baseUrl + 'enquiry', { fname: this.state.fname, lname: this.state.lname, email: this.state.email, number: this.state.number, country:this.state.country, postal: this.state.postal, enquiry: this.state.enquiry })
+            .then(function (res) {
+                if( res.status === 200 && res.statusText === 'OK') {
+
+                }
+
+            })
+            .catch(function (e) {
+                console.log("ERROR ", e);
+            })
     }
 
     render() {
+        let pet= this.state.pets;
         return (
-            <div >
+            //enquriy web page displayed
+            <div>
+                 {this.state.doneLoading? (
+                <div>
                 <NavbarComponent />
                 <div className="bg">
                     <h3 className="font1">Enquire</h3>
-                    <img className="im1" src={logo} />
-                    <p className="enquire">Ask about Husky</p>
+                    <img className="im1" src={pet.image} />
+                    <p className="enquire">Ask about {pet.name}</p>
                     <br />
                     <br />
                     <p className="enquire">To Daisy Shelter</p>
@@ -134,7 +179,7 @@ class Enquire extends Component {
                     <Link className="enquire" to="/register">Login to Continue </Link>
                     <p className="enquire"> &nbsp; Or Enquire as a Guest</p>
 
-                    <form className="form" onSubmit={this.onSubmit} >
+                    <form className="form" onSubmit={this.onSubmit} action="/" >
                         <div>
                             <Container>
                                 <Row className="row" >
@@ -143,7 +188,7 @@ class Enquire extends Component {
                                         required
                                         error={this.state.nameError !== null}
                                         helperText={this.state.nameError}
-                                        onChange={e => this.onValueChange(e, 'name')}
+                                        onChange={e => this.onValueChange(e, 'fname')}
                                         label="First Name"
                                         onBlur={this.isSubmitDisabled} 
                                         variant="outlined"
@@ -152,6 +197,7 @@ class Enquire extends Component {
                                     <TextField
                                         label="Last Name"
                                         variant="outlined"
+                                        onChange={e => this.onValueChange(e, 'lname')}
                                         />
                                 </Row>
 
@@ -177,7 +223,8 @@ class Enquire extends Component {
                                     />
                                 </Row>
                                 <Row>
-                                    <select className="drop">
+                                    <select className="drop"
+                                    onChange={e => this.onValueChange(e, 'country')}>
                                         <option>Select a country</option>
                                         <option>Canada</option>
                                         <option>US</option>
@@ -196,13 +243,14 @@ class Enquire extends Component {
                                     <TextField
                                         className="textarea"
                                         label="Enter your message"
+                                        onChange={e => this.onValueChange(e, 'enquiry')}
                                         multiline
                                         rows={5}
                                         variant="outlined"
                                     />
                                 </Row>
                                 <Row>
-                                <Link to="/profile"> <Button disabled={this.state.disabled} type="submit" size="lg" variant="outline-primary">Enquire</Button>{' '}</Link>
+                               <Button onClick={this.onClick} type="submit" size="lg" variant="outline-primary">Enquire</Button>{' '}
                                        
                                 </Row>            
                                 </Container>
@@ -211,6 +259,8 @@ class Enquire extends Component {
                     </form>
                     <Footer />
                 </div>
+                </div>
+            ) : (<div/>)}
             </div>
 
         );

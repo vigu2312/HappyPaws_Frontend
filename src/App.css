@@ -1,3 +1,8 @@
+/************
+ * Author: Moni Shah 
+ **********/
+
+
 .App {
   text-align: center;
   border: 1px solid #eee;
@@ -29,12 +34,12 @@
 .App-link {
   color: #61dafb;
 }
-.main{
+/* .main{
   padding-top: calc(15% - 83px);
   padding-left: calc(18%);
   padding-right: calc(18%);
   padding-bottom: calc(15% - 100px);
-}
+} */
 .custom-class {
   margin: 15px;
 }
@@ -54,6 +59,7 @@
 }
 .button-class{
   margin: 35px;
+  text-align: center;
 }
 
 .vertical-align{

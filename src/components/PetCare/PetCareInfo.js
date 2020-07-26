@@ -1,5 +1,8 @@
+/************
+ * Author: Devam Shah 
+ **********/
 import React, { Component } from 'react'
-import DogAdoption from '../../DogAdoption.jpg'
+import DogAdoption from '../../assets/DogAdoption.jpg'
 import './PetCare.css'
 class PetCareInfo extends Component {
     constructor(props) {

@@ -1,3 +1,7 @@
+/************
+ * Author: Devam Shah 
+ **********/
+
 import React, { Component } from 'react'
 import { Modal } from 'react-bootstrap'
 import { Button } from 'react-bootstrap'
@@ -72,6 +76,7 @@ class Login extends Component {
                         {comp}
                     </div>
                 </Modal.Body>
+                
                 
             </Modal>
         )
