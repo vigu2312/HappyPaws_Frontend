@@ -171,7 +171,7 @@ class NavbarComponent extends Component {
                                 height="50"/>} 
                                 className="marginProfile" >
 
-                            <NavDropdown.Item as={Link} to={this.state.store === null ? "/login" : "/editProfile"}>{this.state.store === null ? "Login" : "EditProfile"}</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to={this.state.store === null ? "/login" : "/userprofile"}>{this.state.store === null ? "Login" : "EditProfile"}</NavDropdown.Item>
 
                             {/* <NavDropdown.Item as={Link} to="/editProfile" >Edit Profile</NavDropdown.Item> */}
                             <NavDropdown.Divider />
