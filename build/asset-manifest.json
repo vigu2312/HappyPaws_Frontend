@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.32c3ed3f.chunk.css",
-    "main.js": "/static/js/main.a7c63b04.chunk.js",
-    "main.js.map": "/static/js/main.a7c63b04.chunk.js.map",
+    "main.css": "/static/css/main.2d2959f3.chunk.css",
+    "main.js": "/static/js/main.5fef5394.chunk.js",
+    "main.js.map": "/static/js/main.5fef5394.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.f30a65bc.js",
     "runtime-main.js.map": "/static/js/runtime-main.f30a65bc.js.map",
     "static/css/2.b20cd67d.chunk.css": "/static/css/2.b20cd67d.chunk.css",
-    "static/js/2.f14bd692.chunk.js": "/static/js/2.f14bd692.chunk.js",
-    "static/js/2.f14bd692.chunk.js.map": "/static/js/2.f14bd692.chunk.js.map",
+    "static/js/2.93790662.chunk.js": "/static/js/2.93790662.chunk.js",
+    "static/js/2.93790662.chunk.js.map": "/static/js/2.93790662.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.3c277c11a615c7bb1b61f4787ec2a298.js": "/precache-manifest.3c277c11a615c7bb1b61f4787ec2a298.js",
+    "precache-manifest.95308f65faf845d05c3f47862446e455.js": "/precache-manifest.95308f65faf845d05c3f47862446e455.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.b20cd67d.chunk.css.map": "/static/css/2.b20cd67d.chunk.css.map",
-    "static/css/main.32c3ed3f.chunk.css.map": "/static/css/main.32c3ed3f.chunk.css.map",
-    "static/js/2.f14bd692.chunk.js.LICENSE.txt": "/static/js/2.f14bd692.chunk.js.LICENSE.txt",
+    "static/css/main.2d2959f3.chunk.css.map": "/static/css/main.2d2959f3.chunk.css.map",
+    "static/js/2.93790662.chunk.js.LICENSE.txt": "/static/js/2.93790662.chunk.js.LICENSE.txt",
     "static/media/CatAdoption.jpg": "/static/media/CatAdoption.ca8685ca.jpg",
     "static/media/CatCare.jpg": "/static/media/CatCare.8bc05a17.jpg",
     "static/media/DogAdoption.jpg": "/static/media/DogAdoption.be2e784a.jpg",
@@ -27,8 +27,7 @@
     "static/media/cat_img2.png": "/static/media/cat_img2.2c2fc572.png",
     "static/media/contactus.jpg": "/static/media/contactus.fc36ed7d.jpg",
     "static/media/contactus1.jpg": "/static/media/contactus1.6d3740f6.jpg",
-    "static/media/dog.jpg": "/static/media/dog.7750bc62.jpg",
-    "static/media/dog_img.jpg": "/static/media/dog_img.aa4c6815.jpg",
+    "static/media/corgy.jpg": "/static/media/corgy.6fd98bec.jpg",
     "static/media/dogvolunteer.jpg": "/static/media/dogvolunteer.9b11de63.jpg",
     "static/media/donation_captcha.jpg": "/static/media/donation_captcha.252e9e53.jpg",
     "static/media/donation_gif.gif": "/static/media/donation_gif.f26f4d60.gif",
@@ -48,8 +47,8 @@
   "entrypoints": [
     "static/js/runtime-main.f30a65bc.js",
     "static/css/2.b20cd67d.chunk.css",
-    "static/js/2.f14bd692.chunk.js",
-    "static/css/main.32c3ed3f.chunk.css",
-    "static/js/main.a7c63b04.chunk.js"
+    "static/js/2.93790662.chunk.js",
+    "static/css/main.2d2959f3.chunk.css",
+    "static/js/main.5fef5394.chunk.js"
   ]
 }
