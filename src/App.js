@@ -48,7 +48,6 @@ function App() {
         <Route path='/search' component={Search}/>
         <Route path='/contactus' component={ContactUs}/>
         <Route path ='/userprofile' component={UserProfile} />
-        <Route path ='/editProfile' component={EditProfile} />
         <Route path ='/forgetPassword' component={ForgetPassword} /> 
         <Route path ='/forgetPasswordEmail' component={ForgetPasswordEmail} /> 
         <Route path = '/logout' component={HomePage}/>
