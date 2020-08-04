@@ -4,7 +4,7 @@
 
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button'
-import { Form, Container, Row, Col } from 'react-bootstrap';
+import { Form, Container, Row, Col, Alert } from 'react-bootstrap';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import {
@@ -33,6 +33,7 @@ const primeState = {
   store: JSON.parse(localStorage.getItem('login')),
   emailError: null,
   commentError: null,
+  message: null,
   disabled: true,
 }
 
@@ -131,17 +132,17 @@ class Adopt extends Component {
     axios.post(utils.baseUrl+'adopt/adopt',{email:this.state.email,adoptDate:this.state.adoptDate,userAnswer: this.state.comment,petName:this.state.pets.name},{ headers: { "Content-Type": "application/json", "x-auth-token": this.state.store.token }})
     .then(function(res){
         if(res.status===200&&res.statusText==='OK'){
-          localStorage.setItem('adoptPet', JSON.stringify({
-            adoptPet: true
-        }));
-        this.props.history.push("/")
-
+     
         }
-    })
+    }).then(() => {
+      this.setState({
+          message: "Thank you for sponsoring "
+      })
+  })
     .catch(function(e){
     console.log("Error"+e);
     })
-    alert("Adoption Appointment booked on" +this.state.adoptDate+"for the pet"+this.state.pets.name+"! A confirmation email will be sent to you for your reference")
+    //alert("Adoption Appointment booked on" +this.state.adoptDate+"for the pet"+this.state.pets.name+"! A confirmation email will be sent to you for your reference")
   }
 
   render() {
@@ -150,22 +151,19 @@ class Adopt extends Component {
     return (
       <div className="FormAdopt">
         <NavbarComponent />
-        <br />
-        <br />
-
+      
+     
+      
         <h3><i><b>Adopt</b></i></h3>
         <center><b>Would you like to adopt  {pet.name} ? Fill out the information below and we shall schedule an appointment for you to visit.</b>  </center>
 
-        <br />
-        <br />
-        <br />
+        <img className="adimg" src={pet.image} height= "300px" width='300px' border-radius="8px" box-shadow=" 0 2px 3px #000000" padding="100px" ></img>
 
         <form onSubmit={this.formSubmit}>
 
-          <Container>
+          <Container >
 
-            <Row className="aRow">
-              <div className="custom-class">
+            <Row>
                 <TextField className="input-class"
                   id="standard-basic"
                   type="text"
@@ -175,10 +173,10 @@ class Adopt extends Component {
                   helperText={this.state.emailError}
                   onChange={e => this.onValueChange(e, 'email')}
                   onBlur={this.isSubmitDisabled}
-                  required label="Email Address" /></div>
+                  required label="Email Address" 
+                  />
    
-
-
+  
               <TextField
                 id="datetime-local"
                 label="Preferred Adoption Visit"
@@ -190,9 +188,10 @@ class Adopt extends Component {
                   shrink: true,
                 }}
               />
+              
             </Row>
             <Row>
-              <div className="custom-class">
+              
                 <TextField className="input-class"
                   className="textarea"
                   id="comment"
@@ -207,13 +206,20 @@ class Adopt extends Component {
                   onChange={e => this.onValueChange(e, 'comment')}
                   id="standard-basic" required 
                   onBlur={this.isSubmitDisabled}
-                   /></div>
+                   />
             </Row>
             <Row>
-              <Button type="submit" className="btn" value="Submit Adoption Request" size="lg" variant="outline-primary">Submit Adoption Request</Button>
+              <Button type="submit" className="btn" value="Submit Adoption Request" size="lg" variant="primary">Submit Adoption Request</Button>
              
             </Row>
+            {this.state.message ? (
+                        <Alert variant="success">
+                            <Alert.Heading>Payment Success</Alert.Heading>
+                            <p>
+                                You have successfully sponsored {pet.name}
+                            </p>
 
+                        </Alert>) : (<div></div>)}
           </Container>
 
         </form>
