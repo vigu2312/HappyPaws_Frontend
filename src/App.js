@@ -26,6 +26,7 @@ import UserProfile from './components/UserProfile/UserProfile';
 import EditProfile from './components/EditProfile/EditProfile';
 import ForgetPassword from './components/ForgetPassword/ForgetPassword';
 import ForgetPasswordEmail from './components/ForgetPassword/ForgetPasswordEmail';
+import ErrorPage from './components/Error/error.js';
 
 
 
@@ -51,6 +52,7 @@ function App() {
         <Route path ='/forgetPassword' component={ForgetPassword} /> 
         <Route path ='/forgetPasswordEmail' component={ForgetPasswordEmail} /> 
         <Route path = '/logout' component={HomePage}/>
+        <Route component={ErrorPage}/>
       </Switch>
       </React.Fragment>
   );
