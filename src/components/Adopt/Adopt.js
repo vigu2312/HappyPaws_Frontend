@@ -22,6 +22,7 @@ import './Adopt.css';
 
 import NavbarComponent from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
+const swtalt = require('sweetalert2');
 
 
 
@@ -132,6 +133,7 @@ class Adopt extends Component {
     axios.post(utils.baseUrl+'adopt/adopt',{email:this.state.email,adoptDate:this.state.adoptDate,userAnswer: this.state.comment,petName:this.state.pets.name},{ headers: { "Content-Type": "application/json", "x-auth-token": this.state.store.token }})
     .then(function(res){
         if(res.status===200&&res.statusText==='OK'){
+       
      
         }
     }).then(() => {
@@ -142,6 +144,11 @@ class Adopt extends Component {
     .catch(function(e){
     console.log("Error"+e);
     })
+    swtalt.fire(
+      'Adoption Appointment Made',
+      'Confirmation email has been sent to you!',
+      'success'
+    )
     //alert("Adoption Appointment booked on" +this.state.adoptDate+"for the pet"+this.state.pets.name+"! A confirmation email will be sent to you for your reference")
   }
 
