@@ -156,11 +156,11 @@ class Adopt extends Component {
     let pet = this.state.pets;
     const id = pet._id
     return (
-      <div className="FormAdopt">
+      <div >
         <NavbarComponent />
       
      
-      
+      <div height="">
         <h3><i><b>Adopt</b></i></h3>
         <center><b>Would you like to adopt  {pet.name} ? Fill out the information below and we shall schedule an appointment for you to visit.</b>  </center>
 
@@ -188,7 +188,7 @@ class Adopt extends Component {
                 id="datetime-local"
                 label="Preferred Adoption Visit"
                 type="date"
-                defaultValue="2020-08-04T10:30"
+                //defaultValue="2020-08-04T10:30"
                 onChange={e => this.onValueChange(e, 'adoptDate')}
 
                 InputLabelProps={{
@@ -200,7 +200,7 @@ class Adopt extends Component {
             <Row>
               
                 <TextField className="input-class"
-                  className="textarea"
+                 
                   id="comment"
                   label="Why do you like this Pet"
                   multiline
@@ -219,6 +219,7 @@ class Adopt extends Component {
               <Button type="submit" className="btn" value="Submit Adoption Request" size="lg" variant="primary">Submit Adoption Request</Button>
              
             </Row>
+            <br/><br/><br/><br/><br/><br/><br/><br/>
             {this.state.message ? (
                         <Alert variant="success">
                             <Alert.Heading>Payment Success</Alert.Heading>
@@ -231,7 +232,7 @@ class Adopt extends Component {
 
         </form>
 
-
+        </div>
         <Footer />
       </div>
 

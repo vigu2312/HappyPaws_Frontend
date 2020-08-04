@@ -265,6 +265,7 @@ class Enquire extends Component {
 
                         </div>
                     </form>
+                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                     <Footer />
                 </div>
                 </div>
