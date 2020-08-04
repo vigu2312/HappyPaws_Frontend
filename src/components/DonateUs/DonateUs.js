@@ -1,5 +1,6 @@
 /************
- * Author: Moni Shah 
+ * @author: Moni Shah 
+ * @author: Bhagyashree
  **********/
 
 import React, { Component } from 'react';
@@ -15,6 +16,10 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Footer from '../Footer/Footer';
 import donation_captcha from '../../assets/donation_captcha.jpg';
 import donation_gif from '../../assets/donation_gif.gif';
+import * as utils from '../../baseUrl';
+const axios=require('axios');
+const swtalt = require('sweetalert2')
+
 
 class DonateUs extends Component {
     state = {
@@ -26,17 +31,24 @@ class DonateUs extends Component {
         cardHolderName: '',
         amount: 0,
         cardNumber: 0,
+        cvv:0,
+        month:0,
+        year:0,
         captcha: '',
         nameError: null,
         emailError: null,
         cardHolderNameError: null,
         amountError: null,
         cardNumberError: null,
+        cvvError:null,
+        monthError:null,
+        yearError:null,
         captchaError: null,
         disabled: true,
         amountTextVisisble: false,
         reason: '',
-        setReason: ''
+        setReason: '',
+        cardResponse: '',
     }
 
     // function on clicking monthly subscription for donation
@@ -59,8 +71,75 @@ class DonateUs extends Component {
         }
     }
 
-    onSubmit = () => {
+    donate = () => {
+        console.log("inside donate")
+        // let formDetails= new FormData();
+        // formDetails.set('name',this.state.name);
+        // formDetails.set('email',this.state.email);
+        // formDetails.set('amount',this.state.amount);
+        // formDetails.set('reason',this.state.reason);
 
+        // // set Card details
+        // let cardDetails= new FormData();
+        // cardDetails.set('cardHolderName',this.state.cardHolderName);
+        // cardDetails.set('cardNumber',this.state.cardNumber);
+        // cardDetails.set('cvv',this.state.cvv);
+        // axios({
+        //     method: 'post',
+        //     url: utils.baseUrl+ 'donation/payment',
+        //     body: {
+        //         cardHolderName: this.state.cardHolderName,
+        //         cardNumber: this.state.cardNumber,
+        //         cvv: this.state.cvv,
+        //         month: this.state.month,
+        //         year:this.state.year,
+        //         name:this.state.name,
+        //         email:this.state.email,
+        //         amount:this.state.amount,
+        //         reason:this.state.reason
+        //     }
+        //     })
+        axios.post(utils.baseUrl+ 'donation/payment', {
+                cardHolderName: this.state.cardHolderName,
+                cardNumber: this.state.cardNumber,
+                cvv: this.state.cvv,
+                month: this.state.month,
+                year:this.state.year,
+                name:this.state.name,
+                email:this.state.email,
+                amount:this.state.amount,
+                reason:this.state.reason
+            })
+            .then((response) => {
+              // if the request is successful, the fetched data will be stored in the state-data
+                if(response.status===200 && response.data.message==="success"){
+                    console.log("cardddddd"+response.data.message);
+                    swtalt.fire(
+                        'Donation Successful!',
+                        'Thank you for your kind support :)',
+                        'success'
+                      )
+                }
+                else if(response.status===200 && response.data.message==="invalid details"){
+                    swtalt.fire(
+                        'Problem with Card',
+                        'Please check your card details and try again!',
+                        'error'
+                      )
+                }
+
+                else if(response.status===500 && response.data.message==="failure"){
+                    swtalt.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong! Try again later!',
+                      })
+                }
+                
+            })
+            .catch((response) => {
+              console.log("fail");
+            });
     }
 
     // onclick method for clicking on one time payment : donation
@@ -341,9 +420,52 @@ class DonateUs extends Component {
                                                 helperText={this.state.cardNumberError}
                                                 onChange={e => this.onValueChange(e, 'cardNumber')}
                                                 required label="CardNumber"
-                                                onBlur={this.isSubmitDisabled}
-                                                required label="cardNumber" /></div>
-                                        <div className="custom-class"><TextField className="input-class" id="standard-basic" label="ZipCode" /></div>
+                                                onBlur={this.isSubmitDisabled} />
+                                        </div>
+                                        <div className="custom-class">
+                                            <TextField className="input-class" 
+                                            id="standard-basic" 
+                                            floatinglabeltext="CVV"
+                                            required label="CVV"
+                                            type="number"
+                                            error={this.state.cvvError !== null}
+                                            onChange={e => this.onValueChange(e, 'cvv')}
+                                            onBlur={this.isSubmitDisabled}
+                                            />
+                                        </div>
+
+                                        <div >
+                                            <Row>
+                                            <Col className="col">
+                                                <div className="custom-class">
+                                                    <TextField style={{width:110}}
+                                                    className="input-class" 
+                                                    id="standard-basic" 
+                                                    floatinglabeltext="Expiry Month"
+                                                    required label="Expiry Month"
+                                                    type="number"
+                                                    error={this.state.monthError !== null}
+                                                    onChange={e => this.onValueChange(e, 'month')}
+                                                    onBlur={this.isSubmitDisabled}
+                                                    />
+                                                </div>
+                                            </Col>
+                                            <Col className="col">
+                                                <div className="custom-class">
+                                                    <TextField style={{width:110}}
+                                                    className="input-class" 
+                                                    id="standard-basic" 
+                                                    floatinglabeltext="Expiry Year"
+                                                    required label="Expiry Year"
+                                                    type="number"
+                                                    error={this.state.yearError !== null}
+                                                    onChange={e => this.onValueChange(e, 'year')}
+                                                    onBlur={this.isSubmitDisabled}
+                                                    />
+                                                </div>
+                                            </Col>
+                                            </Row>
+                                        </div>
                                         <div >
 
                                         </div><img className="captcha-css" src={donation_captcha} height="75px" width="75px"></img>
@@ -364,9 +486,14 @@ class DonateUs extends Component {
                             </Row>
                         </Container>
                         <div>
-                            <Link to="/"><Button type="submit"
-                                onChange={e => this.onValueChange(e, 'captcha')}
-                                disabled={this.state.disabled} className="button-css" variant="outline-primary" size="lg">Donate</Button>{' '}</Link></div>
+                            {/* <Link to="/"> */}
+                                <Button 
+                                // type="submit"
+                                onChange={e => this.onValueChange(e, 'captcha')} onClick={() => this.donate()}
+                                disabled={this.state.disabled} className="button-css" variant="outline-primary" size="lg">Donate
+                                </Button>{' '}
+                            {/* </Link> */}
+                            </div>
                     </form>
                 </div >
                 <Footer />

@@ -23,7 +23,7 @@ class Search extends Component {
     
     this.state={
       search:null,
-      type:null,
+      type:'',
       breed:null,
       color:null,
       age:null,
@@ -224,12 +224,12 @@ render() {
   }).filter((d)=>{
     filteredData=this.searchProximity(d);
     return filteredData;
-  }).map(d=>{
+  }).map((d,index)=>{
     const id=d._id;
     return(
      
-      <Col sm={6} md={4} >
-            <ul  ><li className="pl-0">
+      <Col sm={6} md={4} key={index}>
+            <ul  ><li  className="pl-0">
               <Card  style={{ width: '16rem' }}>
                 
                 <Card.Img variant="top" src={d.image} height="250px" width="250px"  />
