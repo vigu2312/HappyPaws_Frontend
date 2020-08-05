@@ -139,28 +139,7 @@ class ContactUs extends Component {
                             }}> Fill the below form and explain your concern!! </h6></div>
 
                             <Row>
-                                {/* <form >
-                    <label >Name:</label>
-                    <Form.Control input type="text" className="form-control"
-                    onChange = {this.onNameChange}/>
-                    <div className="warning"> {this.state.nameError} </div>
-                    
-                    <label >Email: </label>
-                    <Form.Control input type="text" className="form-control"
-                    onChange = {this.onEmailChange}/>
-                    <div className="warning"> {this.state.emailError} </div>
-
-                    <label >Subject:</label>
-                    <Form.Control input type="text" className="form-control"
-                    onChange = {this.onSubjectChange} /> 
-                    <div className="warning"> {this.state.subjectError} </div>
-
-                    <label >Concerns:</label>     
-                    <textarea cols="6" rows="3" type="password" className="form-control" 
-                    onChange = {this.onBodyChange}/> 
-                    <div className="warning"> {this.state.bodyError} </div>
-                    <Button variant="primary" style={{margin:10}} onClick={() => {this.validateUser()}}> Submit Query </Button>
-                </form> */}
+                               
                                 <form className="form" onSubmit={this.onSubmit} action="/" >
                                     <div>
                                         <Container>

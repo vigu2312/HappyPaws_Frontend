@@ -133,9 +133,7 @@ class NavbarComponent extends Component {
 
     render() {
         const { horizontal, vertical } = this.state;
-        // const { isFetching } = this.state;
-        // const LoginModal = this.state.addModalShow
-        // console.log("Render" + LoginModal)
+     
         return (
             <div>
                 <Navbar className="navbar_bg" expand="lg" >
@@ -171,19 +169,12 @@ class NavbarComponent extends Component {
 
                             <NavDropdown.Item as={Link} to={this.state.store === null ? "/login" : "/userprofile"}>{this.state.store === null ? "Login" : "EditProfile"}</NavDropdown.Item>
 
-                            {/* <NavDropdown.Item as={Link} to="/editProfile" >Edit Profile</NavDropdown.Item> */}
                             <NavDropdown.Divider />
                             <NavDropdown.Item onClick={this.onClickLogout} >{this.state.store === null ? "" : "Logout"}</NavDropdown.Item>
-                            {/* <NavDropdown.Item onClick = {this.showLoginModal}>Login</NavDropdown.Item> */}
                         </NavDropdown>
 
                     </Form>
-                    {/* <div className = "modal-show">
-                            <Login 
-                            show = {LoginModal} 
-                            onHide = {this.LoginModalClose}>                                
-                            </Login>
-                        </div> */}
+                  
                 </Navbar.Collapse>
             </Navbar>
             <Snackbar

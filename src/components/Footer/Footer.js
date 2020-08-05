@@ -8,6 +8,7 @@ import React from 'react';
 import './Footer.css';
 import logo from '../../assets/LogoWhite.png';
 
+//content to display in the footer of all pages
 const FooterPage = () => {
   return (
     <MDBFooter className="footer">

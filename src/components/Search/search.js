@@ -6,7 +6,7 @@ import {Col, Image, Row, Card, Form, FormControl, Button } from 'react-bootstrap
 import Select from '@material-ui/core/Select';
 import {FormControl as FCMaterial} from '@material-ui/core';
 import InputLabel from '@material-ui/core/InputLabel';
-//import data from './data';
+
 import './search.css';
 import Profile from '../Profile/Profile.js'
 import NavbarComponent from '../Navbar/Navbar';

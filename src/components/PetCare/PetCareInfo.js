@@ -4,6 +4,8 @@
 import React, { Component } from 'react'
 import DogAdoption from '../../assets/DogAdoption.jpg'
 import './PetCare.css'
+
+//page for pet tips
 class PetCareInfo extends Component {
     constructor(props) {
         super(props)

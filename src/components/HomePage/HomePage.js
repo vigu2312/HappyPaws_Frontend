@@ -64,24 +64,12 @@ class HomePage extends Component {
         }
     }
 
-    // showLoginModal = () => {
-    //     this.setState({
-    //         addModalShow : true
-    //     })
-    //     console.log("Pet Quiz button" + this.state.addModalShow)
-    // }
-
-    // LoginModalClose = () => {
-    //     this.setState({
-    //         addModalShow:false
-    //     })
-    // }
+   
 
 
 
     render() {
-        // const { isFetching } = this.state;
-        // const LoginModal = this.state.addModalShow
+       
         const { horizontal, vertical } = this.state;
 
         return (
@@ -151,13 +139,7 @@ class HomePage extends Component {
                     <Link to="/search"> <Button type="submit" size="lg" variant="outline-primary">Find a pet</Button>{' '}</Link>
                                    
                 </div>
-                {/* <div className = "modal-show">
-                            <Login 
-                            show = {LoginModal} 
-                            onHide = {this.LoginModalClose}>                                
-                            </Login>
-                        </div> */}
-                {/* <Button variant="outline-primary" size="lg"> Take a Quiz </Button>{' '} */}
+                
                 <h4 className="font-style-class">Pets available for adoption near your location</h4>
                 <Container >
                     <Row>

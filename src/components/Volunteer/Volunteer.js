@@ -161,7 +161,7 @@ export default function Volunteer() {
         'A PDF ticket copy will be sent to you',
         'success'
       )
-      //alert("Volunteered! An email will be sent to you with the ticket")
+      
   }
 
   //volunteer webpage displayed

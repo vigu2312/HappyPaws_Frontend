@@ -73,32 +73,7 @@ class DonateUs extends Component {
 
     donate = () => {
         console.log("inside donate")
-        // let formDetails= new FormData();
-        // formDetails.set('name',this.state.name);
-        // formDetails.set('email',this.state.email);
-        // formDetails.set('amount',this.state.amount);
-        // formDetails.set('reason',this.state.reason);
-
-        // // set Card details
-        // let cardDetails= new FormData();
-        // cardDetails.set('cardHolderName',this.state.cardHolderName);
-        // cardDetails.set('cardNumber',this.state.cardNumber);
-        // cardDetails.set('cvv',this.state.cvv);
-        // axios({
-        //     method: 'post',
-        //     url: utils.baseUrl+ 'donation/payment',
-        //     body: {
-        //         cardHolderName: this.state.cardHolderName,
-        //         cardNumber: this.state.cardNumber,
-        //         cvv: this.state.cvv,
-        //         month: this.state.month,
-        //         year:this.state.year,
-        //         name:this.state.name,
-        //         email:this.state.email,
-        //         amount:this.state.amount,
-        //         reason:this.state.reason
-        //     }
-        //     })
+      
         axios.post(utils.baseUrl+ 'donation/payment', {
                 cardHolderName: this.state.cardHolderName,
                 cardNumber: this.state.cardNumber,

@@ -84,6 +84,7 @@ class AccountSettings extends Component {
         })
     }
 
+    //post api to change user account settings
     AccountSettingsSubmit = () => {
 
         axios.post(utils.baseUrl + 'userProfile/accountSettings', { userID: this.state.userId, password: this.state.password, newPass: this.state.newPassword }).then((res) => {

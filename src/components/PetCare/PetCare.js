@@ -10,7 +10,7 @@ import TextField from '@material-ui/core/TextField';
 import DogAdoption from '../../assets/DogAdoption.jpg'
 import DogsCare2 from '../../assets/DogsCare2.jpg'
 import CatAdoption from '../../assets/CatAdoption.jpg'
-// import HorseAdoption from '../../assets/HorseAdoption.jpg'
+
 import { Form, Button } from 'react-bootstrap'
 import './PetCare.css'
 import PetCareInfo from './PetCareInfo';
@@ -31,6 +31,7 @@ class PetCare extends Component {
     }
 
 
+    //call get api to call
 
     componentDidMount() {
         axios.get(utils.baseUrl + 'petCare').then((res) => {
@@ -44,6 +45,7 @@ class PetCare extends Component {
 
     }
 
+//randonly renders pet care tips for 3 types of pets
     renderPetInfo = (item) => {
         var PetInfo = this.state.petInfo
         let count = 0
@@ -125,6 +127,7 @@ class PetCare extends Component {
                                             </div>
                                         </Row>
                                         <hr></hr>
+                                        
                                         <div className="pet-care-info">
                                             {this.state.petInfo.map(function (pet, i) {
                                                 return <Row className="no-padding justify-left">

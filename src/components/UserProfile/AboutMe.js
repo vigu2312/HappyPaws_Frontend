@@ -83,7 +83,7 @@ class AboutMe extends Component {
     ];
 
 
-
+//calls get api to fetch user info
     componentDidMount() {
         const user_data = JSON.parse(localStorage.getItem('login'))
         console.log(user_data)
@@ -124,6 +124,7 @@ class AboutMe extends Component {
 
     }
 
+    //post api to update user details
 
     AboutMeSubmit = (event) => {
         axios.post(utils.baseUrl + 'userProfile/aboutMe', this.state).then((res) => {
