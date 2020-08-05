@@ -1,4 +1,4 @@
-# Web Project Proposal
+# Web Project Submission
 ## Web Group 6 - Happy Paws
 The application, HappyPaws, is a web application primarily for pet lovers. We majorly feature dogs and cats. The aim of this application was to create
 a platform for petlovers to adopt a pet if they wish to. They can also sponsor a particular pet or volunteer with shelters to take care of a pet. If a user is not able to have
@@ -6,11 +6,13 @@ a pet of their own at home, but wants to contribute something for the animals, t
 new pet owners to take care of their pets. Users can also share the stories of their adoption on the web application to encourage other users to adopt or contribute to the pet
 community.
 
-Application URL: [https://happypaws-a2.herokuapp.com](https://happypaws-a2.herokuapp.com) <br>
-GitLab URL: [https://git.cs.dal.ca/ramathas/csci5709_group6/-/tree/Initial_Repo](https://git.cs.dal.ca/ramathas/csci5709_group6/-/tree/Initial_Repo) <br>
+Frontend Application URL: [https://happypaws-a2.herokuapp.com](https://happypaws-a2.herokuapp.com) <br>
+Backend Application URL: [https://happypaws-backend.herokuapp.com/](https://happypaws-backend.herokuapp.com/)<br>
+Fronend GitLab URL: [https://git.cs.dal.ca/ramathas/csci5709_group6.git](https://git.cs.dal.ca/ramathas/csci5709_group6.git) <br>
+Backend GitLab URL: [https://git.cs.dal.ca/ravichandr/csci5709_group6_backend.git](https://git.cs.dal.ca/ravichandr/csci5709_group6_backend.git)
 
-* *Date Created*: 20 June 2020
-* *Last Modification Date*: 23 June 2020
+* *Date Created*: August 2, 2020
+* *Last Modification Date*: August 4, 2020
 
 
 ## Authors
@@ -21,61 +23,95 @@ Ravichandran Vigneshwari - (Developer)
 Shah Devam - (Developer)
 
 ## Getting Started
-The react web application is developed for adopting pets online and helping rescue houses and shelters. Users will be able to search the perfect pet they need using the filters. 
-The project contains the front-end of the application
+The web application is developed using MERN stack. The React framework is used for developing frontend. The backend is developed using Node, more precisely express as a framework. MongoDB atlas cluster is used for storing the data and the application is depoloyed on Heroku. 
 
 ## Prerequisites
-Run the following command for installing npm <br>
+Run the following command for installing the dependencies for the application <br>
 `npm install`
 
-Following react depenencies were used. They can be downloaded as:
-```
-npm install react-bootstrap
-npm install react-router-dom
-npm install @material-ui/core
-npm install bootstrap
-```
-
-
 ## Installing
-1. Clone the repository from git - "https://git.cs.dal.ca/ramathas/csci5709_group6/-/tree/Initial_Repo"
+1. Clone the frontend and backend code from git repositories mentioned above.
 
-2. Import the project in your IDE
+2. Import the project in your IDE.
 
-3. After installing the prerequisites, run the following command in terminal
+3. To run the application run the following command in terminal
 In the project directory <br>
-## `npm install`
-## `npm run build`
 ## `npm start`
 
-4. The application will run on 'https://localhost:3000'.
+4. The frontend application will run on 'https://localhost:3000'.
+
+5. The backend application will run on 'https://localhost:5000'.
 
 
 ## Usage Instructions
-The application features are easy to use and access. Following is the breif sitemap of application
-Homepage		[https://happypaws-a2.herokuapp.com/](https://happypaws-a2.herokuapp.com/)
-Register			[https://happypaws-a2.herokuapp.com/register](https://happypaws-a2.herokuapp.com/)
-Login			[https://happypaws-a2.herokuapp.com/login](https://happypaws-a2.herokuapp.com/login)
-Search Page		[https://happypaws-a2.herokuapp.com/search](https://happypaws-a2.herokuapp.com/search)
-Adopt Page		[https://happypaws-a2.herokuapp.com/adopt](https://happypaws-a2.herokuapp.com/adopt)
+The application features are easy to use and access. Following is the brief sitemap of application
+
+* ####Frontend 
+Homepage			[https://happypaws-a2.herokuapp.com/](https://happypaws-a2.herokuapp.com/)
+Register			[https://happypaws-a2.herokuapp.com/register](https://happypaws-a2.herokuapp.com/register)
+Login				[https://happypaws-a2.herokuapp.com/login](https://happypaws-a2.herokuapp.com/login)
+Edit Profile		[https://happypaws-a2.herokuapp.com/userprofile](https://happypaws-a2.herokuapp.com/userprofile)
+Search Page			[https://happypaws-a2.herokuapp.com/search](https://happypaws-a2.herokuapp.com/search)
+Adopt Page			[https://happypaws-a2.herokuapp.com/adopt](https://happypaws-a2.herokuapp.com/adopt)
 Volunteer Page		[https://happypaws-a2.herokuapp.com/volunteer](https://happypaws-a2.herokuapp.com/volunteer)
 Sponsor Page		[https://happypaws-a2.herokuapp.com/sponsor](https://happypaws-a2.herokuapp.com/sponsor)
 Enquire Page		[https://happypaws-a2.herokuapp.com/enquire](https://happypaws-a2.herokuapp.com/enquire)
-Share your Story page	[https://happypaws-a2.herokuapp.com/share](https://happypaws-a2.herokuapp.com/share)
-Donate Page		[https://happypaws-a2.herokuapp.com/donate](https://happypaws-a2.herokuapp.com/share)
+Share your Story    [https://happypaws-a2.herokuapp.com/share](https://happypaws-a2.herokuapp.com/share)
+Donate Page			[https://happypaws-a2.herokuapp.com/donate](https://happypaws-a2.herokuapp.com/share)
 Pet Care Page		[https://happypaws-a2.herokuapp.com/petCare](https://happypaws-a2.herokuapp.com/petCare)
-Pet Profile Page                        [https://happypaws-a2.herokuapp.com/profile](https://happypaws-a2.herokuapp.com/profile)
+Pet Profile Page    [https://happypaws-a2.herokuapp.com/profile](https://happypaws-a2.herokuapp.com/profile)
+Contact Us			[https://happypaws-a2.herokuapp.com/contactus](https://happypaws-a2.herokuapp.com/contactus)
 
+* ####Backend
+1. Pet Profile - GET https://happypaws-backend.herokuapp.com/profile/:id -> This is used to retrieve and display the details of pet to the user
+2. Enquire - GET https://happypaws-backend.herokuapp.com/enquiry/:id -> This is used to retrieve and display the details of pet to the user
+3. Enquire - POST https://happypaws-backend.herokuapp.com/enquiry/-> This allows the user to submit a form to enquire about the pet. This automatically sends a confirmation email to the respective user.	
+4. Search - GET https://happypaws-backend.herokuapp.com/search/ -> This API is called while loading the search component from the backend. It returns all the pets stored in the database to display on the 'Find a Pet' page. For the efficiency purposes
+the API is called only once when the page is loaded for the first time and the filter is applied on the backend.
+5. Search - Get https://happypaws-backend.herokuapp.com/search/<keyword> -> This API is called when user enters a search string in the search field given on top of 'Find a Pet' page. The user can use this feature to find a specific pet with the pet name or pet breed. It will save the users' time when users are revisiting the page and only wants to search fro prefereed choice decided earlier.
+6. Search - POST https://happypaws-backend.herokuapp.com/search/ -> This API will not be used by the users of the application, but will be used by the developers and administrators. It will be used to add new pets to the database. The frontend for this task can be developed at the later time while scaling the application. But as it is not part of the requirements specification, this API alone will suffice the need for adding the pet to the database. The API can be used and tested through Postman. 
+7. Donate - POST https://happypaws-backend.herokuapp.com/donation/payment -> This API will first check the card details given by user. If it is correct, it will send the donation to the specific fund and store the entry in the database and send an email to the donar.
+8. Volunteer - GET https://happypaws-backend.herokuapp.com/volunteer -> This is used to retrieve and display the list of volunteer events from the database to the user
+9. Volunteer - POST https://happypaws-backend.herokuapp.com/volunteer/volunteer -> This allows the user to submit a form to register for a volunteer event. It also sends an email to the respective user along with a generated pdf ticket for the event.			
+10. Adopt - POST https://happypaws-backend.herokuapp.com/adopt/adopt -> This will be used to handle the request to arrange appointment with the pet owner while adopting a pet.
+11. Adopt - Get https://happypaws-backend.herokuapp.com/adopt/:id -> The information about a particular pet will be displayed to the user. The id is similar to the id stored in database. It is passed from Find a Pet page.
+12. Contact Us - POST https://happypaws-backend.herokuapp.com/contactus -> This will add the inquiry form by user in the database. 
+13. Pet Care - Get https://happypaws-backend.herokuapp.com/petCare/ -> It will fetch all the available content from the database. The tips about the pets are fetched randomly every time.
+14. Share your Story - POST https://happypaws-backend.herokuapp.com/sharestory -> The user will be able to send their story to HappyPaws and it will be stored in the database.
+15. Sponsor - Get https://happypaws-backend.herokuapp.com/sponsor/:id -> It will fetch the information according to the id from the database in order for the user to sponosor a pet.
+16. Sponsor - POST https://happypaws-backend.herokuapp.com/sponsor/ -> It will submit payment details in database for sponsoring a pet.
+17. User Profile - Get https://happypaws-backend.herokuapp.com/userProfile/aboutMe/ -> This will display the user information on the frontend.
+18. User Profile - POST https://happypaws-backend.herokuapp.com/userProfile/aboutMe/ -> It will update the edits done to the user information to the database.
+19. User Profile - POST https://happypaws-backend.herokuapp.com/userProfile/accountSettings -> It will edit the user configuration such as updating the password to the database.
+20. User profile - POST  https://happypaws-backend.herokuapp.com/users/register -> This will register a new user to the application.
+21. User profile - POST  https://happypaws-backend.herokuapp.com/users/login -> It will login the user and start the session.
+22. User profile - POST  https://happypaws-backend.herokuapp.com/users/forgetPasswordmail -> it will send the user details to the databse for sending the email for reseting the password. 
+23. User profile - PUT  https://happypaws-backend.herokuapp.com/users/forgotPassword -> It will update the password in the database.
+24. User profile - Get  https://happypaws-backend.herokuapp.com/users/logout -> It will end the session for the user and logout.
 
 ## Deployment
 Heroku is used as a deployment server.
-For deploying the application link your Git hub account with Heroku and deploy the project branch. Application will be deployed on the specified URL.
-For this assignment : https://happypaws-a2.herokuapp.com/
+For deploying the application link your Git Lab account with Heroku and deploy the project branch. Application will be deployed on the specified URL.
+Frontend for this assignment : https://happypaws-a2.herokuapp.com/
+Backend for this assignment : https://happypaws-backend.herokuapp.com/
 
 ## Built With
-[create-react-app](https://create-react-app.dev/) - It generates development server, Webpack for bundling files, and Babel for compiling javascript code.
-[react-bootstrap](https://react-bootstrap.github.io/) - It provides basic components for rendering different layouts.
-[materialUI](https://material-ui.com/)- It also provides attractive components for rendering different elements.
+
+The important dependcies for the backend application are:
+```
+create-react-app
+react-bootstrap
+react-router-dom
+@material-ui/core
+bootstrap
+axios
+cors
+```
+The important dependcies for the backend application are:
+```
+express
+mongoose
+```
 
 ## Sources Used
 Following components were used from [react-bootstrap](https://create-react-app.dev/)
