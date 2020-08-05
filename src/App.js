@@ -26,6 +26,7 @@ import UserProfile from './components/UserProfile/UserProfile';
 import EditProfile from './components/EditProfile/EditProfile';
 import ForgetPassword from './components/ForgetPassword/ForgetPassword';
 import ForgetPasswordEmail from './components/ForgetPassword/ForgetPasswordEmail';
+import ErrorPage from './components/Error/error.js';
 
 
 
@@ -39,7 +40,7 @@ function App() {
         <Route path="/share" exact component={Shareyourstory} />
         <Route path="/profile/:id" exact component={Profile}/>
         <Route path="/enquire/:id" exact component={Enquire}/>
-        <Route path="/adopt" exact component={Adopt}/>
+        <Route path="/adopt/:id" exact component={Adopt}/>
         <Route path="/volunteer" exact component={Volunteer}/>
         <Route path="/login" exact component={Login}/>
         <Route path="/petCare" exact component={PetCare}/>
@@ -48,10 +49,10 @@ function App() {
         <Route path='/search' component={Search}/>
         <Route path='/contactus' component={ContactUs}/>
         <Route path ='/userprofile' component={UserProfile} />
-        <Route path ='/editProfile' component={EditProfile} />
         <Route path ='/forgetPassword' component={ForgetPassword} /> 
         <Route path ='/forgetPasswordEmail' component={ForgetPasswordEmail} /> 
         <Route path = '/logout' component={HomePage}/>
+        <Route component={ErrorPage}/>
       </Switch>
       </React.Fragment>
   );

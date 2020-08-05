@@ -8,6 +8,10 @@
     font-weight: bold;
     background-color: #FFFFFF;
   }
+  
+.col{
+  text-align: center;
+}
 
   .box-style{
   border: 1px solid #eee;

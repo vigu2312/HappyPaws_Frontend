@@ -132,7 +132,7 @@ class EditProfile extends Component {
         return (
             <div className="main">
                 <div className="App">
-                    <form  >
+                    <form >
                         <div>
                             <a href="/"><CloseIcon style={{ float: "right", marginRight: "20px" }} fontSize="large"></CloseIcon></a>
                             <h2 className="mainheader">

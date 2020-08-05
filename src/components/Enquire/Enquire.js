@@ -11,6 +11,7 @@ import TextField from '@material-ui/core/TextField';
 import NavbarComponent from '../Navbar/Navbar';
 import axios from 'axios';
 import * as utils from '../../baseUrl';
+const swtalt = require('sweetalert2');
 
 
 class Enquire extends Component {
@@ -149,14 +150,21 @@ class Enquire extends Component {
     onClick = () => {
         axios.post(utils.baseUrl + 'enquiry', { fname: this.state.fname, lname: this.state.lname, email: this.state.email, number: this.state.number, country:this.state.country, postal: this.state.postal, enquiry: this.state.enquiry })
             .then(function (res) {
-                if( res.status === 200 && res.statusText === 'OK') {
+                if( res.status === 201 && res.statusText === 'OK') {
+                   
 
                 }
 
             })
             .catch(function (e) {
+                
                 console.log("ERROR ", e);
             })
+            swtalt.fire(
+                'Enquiry Submitted',
+                'Mail response will be sent soon',
+                'success'
+              )
     }
 
     render() {
@@ -257,6 +265,7 @@ class Enquire extends Component {
 
                         </div>
                     </form>
+                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                     <Footer />
                 </div>
                 </div>

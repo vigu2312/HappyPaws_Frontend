@@ -20,6 +20,7 @@ import Footer from '../Footer/Footer';
 import dogVol from '../../assets/dogvolunteer.jpg';
 import './Volunteer.css';
 import * as utils from '../../baseUrl';
+const swtalt = require('sweetalert2');
 
 //function to implement vertical tab menu
 function TabPanel(props) {
@@ -146,6 +147,7 @@ export default function Volunteer() {
       axios.post(utils.baseUrl+'volunteer/volunteer',{firstName:fname,lastName:lname,email:email,contactNo:contact,eventName:event})
       .then(function(res){
           if(res.status===200&&res.statusText==='OK'){
+            
 
           }
       })
@@ -154,7 +156,12 @@ export default function Volunteer() {
       console.log("Error"+e);
 
       })
-      alert("Volunteered! An email will be sent to you with the ticket")
+      swtalt.fire(
+        'Volunteer Registration Success!',
+        'A PDF ticket copy will be sent to you',
+        'success'
+      )
+      
   }
 
   //volunteer webpage displayed
@@ -186,7 +193,7 @@ export default function Volunteer() {
       <TabPanel value={value} index={0} >
               <h5>
                     <br/>
-                    Don't have the time to Volunteer ? <br/>
+                    Do not have the time to Volunteer ? <br/>
                     You can join us at various shelters to Volunteer with our dogs and cats.<br/>
                     A little care and a lot of fun!
                 </h5>
