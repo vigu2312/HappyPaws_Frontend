@@ -1,6 +1,10 @@
+/************
+ * Author: Bhagyashree Pandit
+ **********/
+
 import React, { Component } from 'react';
 
-
+//class to handle rest api failures
 class Error extends Component {
     state = {  }
     render() { 

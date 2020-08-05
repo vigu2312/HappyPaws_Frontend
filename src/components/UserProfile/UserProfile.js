@@ -11,7 +11,7 @@ import './UserProfile.css'
 import AboutMe from './AboutMe';
 import user from '../../assets/user.jpg';
 import AccountSettings from './AccountSettings';
-// import YourPets from './YourPets';
+
 
 
 class UserProfile extends Component {
@@ -41,6 +41,7 @@ class UserProfile extends Component {
         })
     }
 
+    //renders page to user
     render() {
         const selectedComponenet = this.state.ActiveComponent;
         const user_data = JSON.parse(localStorage.getItem('login'))
@@ -52,9 +53,7 @@ class UserProfile extends Component {
         else if (selectedComponenet === 'AccountSettings') {
             comp = <AccountSettings></AccountSettings>
         }
-        // else {
-        //     comp = <YourPets></YourPets>
-        // }
+      
        
         return (
             <React.Fragment>
@@ -122,14 +121,12 @@ class UserProfile extends Component {
                                     <Nav.Item>
                                         <Nav.Link href="#AccSettings" onClick={this.AccountSettingsClicked} >Account Settings</Nav.Link>
                                     </Nav.Item>
-                                    {/* <Nav.Item>
-                                        <Nav.Link href="#YourPets" onClick = {this.YourPetsClicked}>Your Pets</Nav.Link>
-                                    </Nav.Item> */}
+                                  
                                 </Nav>
                             </Card.Header>
                             <Card.Body className="tab-part">
                                 {comp}
-                                {/* <Row>Hey</Row> */}
+                                
                             </Card.Body>
                         </Card>
                     </Row>

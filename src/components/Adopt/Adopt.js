@@ -48,7 +48,7 @@ class Adopt extends Component {
         history: PropTypes.object.isRequired
       }
 
-
+//form validations
   isSubmitDisabled = () => {
     let commentRequired = false;
     let validEmail = false;
@@ -106,6 +106,8 @@ class Adopt extends Component {
     return new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email);
   }
 
+
+  //used to call get apis from backend
   componentDidMount() {
     if(this.state.store && this.state.store.login === true) {
        this.setState({email: this.state.store.email});
@@ -127,7 +129,7 @@ class Adopt extends Component {
     this.setState(nextState);
   }
 
-
+//post function called to hit the post apis
   formSubmit = (event) => {
     let pet = this.state.pets;
     axios.post(utils.baseUrl+'adopt/adopt',{email:this.state.email,adoptDate:this.state.adoptDate,userAnswer: this.state.comment,petName:this.state.pets.name},{ headers: { "Content-Type": "application/json", "x-auth-token": this.state.store.token }})
@@ -149,7 +151,6 @@ class Adopt extends Component {
       'Confirmation email has been sent to you!',
       'success'
     )
-    //alert("Adoption Appointment booked on" +this.state.adoptDate+"for the pet"+this.state.pets.name+"! A confirmation email will be sent to you for your reference")
   }
 
   render() {
